@@ -1,0 +1,20 @@
+﻿School Fish
+
+
+This project will help you if you need a school of fish that swim in an endless loop.
+
+
+The Crowd of School Fish contains 30 low-poly fish.
+All fish have a loop animation of 900 frames..
+
+
+Technical details
+Number of textures: 2
+Texture dimensions: 512x512 px
+Polygon count of one fish: 360 Tris
+Maximum polygon count: 10.8K Tris
+Number of meshes/prefabs: 30
+Rigging: Yes
+Animation count: 1
+Animation type list: It is one animation loop duration 900 frames
+UV mapping: Yes
