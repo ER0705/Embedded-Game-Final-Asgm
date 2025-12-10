@@ -196,8 +196,8 @@ Material:
     - _JitterAmount: 0.552
     - _JitterFreq: 0.19
     - _LOD_FADE_CROSSFADE: 1
-    - _LOD_FADE_CROSSFADE_in: 0
-    - _LOD_FADE_CROSSFADE_out: 0
+    - _LOD_FADE_CROSSFADE_in: 1
+    - _LOD_FADE_CROSSFADE_out: 1
     - _LeafBigNoiseAmount: 0.21
     - _LeafBigNoiseScale: 1
     - _LeafFlatColourSwitch: 0
@@ -272,4 +272,3 @@ Material:
     - _TrunkEmissiveColour: {r: 0.36212873, g: 0, b: 1, a: 0}
     - _TrunkNoiseColour: {r: 0, g: 0, b: 0, a: 0}
     - _TrunkTint: {r: 0.07843138, g: 0.02015968, b: 0, a: 0}
-  m_BuildTextureStacks: []

@@ -194,8 +194,8 @@ Material:
     - _JitterAmount: 0.241
     - _JitterFreq: 0.093
     - _LOD_FADE_CROSSFADE: 1
-    - _LOD_FADE_CROSSFADE_in: 0
-    - _LOD_FADE_CROSSFADE_out: 0
+    - _LOD_FADE_CROSSFADE_in: 1
+    - _LOD_FADE_CROSSFADE_out: 1
     - _LeafBigNoiseAmount: 0.5
     - _LeafBigNoiseScale: 1
     - _LeafFlatColourSwitch: 0
@@ -211,8 +211,6 @@ Material:
     - _PanningSpeed: 0.007
     - _PanningSpeed1: 0.127
     - _Parallax: 0.02
-    - _PulseSpeed: 0.04
-    - _PulseTiling: 0.03
     - _Small_Wave: 2.1
     - _Smoothness: 0.2
     - _SmoothnessTextureChannel: 0
@@ -266,4 +264,3 @@ Material:
     - _TrunkEmissiveColour: {r: 0, g: 0, b: 0, a: 0}
     - _TrunkNoiseColour: {r: 0, g: 0, b: 0, a: 0}
     - _TrunkTint: {r: 0.07843138, g: 0.02015968, b: 0, a: 0}
-  m_BuildTextureStacks: []
