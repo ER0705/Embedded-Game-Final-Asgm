@@ -1,7 +1,5 @@
 fileFormatVersion: 2
 guid: 81d3d15d9abc3e44484a72fd790af970
-labels:
-- AllCreature
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 2100000
@@ -10,8 +8,8 @@ NativeFormatImporter:
   assetBundleVariant: 
 AssetOrigin:
   serializedVersion: 1
-  productId: 84283
-  packageName: Unka the Dragon
-  packageVersion: 3.9b
+  productId: 121424
+  packageName: Ravens and Crows
+  packageVersion: 3.8
   assetPath: Assets/Malbers Animations/Common/Shaders/Wind.mat
-  uploadId: 775859
+  uploadId: 585856

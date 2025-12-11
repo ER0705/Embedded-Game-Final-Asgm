@@ -1,6 +1,6 @@
 // Made with Amplify Shader Editor v1.9.1.6
 // Available at the Unity Asset Store - http://u3d.as/y3X 
-Shader "Malbers/Color4x4"
+Shader "Malbers/Color4x4v2"
 {
 	Properties
 	{
@@ -40,7 +40,7 @@ Shader "Malbers/Color4x4"
 		_MRE16("MRE 16", Color) = (0,1,0,0)
 		[Header(Emmision)]_EmissionPower1("Emission Power", Float) = 1
 		[SingleLineTexture][Header(Gradient)]_Gradient("Gradient", 2D) = "white" {}
-		_GradientIntensity("Gradient Intensity", Range( 0 , 1)) = 1
+		_GradientIntensity("Gradient Intensity", Range( 0 , 1)) = 0.75
 		_GradientColor("Gradient Color", Color) = (0,0,0,0)
 		_GradientScale("Gradient Scale", Float) = 1
 		_GradientOffset("Gradient Offset", Float) = 0
@@ -612,182 +612,182 @@ Shader "Malbers/Color4x4"
 
 				WorldViewDirection = SafeNormalize( WorldViewDirection );
 
-				float2 texCoord256 = IN.ase_texcoord8.xy * float2( 1,4 ) + float2( 0,0 );
-				float4 clampResult328 = clamp( ( ( tex2D( _Gradient, texCoord256 ) + _GradientColor ) + ( 1.0 - _GradientIntensity ) ) , float4( 0,0,0,0 ) , float4( 1,1,1,0 ) );
-				float4 saferPower342 = abs( (clampResult328*_GradientScale + _GradientOffset) );
+				float2 texCoord255 = IN.ase_texcoord8.xy * float2( 1,4 ) + float2( 0,0 );
+				float4 clampResult234 = clamp( ( ( tex2D( _Gradient, texCoord255 ) + _GradientColor ) + ( 1.0 - _GradientIntensity ) ) , float4( 0,0,0,0 ) , float4( 1,1,1,0 ) );
+				float4 saferPower258 = abs( (clampResult234*_GradientScale + _GradientOffset) );
 				float4 temp_cast_0 = (_GradientPower).xxxx;
-				float2 texCoord2_g764 = IN.ase_texcoord8.xy * float2( 1,1 ) + float2( 0,0 );
-				float temp_output_3_0_g764 = 1.0;
-				float temp_output_7_0_g764 = 4.0;
-				float temp_output_9_0_g764 = 4.0;
-				float temp_output_8_0_g764 = 4.0;
-				float2 texCoord2_g766 = IN.ase_texcoord8.xy * float2( 1,1 ) + float2( 0,0 );
-				float temp_output_3_0_g766 = 2.0;
-				float temp_output_7_0_g766 = 4.0;
-				float temp_output_9_0_g766 = 4.0;
-				float temp_output_8_0_g766 = 4.0;
-				float2 texCoord2_g765 = IN.ase_texcoord8.xy * float2( 1,1 ) + float2( 0,0 );
-				float temp_output_3_0_g765 = 3.0;
-				float temp_output_7_0_g765 = 4.0;
-				float temp_output_9_0_g765 = 4.0;
-				float temp_output_8_0_g765 = 4.0;
-				float2 texCoord2_g763 = IN.ase_texcoord8.xy * float2( 1,1 ) + float2( 0,0 );
-				float temp_output_3_0_g763 = 4.0;
-				float temp_output_7_0_g763 = 4.0;
-				float temp_output_9_0_g763 = 4.0;
-				float temp_output_8_0_g763 = 4.0;
-				float2 texCoord2_g757 = IN.ase_texcoord8.xy * float2( 1,1 ) + float2( 0,0 );
-				float temp_output_3_0_g757 = 1.0;
-				float temp_output_7_0_g757 = 4.0;
-				float temp_output_9_0_g757 = 3.0;
-				float temp_output_8_0_g757 = 4.0;
-				float2 texCoord2_g752 = IN.ase_texcoord8.xy * float2( 1,1 ) + float2( 0,0 );
-				float temp_output_3_0_g752 = 2.0;
-				float temp_output_7_0_g752 = 4.0;
-				float temp_output_9_0_g752 = 3.0;
-				float temp_output_8_0_g752 = 4.0;
-				float2 texCoord2_g760 = IN.ase_texcoord8.xy * float2( 1,1 ) + float2( 0,0 );
-				float temp_output_3_0_g760 = 3.0;
-				float temp_output_7_0_g760 = 4.0;
-				float temp_output_9_0_g760 = 3.0;
-				float temp_output_8_0_g760 = 4.0;
-				float2 texCoord2_g753 = IN.ase_texcoord8.xy * float2( 1,1 ) + float2( 0,0 );
-				float temp_output_3_0_g753 = 4.0;
-				float temp_output_7_0_g753 = 4.0;
-				float temp_output_9_0_g753 = 3.0;
-				float temp_output_8_0_g753 = 4.0;
-				float2 texCoord2_g754 = IN.ase_texcoord8.xy * float2( 1,1 ) + float2( 0,0 );
-				float temp_output_3_0_g754 = 1.0;
-				float temp_output_7_0_g754 = 4.0;
-				float temp_output_9_0_g754 = 2.0;
-				float temp_output_8_0_g754 = 4.0;
-				float2 texCoord2_g767 = IN.ase_texcoord8.xy * float2( 1,1 ) + float2( 0,0 );
-				float temp_output_3_0_g767 = 2.0;
-				float temp_output_7_0_g767 = 4.0;
-				float temp_output_9_0_g767 = 2.0;
-				float temp_output_8_0_g767 = 4.0;
-				float2 texCoord2_g755 = IN.ase_texcoord8.xy * float2( 1,1 ) + float2( 0,0 );
-				float temp_output_3_0_g755 = 3.0;
-				float temp_output_7_0_g755 = 4.0;
-				float temp_output_9_0_g755 = 2.0;
-				float temp_output_8_0_g755 = 4.0;
-				float2 texCoord2_g761 = IN.ase_texcoord8.xy * float2( 1,1 ) + float2( 0,0 );
-				float temp_output_3_0_g761 = 4.0;
-				float temp_output_7_0_g761 = 4.0;
-				float temp_output_9_0_g761 = 2.0;
-				float temp_output_8_0_g761 = 4.0;
-				float2 texCoord2_g762 = IN.ase_texcoord8.xy * float2( 1,1 ) + float2( 0,0 );
-				float temp_output_3_0_g762 = 1.0;
-				float temp_output_7_0_g762 = 4.0;
-				float temp_output_9_0_g762 = 1.0;
-				float temp_output_8_0_g762 = 4.0;
-				float2 texCoord2_g758 = IN.ase_texcoord8.xy * float2( 1,1 ) + float2( 0,0 );
-				float temp_output_3_0_g758 = 2.0;
-				float temp_output_7_0_g758 = 4.0;
-				float temp_output_9_0_g758 = 1.0;
-				float temp_output_8_0_g758 = 4.0;
-				float2 texCoord2_g759 = IN.ase_texcoord8.xy * float2( 1,1 ) + float2( 0,0 );
-				float temp_output_3_0_g759 = 3.0;
-				float temp_output_7_0_g759 = 4.0;
-				float temp_output_9_0_g759 = 1.0;
-				float temp_output_8_0_g759 = 4.0;
-				float2 texCoord2_g756 = IN.ase_texcoord8.xy * float2( 1,1 ) + float2( 0,0 );
-				float temp_output_3_0_g756 = 4.0;
-				float temp_output_7_0_g756 = 4.0;
-				float temp_output_9_0_g756 = 1.0;
-				float temp_output_8_0_g756 = 4.0;
-				float4 temp_output_329_0 = ( ( ( _Color1 * ( ( ( 1.0 - step( texCoord2_g764.x , ( ( temp_output_3_0_g764 - 1.0 ) / temp_output_7_0_g764 ) ) ) * ( step( texCoord2_g764.x , ( temp_output_3_0_g764 / temp_output_7_0_g764 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g764.y , ( ( temp_output_9_0_g764 - 1.0 ) / temp_output_8_0_g764 ) ) ) * ( step( texCoord2_g764.y , ( temp_output_9_0_g764 / temp_output_8_0_g764 ) ) * 1.0 ) ) ) ) + ( _Color2 * ( ( ( 1.0 - step( texCoord2_g766.x , ( ( temp_output_3_0_g766 - 1.0 ) / temp_output_7_0_g766 ) ) ) * ( step( texCoord2_g766.x , ( temp_output_3_0_g766 / temp_output_7_0_g766 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g766.y , ( ( temp_output_9_0_g766 - 1.0 ) / temp_output_8_0_g766 ) ) ) * ( step( texCoord2_g766.y , ( temp_output_9_0_g766 / temp_output_8_0_g766 ) ) * 1.0 ) ) ) ) + ( _Color3 * ( ( ( 1.0 - step( texCoord2_g765.x , ( ( temp_output_3_0_g765 - 1.0 ) / temp_output_7_0_g765 ) ) ) * ( step( texCoord2_g765.x , ( temp_output_3_0_g765 / temp_output_7_0_g765 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g765.y , ( ( temp_output_9_0_g765 - 1.0 ) / temp_output_8_0_g765 ) ) ) * ( step( texCoord2_g765.y , ( temp_output_9_0_g765 / temp_output_8_0_g765 ) ) * 1.0 ) ) ) ) + ( _Color4 * ( ( ( 1.0 - step( texCoord2_g763.x , ( ( temp_output_3_0_g763 - 1.0 ) / temp_output_7_0_g763 ) ) ) * ( step( texCoord2_g763.x , ( temp_output_3_0_g763 / temp_output_7_0_g763 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g763.y , ( ( temp_output_9_0_g763 - 1.0 ) / temp_output_8_0_g763 ) ) ) * ( step( texCoord2_g763.y , ( temp_output_9_0_g763 / temp_output_8_0_g763 ) ) * 1.0 ) ) ) ) ) + ( ( _Color5 * ( ( ( 1.0 - step( texCoord2_g757.x , ( ( temp_output_3_0_g757 - 1.0 ) / temp_output_7_0_g757 ) ) ) * ( step( texCoord2_g757.x , ( temp_output_3_0_g757 / temp_output_7_0_g757 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g757.y , ( ( temp_output_9_0_g757 - 1.0 ) / temp_output_8_0_g757 ) ) ) * ( step( texCoord2_g757.y , ( temp_output_9_0_g757 / temp_output_8_0_g757 ) ) * 1.0 ) ) ) ) + ( _Color6 * ( ( ( 1.0 - step( texCoord2_g752.x , ( ( temp_output_3_0_g752 - 1.0 ) / temp_output_7_0_g752 ) ) ) * ( step( texCoord2_g752.x , ( temp_output_3_0_g752 / temp_output_7_0_g752 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g752.y , ( ( temp_output_9_0_g752 - 1.0 ) / temp_output_8_0_g752 ) ) ) * ( step( texCoord2_g752.y , ( temp_output_9_0_g752 / temp_output_8_0_g752 ) ) * 1.0 ) ) ) ) + ( _Color7 * ( ( ( 1.0 - step( texCoord2_g760.x , ( ( temp_output_3_0_g760 - 1.0 ) / temp_output_7_0_g760 ) ) ) * ( step( texCoord2_g760.x , ( temp_output_3_0_g760 / temp_output_7_0_g760 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g760.y , ( ( temp_output_9_0_g760 - 1.0 ) / temp_output_8_0_g760 ) ) ) * ( step( texCoord2_g760.y , ( temp_output_9_0_g760 / temp_output_8_0_g760 ) ) * 1.0 ) ) ) ) + ( _Color8 * ( ( ( 1.0 - step( texCoord2_g753.x , ( ( temp_output_3_0_g753 - 1.0 ) / temp_output_7_0_g753 ) ) ) * ( step( texCoord2_g753.x , ( temp_output_3_0_g753 / temp_output_7_0_g753 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g753.y , ( ( temp_output_9_0_g753 - 1.0 ) / temp_output_8_0_g753 ) ) ) * ( step( texCoord2_g753.y , ( temp_output_9_0_g753 / temp_output_8_0_g753 ) ) * 1.0 ) ) ) ) ) + ( ( _Color9 * ( ( ( 1.0 - step( texCoord2_g754.x , ( ( temp_output_3_0_g754 - 1.0 ) / temp_output_7_0_g754 ) ) ) * ( step( texCoord2_g754.x , ( temp_output_3_0_g754 / temp_output_7_0_g754 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g754.y , ( ( temp_output_9_0_g754 - 1.0 ) / temp_output_8_0_g754 ) ) ) * ( step( texCoord2_g754.y , ( temp_output_9_0_g754 / temp_output_8_0_g754 ) ) * 1.0 ) ) ) ) + ( _Color10 * ( ( ( 1.0 - step( texCoord2_g767.x , ( ( temp_output_3_0_g767 - 1.0 ) / temp_output_7_0_g767 ) ) ) * ( step( texCoord2_g767.x , ( temp_output_3_0_g767 / temp_output_7_0_g767 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g767.y , ( ( temp_output_9_0_g767 - 1.0 ) / temp_output_8_0_g767 ) ) ) * ( step( texCoord2_g767.y , ( temp_output_9_0_g767 / temp_output_8_0_g767 ) ) * 1.0 ) ) ) ) + ( _Color11 * ( ( ( 1.0 - step( texCoord2_g755.x , ( ( temp_output_3_0_g755 - 1.0 ) / temp_output_7_0_g755 ) ) ) * ( step( texCoord2_g755.x , ( temp_output_3_0_g755 / temp_output_7_0_g755 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g755.y , ( ( temp_output_9_0_g755 - 1.0 ) / temp_output_8_0_g755 ) ) ) * ( step( texCoord2_g755.y , ( temp_output_9_0_g755 / temp_output_8_0_g755 ) ) * 1.0 ) ) ) ) + ( _Color12 * ( ( ( 1.0 - step( texCoord2_g761.x , ( ( temp_output_3_0_g761 - 1.0 ) / temp_output_7_0_g761 ) ) ) * ( step( texCoord2_g761.x , ( temp_output_3_0_g761 / temp_output_7_0_g761 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g761.y , ( ( temp_output_9_0_g761 - 1.0 ) / temp_output_8_0_g761 ) ) ) * ( step( texCoord2_g761.y , ( temp_output_9_0_g761 / temp_output_8_0_g761 ) ) * 1.0 ) ) ) ) ) + ( ( _Color13 * ( ( ( 1.0 - step( texCoord2_g762.x , ( ( temp_output_3_0_g762 - 1.0 ) / temp_output_7_0_g762 ) ) ) * ( step( texCoord2_g762.x , ( temp_output_3_0_g762 / temp_output_7_0_g762 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g762.y , ( ( temp_output_9_0_g762 - 1.0 ) / temp_output_8_0_g762 ) ) ) * ( step( texCoord2_g762.y , ( temp_output_9_0_g762 / temp_output_8_0_g762 ) ) * 1.0 ) ) ) ) + ( _Color14 * ( ( ( 1.0 - step( texCoord2_g758.x , ( ( temp_output_3_0_g758 - 1.0 ) / temp_output_7_0_g758 ) ) ) * ( step( texCoord2_g758.x , ( temp_output_3_0_g758 / temp_output_7_0_g758 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g758.y , ( ( temp_output_9_0_g758 - 1.0 ) / temp_output_8_0_g758 ) ) ) * ( step( texCoord2_g758.y , ( temp_output_9_0_g758 / temp_output_8_0_g758 ) ) * 1.0 ) ) ) ) + ( _Color15 * ( ( ( 1.0 - step( texCoord2_g759.x , ( ( temp_output_3_0_g759 - 1.0 ) / temp_output_7_0_g759 ) ) ) * ( step( texCoord2_g759.x , ( temp_output_3_0_g759 / temp_output_7_0_g759 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g759.y , ( ( temp_output_9_0_g759 - 1.0 ) / temp_output_8_0_g759 ) ) ) * ( step( texCoord2_g759.y , ( temp_output_9_0_g759 / temp_output_8_0_g759 ) ) * 1.0 ) ) ) ) + ( _Color16 * ( ( ( 1.0 - step( texCoord2_g756.x , ( ( temp_output_3_0_g756 - 1.0 ) / temp_output_7_0_g756 ) ) ) * ( step( texCoord2_g756.x , ( temp_output_3_0_g756 / temp_output_7_0_g756 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g756.y , ( ( temp_output_9_0_g756 - 1.0 ) / temp_output_8_0_g756 ) ) ) * ( step( texCoord2_g756.y , ( temp_output_9_0_g756 / temp_output_8_0_g756 ) ) * 1.0 ) ) ) ) ) );
-				float4 clampResult348 = clamp( ( pow( saferPower342 , temp_cast_0 ) + ( 1.0 - (temp_output_329_0).a ) ) , float4( 0,0,0,0 ) , float4( 1,1,1,1 ) );
-				
+				float2 texCoord2_g735 = IN.ase_texcoord8.xy * float2( 1,1 ) + float2( 0,0 );
+				float temp_output_3_0_g735 = 1.0;
+				float temp_output_7_0_g735 = 4.0;
+				float temp_output_9_0_g735 = 4.0;
+				float temp_output_8_0_g735 = 4.0;
 				float2 texCoord2_g739 = IN.ase_texcoord8.xy * float2( 1,1 ) + float2( 0,0 );
-				float temp_output_3_0_g739 = 1.0;
+				float temp_output_3_0_g739 = 2.0;
 				float temp_output_7_0_g739 = 4.0;
 				float temp_output_9_0_g739 = 4.0;
 				float temp_output_8_0_g739 = 4.0;
-				float2 texCoord2_g751 = IN.ase_texcoord8.xy * float2( 1,1 ) + float2( 0,0 );
-				float temp_output_3_0_g751 = 2.0;
-				float temp_output_7_0_g751 = 4.0;
-				float temp_output_9_0_g751 = 4.0;
-				float temp_output_8_0_g751 = 4.0;
-				float2 texCoord2_g740 = IN.ase_texcoord8.xy * float2( 1,1 ) + float2( 0,0 );
-				float temp_output_3_0_g740 = 3.0;
-				float temp_output_7_0_g740 = 4.0;
-				float temp_output_9_0_g740 = 4.0;
-				float temp_output_8_0_g740 = 4.0;
-				float2 texCoord2_g749 = IN.ase_texcoord8.xy * float2( 1,1 ) + float2( 0,0 );
-				float temp_output_3_0_g749 = 4.0;
-				float temp_output_7_0_g749 = 4.0;
-				float temp_output_9_0_g749 = 4.0;
-				float temp_output_8_0_g749 = 4.0;
-				float2 texCoord2_g746 = IN.ase_texcoord8.xy * float2( 1,1 ) + float2( 0,0 );
-				float temp_output_3_0_g746 = 1.0;
-				float temp_output_7_0_g746 = 4.0;
-				float temp_output_9_0_g746 = 3.0;
-				float temp_output_8_0_g746 = 4.0;
-				float2 texCoord2_g741 = IN.ase_texcoord8.xy * float2( 1,1 ) + float2( 0,0 );
-				float temp_output_3_0_g741 = 2.0;
-				float temp_output_7_0_g741 = 4.0;
-				float temp_output_9_0_g741 = 3.0;
-				float temp_output_8_0_g741 = 4.0;
-				float2 texCoord2_g750 = IN.ase_texcoord8.xy * float2( 1,1 ) + float2( 0,0 );
-				float temp_output_3_0_g750 = 3.0;
-				float temp_output_7_0_g750 = 4.0;
-				float temp_output_9_0_g750 = 3.0;
-				float temp_output_8_0_g750 = 4.0;
+				float2 texCoord2_g738 = IN.ase_texcoord8.xy * float2( 1,1 ) + float2( 0,0 );
+				float temp_output_3_0_g738 = 3.0;
+				float temp_output_7_0_g738 = 4.0;
+				float temp_output_9_0_g738 = 4.0;
+				float temp_output_8_0_g738 = 4.0;
 				float2 texCoord2_g736 = IN.ase_texcoord8.xy * float2( 1,1 ) + float2( 0,0 );
 				float temp_output_3_0_g736 = 4.0;
 				float temp_output_7_0_g736 = 4.0;
-				float temp_output_9_0_g736 = 3.0;
+				float temp_output_9_0_g736 = 4.0;
 				float temp_output_8_0_g736 = 4.0;
-				float2 texCoord2_g748 = IN.ase_texcoord8.xy * float2( 1,1 ) + float2( 0,0 );
-				float temp_output_3_0_g748 = 1.0;
-				float temp_output_7_0_g748 = 4.0;
-				float temp_output_9_0_g748 = 2.0;
-				float temp_output_8_0_g748 = 4.0;
+				float2 texCoord2_g741 = IN.ase_texcoord8.xy * float2( 1,1 ) + float2( 0,0 );
+				float temp_output_3_0_g741 = 1.0;
+				float temp_output_7_0_g741 = 4.0;
+				float temp_output_9_0_g741 = 3.0;
+				float temp_output_8_0_g741 = 4.0;
+				float2 texCoord2_g722 = IN.ase_texcoord8.xy * float2( 1,1 ) + float2( 0,0 );
+				float temp_output_3_0_g722 = 2.0;
+				float temp_output_7_0_g722 = 4.0;
+				float temp_output_9_0_g722 = 3.0;
+				float temp_output_8_0_g722 = 4.0;
+				float2 texCoord2_g734 = IN.ase_texcoord8.xy * float2( 1,1 ) + float2( 0,0 );
+				float temp_output_3_0_g734 = 3.0;
+				float temp_output_7_0_g734 = 4.0;
+				float temp_output_9_0_g734 = 3.0;
+				float temp_output_8_0_g734 = 4.0;
+				float2 texCoord2_g740 = IN.ase_texcoord8.xy * float2( 1,1 ) + float2( 0,0 );
+				float temp_output_3_0_g740 = 4.0;
+				float temp_output_7_0_g740 = 4.0;
+				float temp_output_9_0_g740 = 3.0;
+				float temp_output_8_0_g740 = 4.0;
+				float2 texCoord2_g720 = IN.ase_texcoord8.xy * float2( 1,1 ) + float2( 0,0 );
+				float temp_output_3_0_g720 = 1.0;
+				float temp_output_7_0_g720 = 4.0;
+				float temp_output_9_0_g720 = 2.0;
+				float temp_output_8_0_g720 = 4.0;
 				float2 texCoord2_g743 = IN.ase_texcoord8.xy * float2( 1,1 ) + float2( 0,0 );
 				float temp_output_3_0_g743 = 2.0;
 				float temp_output_7_0_g743 = 4.0;
 				float temp_output_9_0_g743 = 2.0;
 				float temp_output_8_0_g743 = 4.0;
+				float2 texCoord2_g723 = IN.ase_texcoord8.xy * float2( 1,1 ) + float2( 0,0 );
+				float temp_output_3_0_g723 = 3.0;
+				float temp_output_7_0_g723 = 4.0;
+				float temp_output_9_0_g723 = 2.0;
+				float temp_output_8_0_g723 = 4.0;
+				float2 texCoord2_g721 = IN.ase_texcoord8.xy * float2( 1,1 ) + float2( 0,0 );
+				float temp_output_3_0_g721 = 4.0;
+				float temp_output_7_0_g721 = 4.0;
+				float temp_output_9_0_g721 = 2.0;
+				float temp_output_8_0_g721 = 4.0;
+				float2 texCoord2_g742 = IN.ase_texcoord8.xy * float2( 1,1 ) + float2( 0,0 );
+				float temp_output_3_0_g742 = 1.0;
+				float temp_output_7_0_g742 = 4.0;
+				float temp_output_9_0_g742 = 1.0;
+				float temp_output_8_0_g742 = 4.0;
+				float2 texCoord2_g724 = IN.ase_texcoord8.xy * float2( 1,1 ) + float2( 0,0 );
+				float temp_output_3_0_g724 = 2.0;
+				float temp_output_7_0_g724 = 4.0;
+				float temp_output_9_0_g724 = 1.0;
+				float temp_output_8_0_g724 = 4.0;
+				float2 texCoord2_g733 = IN.ase_texcoord8.xy * float2( 1,1 ) + float2( 0,0 );
+				float temp_output_3_0_g733 = 3.0;
+				float temp_output_7_0_g733 = 4.0;
+				float temp_output_9_0_g733 = 1.0;
+				float temp_output_8_0_g733 = 4.0;
 				float2 texCoord2_g737 = IN.ase_texcoord8.xy * float2( 1,1 ) + float2( 0,0 );
-				float temp_output_3_0_g737 = 3.0;
+				float temp_output_3_0_g737 = 4.0;
 				float temp_output_7_0_g737 = 4.0;
-				float temp_output_9_0_g737 = 2.0;
+				float temp_output_9_0_g737 = 1.0;
 				float temp_output_8_0_g737 = 4.0;
-				float2 texCoord2_g738 = IN.ase_texcoord8.xy * float2( 1,1 ) + float2( 0,0 );
-				float temp_output_3_0_g738 = 4.0;
-				float temp_output_7_0_g738 = 4.0;
-				float temp_output_9_0_g738 = 2.0;
-				float temp_output_8_0_g738 = 4.0;
+				float4 temp_output_155_0 = ( ( ( _Color1 * ( ( ( 1.0 - step( texCoord2_g735.x , ( ( temp_output_3_0_g735 - 1.0 ) / temp_output_7_0_g735 ) ) ) * ( step( texCoord2_g735.x , ( temp_output_3_0_g735 / temp_output_7_0_g735 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g735.y , ( ( temp_output_9_0_g735 - 1.0 ) / temp_output_8_0_g735 ) ) ) * ( step( texCoord2_g735.y , ( temp_output_9_0_g735 / temp_output_8_0_g735 ) ) * 1.0 ) ) ) ) + ( _Color2 * ( ( ( 1.0 - step( texCoord2_g739.x , ( ( temp_output_3_0_g739 - 1.0 ) / temp_output_7_0_g739 ) ) ) * ( step( texCoord2_g739.x , ( temp_output_3_0_g739 / temp_output_7_0_g739 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g739.y , ( ( temp_output_9_0_g739 - 1.0 ) / temp_output_8_0_g739 ) ) ) * ( step( texCoord2_g739.y , ( temp_output_9_0_g739 / temp_output_8_0_g739 ) ) * 1.0 ) ) ) ) + ( _Color3 * ( ( ( 1.0 - step( texCoord2_g738.x , ( ( temp_output_3_0_g738 - 1.0 ) / temp_output_7_0_g738 ) ) ) * ( step( texCoord2_g738.x , ( temp_output_3_0_g738 / temp_output_7_0_g738 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g738.y , ( ( temp_output_9_0_g738 - 1.0 ) / temp_output_8_0_g738 ) ) ) * ( step( texCoord2_g738.y , ( temp_output_9_0_g738 / temp_output_8_0_g738 ) ) * 1.0 ) ) ) ) + ( _Color4 * ( ( ( 1.0 - step( texCoord2_g736.x , ( ( temp_output_3_0_g736 - 1.0 ) / temp_output_7_0_g736 ) ) ) * ( step( texCoord2_g736.x , ( temp_output_3_0_g736 / temp_output_7_0_g736 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g736.y , ( ( temp_output_9_0_g736 - 1.0 ) / temp_output_8_0_g736 ) ) ) * ( step( texCoord2_g736.y , ( temp_output_9_0_g736 / temp_output_8_0_g736 ) ) * 1.0 ) ) ) ) ) + ( ( _Color5 * ( ( ( 1.0 - step( texCoord2_g741.x , ( ( temp_output_3_0_g741 - 1.0 ) / temp_output_7_0_g741 ) ) ) * ( step( texCoord2_g741.x , ( temp_output_3_0_g741 / temp_output_7_0_g741 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g741.y , ( ( temp_output_9_0_g741 - 1.0 ) / temp_output_8_0_g741 ) ) ) * ( step( texCoord2_g741.y , ( temp_output_9_0_g741 / temp_output_8_0_g741 ) ) * 1.0 ) ) ) ) + ( _Color6 * ( ( ( 1.0 - step( texCoord2_g722.x , ( ( temp_output_3_0_g722 - 1.0 ) / temp_output_7_0_g722 ) ) ) * ( step( texCoord2_g722.x , ( temp_output_3_0_g722 / temp_output_7_0_g722 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g722.y , ( ( temp_output_9_0_g722 - 1.0 ) / temp_output_8_0_g722 ) ) ) * ( step( texCoord2_g722.y , ( temp_output_9_0_g722 / temp_output_8_0_g722 ) ) * 1.0 ) ) ) ) + ( _Color7 * ( ( ( 1.0 - step( texCoord2_g734.x , ( ( temp_output_3_0_g734 - 1.0 ) / temp_output_7_0_g734 ) ) ) * ( step( texCoord2_g734.x , ( temp_output_3_0_g734 / temp_output_7_0_g734 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g734.y , ( ( temp_output_9_0_g734 - 1.0 ) / temp_output_8_0_g734 ) ) ) * ( step( texCoord2_g734.y , ( temp_output_9_0_g734 / temp_output_8_0_g734 ) ) * 1.0 ) ) ) ) + ( _Color8 * ( ( ( 1.0 - step( texCoord2_g740.x , ( ( temp_output_3_0_g740 - 1.0 ) / temp_output_7_0_g740 ) ) ) * ( step( texCoord2_g740.x , ( temp_output_3_0_g740 / temp_output_7_0_g740 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g740.y , ( ( temp_output_9_0_g740 - 1.0 ) / temp_output_8_0_g740 ) ) ) * ( step( texCoord2_g740.y , ( temp_output_9_0_g740 / temp_output_8_0_g740 ) ) * 1.0 ) ) ) ) ) + ( ( _Color9 * ( ( ( 1.0 - step( texCoord2_g720.x , ( ( temp_output_3_0_g720 - 1.0 ) / temp_output_7_0_g720 ) ) ) * ( step( texCoord2_g720.x , ( temp_output_3_0_g720 / temp_output_7_0_g720 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g720.y , ( ( temp_output_9_0_g720 - 1.0 ) / temp_output_8_0_g720 ) ) ) * ( step( texCoord2_g720.y , ( temp_output_9_0_g720 / temp_output_8_0_g720 ) ) * 1.0 ) ) ) ) + ( _Color10 * ( ( ( 1.0 - step( texCoord2_g743.x , ( ( temp_output_3_0_g743 - 1.0 ) / temp_output_7_0_g743 ) ) ) * ( step( texCoord2_g743.x , ( temp_output_3_0_g743 / temp_output_7_0_g743 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g743.y , ( ( temp_output_9_0_g743 - 1.0 ) / temp_output_8_0_g743 ) ) ) * ( step( texCoord2_g743.y , ( temp_output_9_0_g743 / temp_output_8_0_g743 ) ) * 1.0 ) ) ) ) + ( _Color11 * ( ( ( 1.0 - step( texCoord2_g723.x , ( ( temp_output_3_0_g723 - 1.0 ) / temp_output_7_0_g723 ) ) ) * ( step( texCoord2_g723.x , ( temp_output_3_0_g723 / temp_output_7_0_g723 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g723.y , ( ( temp_output_9_0_g723 - 1.0 ) / temp_output_8_0_g723 ) ) ) * ( step( texCoord2_g723.y , ( temp_output_9_0_g723 / temp_output_8_0_g723 ) ) * 1.0 ) ) ) ) + ( _Color12 * ( ( ( 1.0 - step( texCoord2_g721.x , ( ( temp_output_3_0_g721 - 1.0 ) / temp_output_7_0_g721 ) ) ) * ( step( texCoord2_g721.x , ( temp_output_3_0_g721 / temp_output_7_0_g721 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g721.y , ( ( temp_output_9_0_g721 - 1.0 ) / temp_output_8_0_g721 ) ) ) * ( step( texCoord2_g721.y , ( temp_output_9_0_g721 / temp_output_8_0_g721 ) ) * 1.0 ) ) ) ) ) + ( ( _Color13 * ( ( ( 1.0 - step( texCoord2_g742.x , ( ( temp_output_3_0_g742 - 1.0 ) / temp_output_7_0_g742 ) ) ) * ( step( texCoord2_g742.x , ( temp_output_3_0_g742 / temp_output_7_0_g742 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g742.y , ( ( temp_output_9_0_g742 - 1.0 ) / temp_output_8_0_g742 ) ) ) * ( step( texCoord2_g742.y , ( temp_output_9_0_g742 / temp_output_8_0_g742 ) ) * 1.0 ) ) ) ) + ( _Color14 * ( ( ( 1.0 - step( texCoord2_g724.x , ( ( temp_output_3_0_g724 - 1.0 ) / temp_output_7_0_g724 ) ) ) * ( step( texCoord2_g724.x , ( temp_output_3_0_g724 / temp_output_7_0_g724 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g724.y , ( ( temp_output_9_0_g724 - 1.0 ) / temp_output_8_0_g724 ) ) ) * ( step( texCoord2_g724.y , ( temp_output_9_0_g724 / temp_output_8_0_g724 ) ) * 1.0 ) ) ) ) + ( _Color15 * ( ( ( 1.0 - step( texCoord2_g733.x , ( ( temp_output_3_0_g733 - 1.0 ) / temp_output_7_0_g733 ) ) ) * ( step( texCoord2_g733.x , ( temp_output_3_0_g733 / temp_output_7_0_g733 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g733.y , ( ( temp_output_9_0_g733 - 1.0 ) / temp_output_8_0_g733 ) ) ) * ( step( texCoord2_g733.y , ( temp_output_9_0_g733 / temp_output_8_0_g733 ) ) * 1.0 ) ) ) ) + ( _Color16 * ( ( ( 1.0 - step( texCoord2_g737.x , ( ( temp_output_3_0_g737 - 1.0 ) / temp_output_7_0_g737 ) ) ) * ( step( texCoord2_g737.x , ( temp_output_3_0_g737 / temp_output_7_0_g737 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g737.y , ( ( temp_output_9_0_g737 - 1.0 ) / temp_output_8_0_g737 ) ) ) * ( step( texCoord2_g737.y , ( temp_output_9_0_g737 / temp_output_8_0_g737 ) ) * 1.0 ) ) ) ) ) );
+				float4 clampResult261 = clamp( ( pow( saferPower258 , temp_cast_0 ) + ( 1.0 - (temp_output_155_0).a ) ) , float4( 0,0,0,0 ) , float4( 1,1,1,1 ) );
+				
+				float2 texCoord2_g753 = IN.ase_texcoord8.xy * float2( 1,1 ) + float2( 0,0 );
+				float temp_output_3_0_g753 = 1.0;
+				float temp_output_7_0_g753 = 4.0;
+				float temp_output_9_0_g753 = 4.0;
+				float temp_output_8_0_g753 = 4.0;
+				float2 texCoord2_g759 = IN.ase_texcoord8.xy * float2( 1,1 ) + float2( 0,0 );
+				float temp_output_3_0_g759 = 2.0;
+				float temp_output_7_0_g759 = 4.0;
+				float temp_output_9_0_g759 = 4.0;
+				float temp_output_8_0_g759 = 4.0;
+				float2 texCoord2_g752 = IN.ase_texcoord8.xy * float2( 1,1 ) + float2( 0,0 );
+				float temp_output_3_0_g752 = 3.0;
+				float temp_output_7_0_g752 = 4.0;
+				float temp_output_9_0_g752 = 4.0;
+				float temp_output_8_0_g752 = 4.0;
+				float2 texCoord2_g750 = IN.ase_texcoord8.xy * float2( 1,1 ) + float2( 0,0 );
+				float temp_output_3_0_g750 = 4.0;
+				float temp_output_7_0_g750 = 4.0;
+				float temp_output_9_0_g750 = 4.0;
+				float temp_output_8_0_g750 = 4.0;
+				float2 texCoord2_g751 = IN.ase_texcoord8.xy * float2( 1,1 ) + float2( 0,0 );
+				float temp_output_3_0_g751 = 1.0;
+				float temp_output_7_0_g751 = 4.0;
+				float temp_output_9_0_g751 = 3.0;
+				float temp_output_8_0_g751 = 4.0;
+				float2 texCoord2_g755 = IN.ase_texcoord8.xy * float2( 1,1 ) + float2( 0,0 );
+				float temp_output_3_0_g755 = 2.0;
+				float temp_output_7_0_g755 = 4.0;
+				float temp_output_9_0_g755 = 3.0;
+				float temp_output_8_0_g755 = 4.0;
+				float2 texCoord2_g758 = IN.ase_texcoord8.xy * float2( 1,1 ) + float2( 0,0 );
+				float temp_output_3_0_g758 = 3.0;
+				float temp_output_7_0_g758 = 4.0;
+				float temp_output_9_0_g758 = 3.0;
+				float temp_output_8_0_g758 = 4.0;
+				float2 texCoord2_g748 = IN.ase_texcoord8.xy * float2( 1,1 ) + float2( 0,0 );
+				float temp_output_3_0_g748 = 4.0;
+				float temp_output_7_0_g748 = 4.0;
+				float temp_output_9_0_g748 = 3.0;
+				float temp_output_8_0_g748 = 4.0;
+				float2 texCoord2_g756 = IN.ase_texcoord8.xy * float2( 1,1 ) + float2( 0,0 );
+				float temp_output_3_0_g756 = 1.0;
+				float temp_output_7_0_g756 = 4.0;
+				float temp_output_9_0_g756 = 2.0;
+				float temp_output_8_0_g756 = 4.0;
+				float2 texCoord2_g749 = IN.ase_texcoord8.xy * float2( 1,1 ) + float2( 0,0 );
+				float temp_output_3_0_g749 = 2.0;
+				float temp_output_7_0_g749 = 4.0;
+				float temp_output_9_0_g749 = 2.0;
+				float temp_output_8_0_g749 = 4.0;
+				float2 texCoord2_g754 = IN.ase_texcoord8.xy * float2( 1,1 ) + float2( 0,0 );
+				float temp_output_3_0_g754 = 3.0;
+				float temp_output_7_0_g754 = 4.0;
+				float temp_output_9_0_g754 = 2.0;
+				float temp_output_8_0_g754 = 4.0;
+				float2 texCoord2_g757 = IN.ase_texcoord8.xy * float2( 1,1 ) + float2( 0,0 );
+				float temp_output_3_0_g757 = 4.0;
+				float temp_output_7_0_g757 = 4.0;
+				float temp_output_9_0_g757 = 2.0;
+				float temp_output_8_0_g757 = 4.0;
 				float2 texCoord2_g745 = IN.ase_texcoord8.xy * float2( 1,1 ) + float2( 0,0 );
 				float temp_output_3_0_g745 = 1.0;
 				float temp_output_7_0_g745 = 4.0;
 				float temp_output_9_0_g745 = 1.0;
 				float temp_output_8_0_g745 = 4.0;
-				float2 texCoord2_g744 = IN.ase_texcoord8.xy * float2( 1,1 ) + float2( 0,0 );
-				float temp_output_3_0_g744 = 2.0;
-				float temp_output_7_0_g744 = 4.0;
-				float temp_output_9_0_g744 = 1.0;
-				float temp_output_8_0_g744 = 4.0;
-				float2 texCoord2_g742 = IN.ase_texcoord8.xy * float2( 1,1 ) + float2( 0,0 );
-				float temp_output_3_0_g742 = 3.0;
-				float temp_output_7_0_g742 = 4.0;
-				float temp_output_9_0_g742 = 1.0;
-				float temp_output_8_0_g742 = 4.0;
 				float2 texCoord2_g747 = IN.ase_texcoord8.xy * float2( 1,1 ) + float2( 0,0 );
-				float temp_output_3_0_g747 = 4.0;
+				float temp_output_3_0_g747 = 2.0;
 				float temp_output_7_0_g747 = 4.0;
 				float temp_output_9_0_g747 = 1.0;
 				float temp_output_8_0_g747 = 4.0;
-				float4 temp_output_344_0 = ( ( ( _MRE1 * ( ( ( 1.0 - step( texCoord2_g739.x , ( ( temp_output_3_0_g739 - 1.0 ) / temp_output_7_0_g739 ) ) ) * ( step( texCoord2_g739.x , ( temp_output_3_0_g739 / temp_output_7_0_g739 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g739.y , ( ( temp_output_9_0_g739 - 1.0 ) / temp_output_8_0_g739 ) ) ) * ( step( texCoord2_g739.y , ( temp_output_9_0_g739 / temp_output_8_0_g739 ) ) * 1.0 ) ) ) ) + ( _MRE2 * ( ( ( 1.0 - step( texCoord2_g751.x , ( ( temp_output_3_0_g751 - 1.0 ) / temp_output_7_0_g751 ) ) ) * ( step( texCoord2_g751.x , ( temp_output_3_0_g751 / temp_output_7_0_g751 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g751.y , ( ( temp_output_9_0_g751 - 1.0 ) / temp_output_8_0_g751 ) ) ) * ( step( texCoord2_g751.y , ( temp_output_9_0_g751 / temp_output_8_0_g751 ) ) * 1.0 ) ) ) ) + ( _MRE3 * ( ( ( 1.0 - step( texCoord2_g740.x , ( ( temp_output_3_0_g740 - 1.0 ) / temp_output_7_0_g740 ) ) ) * ( step( texCoord2_g740.x , ( temp_output_3_0_g740 / temp_output_7_0_g740 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g740.y , ( ( temp_output_9_0_g740 - 1.0 ) / temp_output_8_0_g740 ) ) ) * ( step( texCoord2_g740.y , ( temp_output_9_0_g740 / temp_output_8_0_g740 ) ) * 1.0 ) ) ) ) + ( _MRE4 * ( ( ( 1.0 - step( texCoord2_g749.x , ( ( temp_output_3_0_g749 - 1.0 ) / temp_output_7_0_g749 ) ) ) * ( step( texCoord2_g749.x , ( temp_output_3_0_g749 / temp_output_7_0_g749 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g749.y , ( ( temp_output_9_0_g749 - 1.0 ) / temp_output_8_0_g749 ) ) ) * ( step( texCoord2_g749.y , ( temp_output_9_0_g749 / temp_output_8_0_g749 ) ) * 1.0 ) ) ) ) ) + ( ( _MRE5 * ( ( ( 1.0 - step( texCoord2_g746.x , ( ( temp_output_3_0_g746 - 1.0 ) / temp_output_7_0_g746 ) ) ) * ( step( texCoord2_g746.x , ( temp_output_3_0_g746 / temp_output_7_0_g746 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g746.y , ( ( temp_output_9_0_g746 - 1.0 ) / temp_output_8_0_g746 ) ) ) * ( step( texCoord2_g746.y , ( temp_output_9_0_g746 / temp_output_8_0_g746 ) ) * 1.0 ) ) ) ) + ( _MRE6 * ( ( ( 1.0 - step( texCoord2_g741.x , ( ( temp_output_3_0_g741 - 1.0 ) / temp_output_7_0_g741 ) ) ) * ( step( texCoord2_g741.x , ( temp_output_3_0_g741 / temp_output_7_0_g741 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g741.y , ( ( temp_output_9_0_g741 - 1.0 ) / temp_output_8_0_g741 ) ) ) * ( step( texCoord2_g741.y , ( temp_output_9_0_g741 / temp_output_8_0_g741 ) ) * 1.0 ) ) ) ) + ( _MRE7 * ( ( ( 1.0 - step( texCoord2_g750.x , ( ( temp_output_3_0_g750 - 1.0 ) / temp_output_7_0_g750 ) ) ) * ( step( texCoord2_g750.x , ( temp_output_3_0_g750 / temp_output_7_0_g750 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g750.y , ( ( temp_output_9_0_g750 - 1.0 ) / temp_output_8_0_g750 ) ) ) * ( step( texCoord2_g750.y , ( temp_output_9_0_g750 / temp_output_8_0_g750 ) ) * 1.0 ) ) ) ) + ( _MRE8 * ( ( ( 1.0 - step( texCoord2_g736.x , ( ( temp_output_3_0_g736 - 1.0 ) / temp_output_7_0_g736 ) ) ) * ( step( texCoord2_g736.x , ( temp_output_3_0_g736 / temp_output_7_0_g736 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g736.y , ( ( temp_output_9_0_g736 - 1.0 ) / temp_output_8_0_g736 ) ) ) * ( step( texCoord2_g736.y , ( temp_output_9_0_g736 / temp_output_8_0_g736 ) ) * 1.0 ) ) ) ) ) + ( ( _MRE9 * ( ( ( 1.0 - step( texCoord2_g748.x , ( ( temp_output_3_0_g748 - 1.0 ) / temp_output_7_0_g748 ) ) ) * ( step( texCoord2_g748.x , ( temp_output_3_0_g748 / temp_output_7_0_g748 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g748.y , ( ( temp_output_9_0_g748 - 1.0 ) / temp_output_8_0_g748 ) ) ) * ( step( texCoord2_g748.y , ( temp_output_9_0_g748 / temp_output_8_0_g748 ) ) * 1.0 ) ) ) ) + ( _MRE10 * ( ( ( 1.0 - step( texCoord2_g743.x , ( ( temp_output_3_0_g743 - 1.0 ) / temp_output_7_0_g743 ) ) ) * ( step( texCoord2_g743.x , ( temp_output_3_0_g743 / temp_output_7_0_g743 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g743.y , ( ( temp_output_9_0_g743 - 1.0 ) / temp_output_8_0_g743 ) ) ) * ( step( texCoord2_g743.y , ( temp_output_9_0_g743 / temp_output_8_0_g743 ) ) * 1.0 ) ) ) ) + ( _MRE11 * ( ( ( 1.0 - step( texCoord2_g737.x , ( ( temp_output_3_0_g737 - 1.0 ) / temp_output_7_0_g737 ) ) ) * ( step( texCoord2_g737.x , ( temp_output_3_0_g737 / temp_output_7_0_g737 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g737.y , ( ( temp_output_9_0_g737 - 1.0 ) / temp_output_8_0_g737 ) ) ) * ( step( texCoord2_g737.y , ( temp_output_9_0_g737 / temp_output_8_0_g737 ) ) * 1.0 ) ) ) ) + ( _MRE12 * ( ( ( 1.0 - step( texCoord2_g738.x , ( ( temp_output_3_0_g738 - 1.0 ) / temp_output_7_0_g738 ) ) ) * ( step( texCoord2_g738.x , ( temp_output_3_0_g738 / temp_output_7_0_g738 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g738.y , ( ( temp_output_9_0_g738 - 1.0 ) / temp_output_8_0_g738 ) ) ) * ( step( texCoord2_g738.y , ( temp_output_9_0_g738 / temp_output_8_0_g738 ) ) * 1.0 ) ) ) ) ) + ( ( _MRE13 * ( ( ( 1.0 - step( texCoord2_g745.x , ( ( temp_output_3_0_g745 - 1.0 ) / temp_output_7_0_g745 ) ) ) * ( step( texCoord2_g745.x , ( temp_output_3_0_g745 / temp_output_7_0_g745 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g745.y , ( ( temp_output_9_0_g745 - 1.0 ) / temp_output_8_0_g745 ) ) ) * ( step( texCoord2_g745.y , ( temp_output_9_0_g745 / temp_output_8_0_g745 ) ) * 1.0 ) ) ) ) + ( _MRE14 * ( ( ( 1.0 - step( texCoord2_g744.x , ( ( temp_output_3_0_g744 - 1.0 ) / temp_output_7_0_g744 ) ) ) * ( step( texCoord2_g744.x , ( temp_output_3_0_g744 / temp_output_7_0_g744 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g744.y , ( ( temp_output_9_0_g744 - 1.0 ) / temp_output_8_0_g744 ) ) ) * ( step( texCoord2_g744.y , ( temp_output_9_0_g744 / temp_output_8_0_g744 ) ) * 1.0 ) ) ) ) + ( _MRE15 * ( ( ( 1.0 - step( texCoord2_g742.x , ( ( temp_output_3_0_g742 - 1.0 ) / temp_output_7_0_g742 ) ) ) * ( step( texCoord2_g742.x , ( temp_output_3_0_g742 / temp_output_7_0_g742 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g742.y , ( ( temp_output_9_0_g742 - 1.0 ) / temp_output_8_0_g742 ) ) ) * ( step( texCoord2_g742.y , ( temp_output_9_0_g742 / temp_output_8_0_g742 ) ) * 1.0 ) ) ) ) + ( _MRE16 * ( ( ( 1.0 - step( texCoord2_g747.x , ( ( temp_output_3_0_g747 - 1.0 ) / temp_output_7_0_g747 ) ) ) * ( step( texCoord2_g747.x , ( temp_output_3_0_g747 / temp_output_7_0_g747 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g747.y , ( ( temp_output_9_0_g747 - 1.0 ) / temp_output_8_0_g747 ) ) ) * ( step( texCoord2_g747.y , ( temp_output_9_0_g747 / temp_output_8_0_g747 ) ) * 1.0 ) ) ) ) ) );
+				float2 texCoord2_g746 = IN.ase_texcoord8.xy * float2( 1,1 ) + float2( 0,0 );
+				float temp_output_3_0_g746 = 3.0;
+				float temp_output_7_0_g746 = 4.0;
+				float temp_output_9_0_g746 = 1.0;
+				float temp_output_8_0_g746 = 4.0;
+				float2 texCoord2_g744 = IN.ase_texcoord8.xy * float2( 1,1 ) + float2( 0,0 );
+				float temp_output_3_0_g744 = 4.0;
+				float temp_output_7_0_g744 = 4.0;
+				float temp_output_9_0_g744 = 1.0;
+				float temp_output_8_0_g744 = 4.0;
+				float4 temp_output_283_0 = ( ( ( _MRE1 * ( ( ( 1.0 - step( texCoord2_g753.x , ( ( temp_output_3_0_g753 - 1.0 ) / temp_output_7_0_g753 ) ) ) * ( step( texCoord2_g753.x , ( temp_output_3_0_g753 / temp_output_7_0_g753 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g753.y , ( ( temp_output_9_0_g753 - 1.0 ) / temp_output_8_0_g753 ) ) ) * ( step( texCoord2_g753.y , ( temp_output_9_0_g753 / temp_output_8_0_g753 ) ) * 1.0 ) ) ) ) + ( _MRE2 * ( ( ( 1.0 - step( texCoord2_g759.x , ( ( temp_output_3_0_g759 - 1.0 ) / temp_output_7_0_g759 ) ) ) * ( step( texCoord2_g759.x , ( temp_output_3_0_g759 / temp_output_7_0_g759 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g759.y , ( ( temp_output_9_0_g759 - 1.0 ) / temp_output_8_0_g759 ) ) ) * ( step( texCoord2_g759.y , ( temp_output_9_0_g759 / temp_output_8_0_g759 ) ) * 1.0 ) ) ) ) + ( _MRE3 * ( ( ( 1.0 - step( texCoord2_g752.x , ( ( temp_output_3_0_g752 - 1.0 ) / temp_output_7_0_g752 ) ) ) * ( step( texCoord2_g752.x , ( temp_output_3_0_g752 / temp_output_7_0_g752 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g752.y , ( ( temp_output_9_0_g752 - 1.0 ) / temp_output_8_0_g752 ) ) ) * ( step( texCoord2_g752.y , ( temp_output_9_0_g752 / temp_output_8_0_g752 ) ) * 1.0 ) ) ) ) + ( _MRE4 * ( ( ( 1.0 - step( texCoord2_g750.x , ( ( temp_output_3_0_g750 - 1.0 ) / temp_output_7_0_g750 ) ) ) * ( step( texCoord2_g750.x , ( temp_output_3_0_g750 / temp_output_7_0_g750 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g750.y , ( ( temp_output_9_0_g750 - 1.0 ) / temp_output_8_0_g750 ) ) ) * ( step( texCoord2_g750.y , ( temp_output_9_0_g750 / temp_output_8_0_g750 ) ) * 1.0 ) ) ) ) ) + ( ( _MRE5 * ( ( ( 1.0 - step( texCoord2_g751.x , ( ( temp_output_3_0_g751 - 1.0 ) / temp_output_7_0_g751 ) ) ) * ( step( texCoord2_g751.x , ( temp_output_3_0_g751 / temp_output_7_0_g751 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g751.y , ( ( temp_output_9_0_g751 - 1.0 ) / temp_output_8_0_g751 ) ) ) * ( step( texCoord2_g751.y , ( temp_output_9_0_g751 / temp_output_8_0_g751 ) ) * 1.0 ) ) ) ) + ( _MRE6 * ( ( ( 1.0 - step( texCoord2_g755.x , ( ( temp_output_3_0_g755 - 1.0 ) / temp_output_7_0_g755 ) ) ) * ( step( texCoord2_g755.x , ( temp_output_3_0_g755 / temp_output_7_0_g755 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g755.y , ( ( temp_output_9_0_g755 - 1.0 ) / temp_output_8_0_g755 ) ) ) * ( step( texCoord2_g755.y , ( temp_output_9_0_g755 / temp_output_8_0_g755 ) ) * 1.0 ) ) ) ) + ( _MRE7 * ( ( ( 1.0 - step( texCoord2_g758.x , ( ( temp_output_3_0_g758 - 1.0 ) / temp_output_7_0_g758 ) ) ) * ( step( texCoord2_g758.x , ( temp_output_3_0_g758 / temp_output_7_0_g758 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g758.y , ( ( temp_output_9_0_g758 - 1.0 ) / temp_output_8_0_g758 ) ) ) * ( step( texCoord2_g758.y , ( temp_output_9_0_g758 / temp_output_8_0_g758 ) ) * 1.0 ) ) ) ) + ( _MRE8 * ( ( ( 1.0 - step( texCoord2_g748.x , ( ( temp_output_3_0_g748 - 1.0 ) / temp_output_7_0_g748 ) ) ) * ( step( texCoord2_g748.x , ( temp_output_3_0_g748 / temp_output_7_0_g748 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g748.y , ( ( temp_output_9_0_g748 - 1.0 ) / temp_output_8_0_g748 ) ) ) * ( step( texCoord2_g748.y , ( temp_output_9_0_g748 / temp_output_8_0_g748 ) ) * 1.0 ) ) ) ) ) + ( ( _MRE9 * ( ( ( 1.0 - step( texCoord2_g756.x , ( ( temp_output_3_0_g756 - 1.0 ) / temp_output_7_0_g756 ) ) ) * ( step( texCoord2_g756.x , ( temp_output_3_0_g756 / temp_output_7_0_g756 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g756.y , ( ( temp_output_9_0_g756 - 1.0 ) / temp_output_8_0_g756 ) ) ) * ( step( texCoord2_g756.y , ( temp_output_9_0_g756 / temp_output_8_0_g756 ) ) * 1.0 ) ) ) ) + ( _MRE10 * ( ( ( 1.0 - step( texCoord2_g749.x , ( ( temp_output_3_0_g749 - 1.0 ) / temp_output_7_0_g749 ) ) ) * ( step( texCoord2_g749.x , ( temp_output_3_0_g749 / temp_output_7_0_g749 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g749.y , ( ( temp_output_9_0_g749 - 1.0 ) / temp_output_8_0_g749 ) ) ) * ( step( texCoord2_g749.y , ( temp_output_9_0_g749 / temp_output_8_0_g749 ) ) * 1.0 ) ) ) ) + ( _MRE11 * ( ( ( 1.0 - step( texCoord2_g754.x , ( ( temp_output_3_0_g754 - 1.0 ) / temp_output_7_0_g754 ) ) ) * ( step( texCoord2_g754.x , ( temp_output_3_0_g754 / temp_output_7_0_g754 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g754.y , ( ( temp_output_9_0_g754 - 1.0 ) / temp_output_8_0_g754 ) ) ) * ( step( texCoord2_g754.y , ( temp_output_9_0_g754 / temp_output_8_0_g754 ) ) * 1.0 ) ) ) ) + ( _MRE12 * ( ( ( 1.0 - step( texCoord2_g757.x , ( ( temp_output_3_0_g757 - 1.0 ) / temp_output_7_0_g757 ) ) ) * ( step( texCoord2_g757.x , ( temp_output_3_0_g757 / temp_output_7_0_g757 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g757.y , ( ( temp_output_9_0_g757 - 1.0 ) / temp_output_8_0_g757 ) ) ) * ( step( texCoord2_g757.y , ( temp_output_9_0_g757 / temp_output_8_0_g757 ) ) * 1.0 ) ) ) ) ) + ( ( _MRE13 * ( ( ( 1.0 - step( texCoord2_g745.x , ( ( temp_output_3_0_g745 - 1.0 ) / temp_output_7_0_g745 ) ) ) * ( step( texCoord2_g745.x , ( temp_output_3_0_g745 / temp_output_7_0_g745 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g745.y , ( ( temp_output_9_0_g745 - 1.0 ) / temp_output_8_0_g745 ) ) ) * ( step( texCoord2_g745.y , ( temp_output_9_0_g745 / temp_output_8_0_g745 ) ) * 1.0 ) ) ) ) + ( _MRE14 * ( ( ( 1.0 - step( texCoord2_g747.x , ( ( temp_output_3_0_g747 - 1.0 ) / temp_output_7_0_g747 ) ) ) * ( step( texCoord2_g747.x , ( temp_output_3_0_g747 / temp_output_7_0_g747 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g747.y , ( ( temp_output_9_0_g747 - 1.0 ) / temp_output_8_0_g747 ) ) ) * ( step( texCoord2_g747.y , ( temp_output_9_0_g747 / temp_output_8_0_g747 ) ) * 1.0 ) ) ) ) + ( _MRE15 * ( ( ( 1.0 - step( texCoord2_g746.x , ( ( temp_output_3_0_g746 - 1.0 ) / temp_output_7_0_g746 ) ) ) * ( step( texCoord2_g746.x , ( temp_output_3_0_g746 / temp_output_7_0_g746 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g746.y , ( ( temp_output_9_0_g746 - 1.0 ) / temp_output_8_0_g746 ) ) ) * ( step( texCoord2_g746.y , ( temp_output_9_0_g746 / temp_output_8_0_g746 ) ) * 1.0 ) ) ) ) + ( _MRE16 * ( ( ( 1.0 - step( texCoord2_g744.x , ( ( temp_output_3_0_g744 - 1.0 ) / temp_output_7_0_g744 ) ) ) * ( step( texCoord2_g744.x , ( temp_output_3_0_g744 / temp_output_7_0_g744 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g744.y , ( ( temp_output_9_0_g744 - 1.0 ) / temp_output_8_0_g744 ) ) ) * ( step( texCoord2_g744.y , ( temp_output_9_0_g744 / temp_output_8_0_g744 ) ) * 1.0 ) ) ) ) ) );
 				
 
-				float3 BaseColor = ( clampResult348 * temp_output_329_0 ).rgb;
+				float3 BaseColor = ( clampResult261 * temp_output_155_0 ).rgb;
 				float3 Normal = float3(0, 0, 1);
-				float3 Emission = ( temp_output_329_0 * ( _EmissionPower1 * (temp_output_344_0).b ) ).rgb;
+				float3 Emission = ( temp_output_155_0 * ( _EmissionPower1 * (temp_output_283_0).b ) ).rgb;
 				float3 Specular = 0.5;
-				float Metallic = (temp_output_344_0).r;
-				float Smoothness = ( 1.0 - (temp_output_344_0).g );
+				float Metallic = (temp_output_283_0).r;
+				float Smoothness = ( 1.0 - (temp_output_283_0).g );
 				float Occlusion = 1;
 				float Alpha = 1;
 				float AlphaClipThreshold = 0.5;
@@ -1990,178 +1990,178 @@ Shader "Malbers/Color4x4"
 					#endif
 				#endif
 
-				float2 texCoord256 = IN.ase_texcoord4.xy * float2( 1,4 ) + float2( 0,0 );
-				float4 clampResult328 = clamp( ( ( tex2D( _Gradient, texCoord256 ) + _GradientColor ) + ( 1.0 - _GradientIntensity ) ) , float4( 0,0,0,0 ) , float4( 1,1,1,0 ) );
-				float4 saferPower342 = abs( (clampResult328*_GradientScale + _GradientOffset) );
+				float2 texCoord255 = IN.ase_texcoord4.xy * float2( 1,4 ) + float2( 0,0 );
+				float4 clampResult234 = clamp( ( ( tex2D( _Gradient, texCoord255 ) + _GradientColor ) + ( 1.0 - _GradientIntensity ) ) , float4( 0,0,0,0 ) , float4( 1,1,1,0 ) );
+				float4 saferPower258 = abs( (clampResult234*_GradientScale + _GradientOffset) );
 				float4 temp_cast_0 = (_GradientPower).xxxx;
-				float2 texCoord2_g764 = IN.ase_texcoord4.xy * float2( 1,1 ) + float2( 0,0 );
-				float temp_output_3_0_g764 = 1.0;
-				float temp_output_7_0_g764 = 4.0;
-				float temp_output_9_0_g764 = 4.0;
-				float temp_output_8_0_g764 = 4.0;
-				float2 texCoord2_g766 = IN.ase_texcoord4.xy * float2( 1,1 ) + float2( 0,0 );
-				float temp_output_3_0_g766 = 2.0;
-				float temp_output_7_0_g766 = 4.0;
-				float temp_output_9_0_g766 = 4.0;
-				float temp_output_8_0_g766 = 4.0;
-				float2 texCoord2_g765 = IN.ase_texcoord4.xy * float2( 1,1 ) + float2( 0,0 );
-				float temp_output_3_0_g765 = 3.0;
-				float temp_output_7_0_g765 = 4.0;
-				float temp_output_9_0_g765 = 4.0;
-				float temp_output_8_0_g765 = 4.0;
-				float2 texCoord2_g763 = IN.ase_texcoord4.xy * float2( 1,1 ) + float2( 0,0 );
-				float temp_output_3_0_g763 = 4.0;
-				float temp_output_7_0_g763 = 4.0;
-				float temp_output_9_0_g763 = 4.0;
-				float temp_output_8_0_g763 = 4.0;
-				float2 texCoord2_g757 = IN.ase_texcoord4.xy * float2( 1,1 ) + float2( 0,0 );
-				float temp_output_3_0_g757 = 1.0;
-				float temp_output_7_0_g757 = 4.0;
-				float temp_output_9_0_g757 = 3.0;
-				float temp_output_8_0_g757 = 4.0;
-				float2 texCoord2_g752 = IN.ase_texcoord4.xy * float2( 1,1 ) + float2( 0,0 );
-				float temp_output_3_0_g752 = 2.0;
-				float temp_output_7_0_g752 = 4.0;
-				float temp_output_9_0_g752 = 3.0;
-				float temp_output_8_0_g752 = 4.0;
-				float2 texCoord2_g760 = IN.ase_texcoord4.xy * float2( 1,1 ) + float2( 0,0 );
-				float temp_output_3_0_g760 = 3.0;
-				float temp_output_7_0_g760 = 4.0;
-				float temp_output_9_0_g760 = 3.0;
-				float temp_output_8_0_g760 = 4.0;
-				float2 texCoord2_g753 = IN.ase_texcoord4.xy * float2( 1,1 ) + float2( 0,0 );
-				float temp_output_3_0_g753 = 4.0;
-				float temp_output_7_0_g753 = 4.0;
-				float temp_output_9_0_g753 = 3.0;
-				float temp_output_8_0_g753 = 4.0;
-				float2 texCoord2_g754 = IN.ase_texcoord4.xy * float2( 1,1 ) + float2( 0,0 );
-				float temp_output_3_0_g754 = 1.0;
-				float temp_output_7_0_g754 = 4.0;
-				float temp_output_9_0_g754 = 2.0;
-				float temp_output_8_0_g754 = 4.0;
-				float2 texCoord2_g767 = IN.ase_texcoord4.xy * float2( 1,1 ) + float2( 0,0 );
-				float temp_output_3_0_g767 = 2.0;
-				float temp_output_7_0_g767 = 4.0;
-				float temp_output_9_0_g767 = 2.0;
-				float temp_output_8_0_g767 = 4.0;
-				float2 texCoord2_g755 = IN.ase_texcoord4.xy * float2( 1,1 ) + float2( 0,0 );
-				float temp_output_3_0_g755 = 3.0;
-				float temp_output_7_0_g755 = 4.0;
-				float temp_output_9_0_g755 = 2.0;
-				float temp_output_8_0_g755 = 4.0;
-				float2 texCoord2_g761 = IN.ase_texcoord4.xy * float2( 1,1 ) + float2( 0,0 );
-				float temp_output_3_0_g761 = 4.0;
-				float temp_output_7_0_g761 = 4.0;
-				float temp_output_9_0_g761 = 2.0;
-				float temp_output_8_0_g761 = 4.0;
-				float2 texCoord2_g762 = IN.ase_texcoord4.xy * float2( 1,1 ) + float2( 0,0 );
-				float temp_output_3_0_g762 = 1.0;
-				float temp_output_7_0_g762 = 4.0;
-				float temp_output_9_0_g762 = 1.0;
-				float temp_output_8_0_g762 = 4.0;
-				float2 texCoord2_g758 = IN.ase_texcoord4.xy * float2( 1,1 ) + float2( 0,0 );
-				float temp_output_3_0_g758 = 2.0;
-				float temp_output_7_0_g758 = 4.0;
-				float temp_output_9_0_g758 = 1.0;
-				float temp_output_8_0_g758 = 4.0;
-				float2 texCoord2_g759 = IN.ase_texcoord4.xy * float2( 1,1 ) + float2( 0,0 );
-				float temp_output_3_0_g759 = 3.0;
-				float temp_output_7_0_g759 = 4.0;
-				float temp_output_9_0_g759 = 1.0;
-				float temp_output_8_0_g759 = 4.0;
-				float2 texCoord2_g756 = IN.ase_texcoord4.xy * float2( 1,1 ) + float2( 0,0 );
-				float temp_output_3_0_g756 = 4.0;
-				float temp_output_7_0_g756 = 4.0;
-				float temp_output_9_0_g756 = 1.0;
-				float temp_output_8_0_g756 = 4.0;
-				float4 temp_output_329_0 = ( ( ( _Color1 * ( ( ( 1.0 - step( texCoord2_g764.x , ( ( temp_output_3_0_g764 - 1.0 ) / temp_output_7_0_g764 ) ) ) * ( step( texCoord2_g764.x , ( temp_output_3_0_g764 / temp_output_7_0_g764 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g764.y , ( ( temp_output_9_0_g764 - 1.0 ) / temp_output_8_0_g764 ) ) ) * ( step( texCoord2_g764.y , ( temp_output_9_0_g764 / temp_output_8_0_g764 ) ) * 1.0 ) ) ) ) + ( _Color2 * ( ( ( 1.0 - step( texCoord2_g766.x , ( ( temp_output_3_0_g766 - 1.0 ) / temp_output_7_0_g766 ) ) ) * ( step( texCoord2_g766.x , ( temp_output_3_0_g766 / temp_output_7_0_g766 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g766.y , ( ( temp_output_9_0_g766 - 1.0 ) / temp_output_8_0_g766 ) ) ) * ( step( texCoord2_g766.y , ( temp_output_9_0_g766 / temp_output_8_0_g766 ) ) * 1.0 ) ) ) ) + ( _Color3 * ( ( ( 1.0 - step( texCoord2_g765.x , ( ( temp_output_3_0_g765 - 1.0 ) / temp_output_7_0_g765 ) ) ) * ( step( texCoord2_g765.x , ( temp_output_3_0_g765 / temp_output_7_0_g765 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g765.y , ( ( temp_output_9_0_g765 - 1.0 ) / temp_output_8_0_g765 ) ) ) * ( step( texCoord2_g765.y , ( temp_output_9_0_g765 / temp_output_8_0_g765 ) ) * 1.0 ) ) ) ) + ( _Color4 * ( ( ( 1.0 - step( texCoord2_g763.x , ( ( temp_output_3_0_g763 - 1.0 ) / temp_output_7_0_g763 ) ) ) * ( step( texCoord2_g763.x , ( temp_output_3_0_g763 / temp_output_7_0_g763 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g763.y , ( ( temp_output_9_0_g763 - 1.0 ) / temp_output_8_0_g763 ) ) ) * ( step( texCoord2_g763.y , ( temp_output_9_0_g763 / temp_output_8_0_g763 ) ) * 1.0 ) ) ) ) ) + ( ( _Color5 * ( ( ( 1.0 - step( texCoord2_g757.x , ( ( temp_output_3_0_g757 - 1.0 ) / temp_output_7_0_g757 ) ) ) * ( step( texCoord2_g757.x , ( temp_output_3_0_g757 / temp_output_7_0_g757 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g757.y , ( ( temp_output_9_0_g757 - 1.0 ) / temp_output_8_0_g757 ) ) ) * ( step( texCoord2_g757.y , ( temp_output_9_0_g757 / temp_output_8_0_g757 ) ) * 1.0 ) ) ) ) + ( _Color6 * ( ( ( 1.0 - step( texCoord2_g752.x , ( ( temp_output_3_0_g752 - 1.0 ) / temp_output_7_0_g752 ) ) ) * ( step( texCoord2_g752.x , ( temp_output_3_0_g752 / temp_output_7_0_g752 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g752.y , ( ( temp_output_9_0_g752 - 1.0 ) / temp_output_8_0_g752 ) ) ) * ( step( texCoord2_g752.y , ( temp_output_9_0_g752 / temp_output_8_0_g752 ) ) * 1.0 ) ) ) ) + ( _Color7 * ( ( ( 1.0 - step( texCoord2_g760.x , ( ( temp_output_3_0_g760 - 1.0 ) / temp_output_7_0_g760 ) ) ) * ( step( texCoord2_g760.x , ( temp_output_3_0_g760 / temp_output_7_0_g760 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g760.y , ( ( temp_output_9_0_g760 - 1.0 ) / temp_output_8_0_g760 ) ) ) * ( step( texCoord2_g760.y , ( temp_output_9_0_g760 / temp_output_8_0_g760 ) ) * 1.0 ) ) ) ) + ( _Color8 * ( ( ( 1.0 - step( texCoord2_g753.x , ( ( temp_output_3_0_g753 - 1.0 ) / temp_output_7_0_g753 ) ) ) * ( step( texCoord2_g753.x , ( temp_output_3_0_g753 / temp_output_7_0_g753 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g753.y , ( ( temp_output_9_0_g753 - 1.0 ) / temp_output_8_0_g753 ) ) ) * ( step( texCoord2_g753.y , ( temp_output_9_0_g753 / temp_output_8_0_g753 ) ) * 1.0 ) ) ) ) ) + ( ( _Color9 * ( ( ( 1.0 - step( texCoord2_g754.x , ( ( temp_output_3_0_g754 - 1.0 ) / temp_output_7_0_g754 ) ) ) * ( step( texCoord2_g754.x , ( temp_output_3_0_g754 / temp_output_7_0_g754 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g754.y , ( ( temp_output_9_0_g754 - 1.0 ) / temp_output_8_0_g754 ) ) ) * ( step( texCoord2_g754.y , ( temp_output_9_0_g754 / temp_output_8_0_g754 ) ) * 1.0 ) ) ) ) + ( _Color10 * ( ( ( 1.0 - step( texCoord2_g767.x , ( ( temp_output_3_0_g767 - 1.0 ) / temp_output_7_0_g767 ) ) ) * ( step( texCoord2_g767.x , ( temp_output_3_0_g767 / temp_output_7_0_g767 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g767.y , ( ( temp_output_9_0_g767 - 1.0 ) / temp_output_8_0_g767 ) ) ) * ( step( texCoord2_g767.y , ( temp_output_9_0_g767 / temp_output_8_0_g767 ) ) * 1.0 ) ) ) ) + ( _Color11 * ( ( ( 1.0 - step( texCoord2_g755.x , ( ( temp_output_3_0_g755 - 1.0 ) / temp_output_7_0_g755 ) ) ) * ( step( texCoord2_g755.x , ( temp_output_3_0_g755 / temp_output_7_0_g755 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g755.y , ( ( temp_output_9_0_g755 - 1.0 ) / temp_output_8_0_g755 ) ) ) * ( step( texCoord2_g755.y , ( temp_output_9_0_g755 / temp_output_8_0_g755 ) ) * 1.0 ) ) ) ) + ( _Color12 * ( ( ( 1.0 - step( texCoord2_g761.x , ( ( temp_output_3_0_g761 - 1.0 ) / temp_output_7_0_g761 ) ) ) * ( step( texCoord2_g761.x , ( temp_output_3_0_g761 / temp_output_7_0_g761 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g761.y , ( ( temp_output_9_0_g761 - 1.0 ) / temp_output_8_0_g761 ) ) ) * ( step( texCoord2_g761.y , ( temp_output_9_0_g761 / temp_output_8_0_g761 ) ) * 1.0 ) ) ) ) ) + ( ( _Color13 * ( ( ( 1.0 - step( texCoord2_g762.x , ( ( temp_output_3_0_g762 - 1.0 ) / temp_output_7_0_g762 ) ) ) * ( step( texCoord2_g762.x , ( temp_output_3_0_g762 / temp_output_7_0_g762 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g762.y , ( ( temp_output_9_0_g762 - 1.0 ) / temp_output_8_0_g762 ) ) ) * ( step( texCoord2_g762.y , ( temp_output_9_0_g762 / temp_output_8_0_g762 ) ) * 1.0 ) ) ) ) + ( _Color14 * ( ( ( 1.0 - step( texCoord2_g758.x , ( ( temp_output_3_0_g758 - 1.0 ) / temp_output_7_0_g758 ) ) ) * ( step( texCoord2_g758.x , ( temp_output_3_0_g758 / temp_output_7_0_g758 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g758.y , ( ( temp_output_9_0_g758 - 1.0 ) / temp_output_8_0_g758 ) ) ) * ( step( texCoord2_g758.y , ( temp_output_9_0_g758 / temp_output_8_0_g758 ) ) * 1.0 ) ) ) ) + ( _Color15 * ( ( ( 1.0 - step( texCoord2_g759.x , ( ( temp_output_3_0_g759 - 1.0 ) / temp_output_7_0_g759 ) ) ) * ( step( texCoord2_g759.x , ( temp_output_3_0_g759 / temp_output_7_0_g759 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g759.y , ( ( temp_output_9_0_g759 - 1.0 ) / temp_output_8_0_g759 ) ) ) * ( step( texCoord2_g759.y , ( temp_output_9_0_g759 / temp_output_8_0_g759 ) ) * 1.0 ) ) ) ) + ( _Color16 * ( ( ( 1.0 - step( texCoord2_g756.x , ( ( temp_output_3_0_g756 - 1.0 ) / temp_output_7_0_g756 ) ) ) * ( step( texCoord2_g756.x , ( temp_output_3_0_g756 / temp_output_7_0_g756 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g756.y , ( ( temp_output_9_0_g756 - 1.0 ) / temp_output_8_0_g756 ) ) ) * ( step( texCoord2_g756.y , ( temp_output_9_0_g756 / temp_output_8_0_g756 ) ) * 1.0 ) ) ) ) ) );
-				float4 clampResult348 = clamp( ( pow( saferPower342 , temp_cast_0 ) + ( 1.0 - (temp_output_329_0).a ) ) , float4( 0,0,0,0 ) , float4( 1,1,1,1 ) );
-				
+				float2 texCoord2_g735 = IN.ase_texcoord4.xy * float2( 1,1 ) + float2( 0,0 );
+				float temp_output_3_0_g735 = 1.0;
+				float temp_output_7_0_g735 = 4.0;
+				float temp_output_9_0_g735 = 4.0;
+				float temp_output_8_0_g735 = 4.0;
 				float2 texCoord2_g739 = IN.ase_texcoord4.xy * float2( 1,1 ) + float2( 0,0 );
-				float temp_output_3_0_g739 = 1.0;
+				float temp_output_3_0_g739 = 2.0;
 				float temp_output_7_0_g739 = 4.0;
 				float temp_output_9_0_g739 = 4.0;
 				float temp_output_8_0_g739 = 4.0;
-				float2 texCoord2_g751 = IN.ase_texcoord4.xy * float2( 1,1 ) + float2( 0,0 );
-				float temp_output_3_0_g751 = 2.0;
-				float temp_output_7_0_g751 = 4.0;
-				float temp_output_9_0_g751 = 4.0;
-				float temp_output_8_0_g751 = 4.0;
-				float2 texCoord2_g740 = IN.ase_texcoord4.xy * float2( 1,1 ) + float2( 0,0 );
-				float temp_output_3_0_g740 = 3.0;
-				float temp_output_7_0_g740 = 4.0;
-				float temp_output_9_0_g740 = 4.0;
-				float temp_output_8_0_g740 = 4.0;
-				float2 texCoord2_g749 = IN.ase_texcoord4.xy * float2( 1,1 ) + float2( 0,0 );
-				float temp_output_3_0_g749 = 4.0;
-				float temp_output_7_0_g749 = 4.0;
-				float temp_output_9_0_g749 = 4.0;
-				float temp_output_8_0_g749 = 4.0;
-				float2 texCoord2_g746 = IN.ase_texcoord4.xy * float2( 1,1 ) + float2( 0,0 );
-				float temp_output_3_0_g746 = 1.0;
-				float temp_output_7_0_g746 = 4.0;
-				float temp_output_9_0_g746 = 3.0;
-				float temp_output_8_0_g746 = 4.0;
-				float2 texCoord2_g741 = IN.ase_texcoord4.xy * float2( 1,1 ) + float2( 0,0 );
-				float temp_output_3_0_g741 = 2.0;
-				float temp_output_7_0_g741 = 4.0;
-				float temp_output_9_0_g741 = 3.0;
-				float temp_output_8_0_g741 = 4.0;
-				float2 texCoord2_g750 = IN.ase_texcoord4.xy * float2( 1,1 ) + float2( 0,0 );
-				float temp_output_3_0_g750 = 3.0;
-				float temp_output_7_0_g750 = 4.0;
-				float temp_output_9_0_g750 = 3.0;
-				float temp_output_8_0_g750 = 4.0;
+				float2 texCoord2_g738 = IN.ase_texcoord4.xy * float2( 1,1 ) + float2( 0,0 );
+				float temp_output_3_0_g738 = 3.0;
+				float temp_output_7_0_g738 = 4.0;
+				float temp_output_9_0_g738 = 4.0;
+				float temp_output_8_0_g738 = 4.0;
 				float2 texCoord2_g736 = IN.ase_texcoord4.xy * float2( 1,1 ) + float2( 0,0 );
 				float temp_output_3_0_g736 = 4.0;
 				float temp_output_7_0_g736 = 4.0;
-				float temp_output_9_0_g736 = 3.0;
+				float temp_output_9_0_g736 = 4.0;
 				float temp_output_8_0_g736 = 4.0;
-				float2 texCoord2_g748 = IN.ase_texcoord4.xy * float2( 1,1 ) + float2( 0,0 );
-				float temp_output_3_0_g748 = 1.0;
-				float temp_output_7_0_g748 = 4.0;
-				float temp_output_9_0_g748 = 2.0;
-				float temp_output_8_0_g748 = 4.0;
+				float2 texCoord2_g741 = IN.ase_texcoord4.xy * float2( 1,1 ) + float2( 0,0 );
+				float temp_output_3_0_g741 = 1.0;
+				float temp_output_7_0_g741 = 4.0;
+				float temp_output_9_0_g741 = 3.0;
+				float temp_output_8_0_g741 = 4.0;
+				float2 texCoord2_g722 = IN.ase_texcoord4.xy * float2( 1,1 ) + float2( 0,0 );
+				float temp_output_3_0_g722 = 2.0;
+				float temp_output_7_0_g722 = 4.0;
+				float temp_output_9_0_g722 = 3.0;
+				float temp_output_8_0_g722 = 4.0;
+				float2 texCoord2_g734 = IN.ase_texcoord4.xy * float2( 1,1 ) + float2( 0,0 );
+				float temp_output_3_0_g734 = 3.0;
+				float temp_output_7_0_g734 = 4.0;
+				float temp_output_9_0_g734 = 3.0;
+				float temp_output_8_0_g734 = 4.0;
+				float2 texCoord2_g740 = IN.ase_texcoord4.xy * float2( 1,1 ) + float2( 0,0 );
+				float temp_output_3_0_g740 = 4.0;
+				float temp_output_7_0_g740 = 4.0;
+				float temp_output_9_0_g740 = 3.0;
+				float temp_output_8_0_g740 = 4.0;
+				float2 texCoord2_g720 = IN.ase_texcoord4.xy * float2( 1,1 ) + float2( 0,0 );
+				float temp_output_3_0_g720 = 1.0;
+				float temp_output_7_0_g720 = 4.0;
+				float temp_output_9_0_g720 = 2.0;
+				float temp_output_8_0_g720 = 4.0;
 				float2 texCoord2_g743 = IN.ase_texcoord4.xy * float2( 1,1 ) + float2( 0,0 );
 				float temp_output_3_0_g743 = 2.0;
 				float temp_output_7_0_g743 = 4.0;
 				float temp_output_9_0_g743 = 2.0;
 				float temp_output_8_0_g743 = 4.0;
+				float2 texCoord2_g723 = IN.ase_texcoord4.xy * float2( 1,1 ) + float2( 0,0 );
+				float temp_output_3_0_g723 = 3.0;
+				float temp_output_7_0_g723 = 4.0;
+				float temp_output_9_0_g723 = 2.0;
+				float temp_output_8_0_g723 = 4.0;
+				float2 texCoord2_g721 = IN.ase_texcoord4.xy * float2( 1,1 ) + float2( 0,0 );
+				float temp_output_3_0_g721 = 4.0;
+				float temp_output_7_0_g721 = 4.0;
+				float temp_output_9_0_g721 = 2.0;
+				float temp_output_8_0_g721 = 4.0;
+				float2 texCoord2_g742 = IN.ase_texcoord4.xy * float2( 1,1 ) + float2( 0,0 );
+				float temp_output_3_0_g742 = 1.0;
+				float temp_output_7_0_g742 = 4.0;
+				float temp_output_9_0_g742 = 1.0;
+				float temp_output_8_0_g742 = 4.0;
+				float2 texCoord2_g724 = IN.ase_texcoord4.xy * float2( 1,1 ) + float2( 0,0 );
+				float temp_output_3_0_g724 = 2.0;
+				float temp_output_7_0_g724 = 4.0;
+				float temp_output_9_0_g724 = 1.0;
+				float temp_output_8_0_g724 = 4.0;
+				float2 texCoord2_g733 = IN.ase_texcoord4.xy * float2( 1,1 ) + float2( 0,0 );
+				float temp_output_3_0_g733 = 3.0;
+				float temp_output_7_0_g733 = 4.0;
+				float temp_output_9_0_g733 = 1.0;
+				float temp_output_8_0_g733 = 4.0;
 				float2 texCoord2_g737 = IN.ase_texcoord4.xy * float2( 1,1 ) + float2( 0,0 );
-				float temp_output_3_0_g737 = 3.0;
+				float temp_output_3_0_g737 = 4.0;
 				float temp_output_7_0_g737 = 4.0;
-				float temp_output_9_0_g737 = 2.0;
+				float temp_output_9_0_g737 = 1.0;
 				float temp_output_8_0_g737 = 4.0;
-				float2 texCoord2_g738 = IN.ase_texcoord4.xy * float2( 1,1 ) + float2( 0,0 );
-				float temp_output_3_0_g738 = 4.0;
-				float temp_output_7_0_g738 = 4.0;
-				float temp_output_9_0_g738 = 2.0;
-				float temp_output_8_0_g738 = 4.0;
+				float4 temp_output_155_0 = ( ( ( _Color1 * ( ( ( 1.0 - step( texCoord2_g735.x , ( ( temp_output_3_0_g735 - 1.0 ) / temp_output_7_0_g735 ) ) ) * ( step( texCoord2_g735.x , ( temp_output_3_0_g735 / temp_output_7_0_g735 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g735.y , ( ( temp_output_9_0_g735 - 1.0 ) / temp_output_8_0_g735 ) ) ) * ( step( texCoord2_g735.y , ( temp_output_9_0_g735 / temp_output_8_0_g735 ) ) * 1.0 ) ) ) ) + ( _Color2 * ( ( ( 1.0 - step( texCoord2_g739.x , ( ( temp_output_3_0_g739 - 1.0 ) / temp_output_7_0_g739 ) ) ) * ( step( texCoord2_g739.x , ( temp_output_3_0_g739 / temp_output_7_0_g739 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g739.y , ( ( temp_output_9_0_g739 - 1.0 ) / temp_output_8_0_g739 ) ) ) * ( step( texCoord2_g739.y , ( temp_output_9_0_g739 / temp_output_8_0_g739 ) ) * 1.0 ) ) ) ) + ( _Color3 * ( ( ( 1.0 - step( texCoord2_g738.x , ( ( temp_output_3_0_g738 - 1.0 ) / temp_output_7_0_g738 ) ) ) * ( step( texCoord2_g738.x , ( temp_output_3_0_g738 / temp_output_7_0_g738 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g738.y , ( ( temp_output_9_0_g738 - 1.0 ) / temp_output_8_0_g738 ) ) ) * ( step( texCoord2_g738.y , ( temp_output_9_0_g738 / temp_output_8_0_g738 ) ) * 1.0 ) ) ) ) + ( _Color4 * ( ( ( 1.0 - step( texCoord2_g736.x , ( ( temp_output_3_0_g736 - 1.0 ) / temp_output_7_0_g736 ) ) ) * ( step( texCoord2_g736.x , ( temp_output_3_0_g736 / temp_output_7_0_g736 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g736.y , ( ( temp_output_9_0_g736 - 1.0 ) / temp_output_8_0_g736 ) ) ) * ( step( texCoord2_g736.y , ( temp_output_9_0_g736 / temp_output_8_0_g736 ) ) * 1.0 ) ) ) ) ) + ( ( _Color5 * ( ( ( 1.0 - step( texCoord2_g741.x , ( ( temp_output_3_0_g741 - 1.0 ) / temp_output_7_0_g741 ) ) ) * ( step( texCoord2_g741.x , ( temp_output_3_0_g741 / temp_output_7_0_g741 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g741.y , ( ( temp_output_9_0_g741 - 1.0 ) / temp_output_8_0_g741 ) ) ) * ( step( texCoord2_g741.y , ( temp_output_9_0_g741 / temp_output_8_0_g741 ) ) * 1.0 ) ) ) ) + ( _Color6 * ( ( ( 1.0 - step( texCoord2_g722.x , ( ( temp_output_3_0_g722 - 1.0 ) / temp_output_7_0_g722 ) ) ) * ( step( texCoord2_g722.x , ( temp_output_3_0_g722 / temp_output_7_0_g722 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g722.y , ( ( temp_output_9_0_g722 - 1.0 ) / temp_output_8_0_g722 ) ) ) * ( step( texCoord2_g722.y , ( temp_output_9_0_g722 / temp_output_8_0_g722 ) ) * 1.0 ) ) ) ) + ( _Color7 * ( ( ( 1.0 - step( texCoord2_g734.x , ( ( temp_output_3_0_g734 - 1.0 ) / temp_output_7_0_g734 ) ) ) * ( step( texCoord2_g734.x , ( temp_output_3_0_g734 / temp_output_7_0_g734 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g734.y , ( ( temp_output_9_0_g734 - 1.0 ) / temp_output_8_0_g734 ) ) ) * ( step( texCoord2_g734.y , ( temp_output_9_0_g734 / temp_output_8_0_g734 ) ) * 1.0 ) ) ) ) + ( _Color8 * ( ( ( 1.0 - step( texCoord2_g740.x , ( ( temp_output_3_0_g740 - 1.0 ) / temp_output_7_0_g740 ) ) ) * ( step( texCoord2_g740.x , ( temp_output_3_0_g740 / temp_output_7_0_g740 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g740.y , ( ( temp_output_9_0_g740 - 1.0 ) / temp_output_8_0_g740 ) ) ) * ( step( texCoord2_g740.y , ( temp_output_9_0_g740 / temp_output_8_0_g740 ) ) * 1.0 ) ) ) ) ) + ( ( _Color9 * ( ( ( 1.0 - step( texCoord2_g720.x , ( ( temp_output_3_0_g720 - 1.0 ) / temp_output_7_0_g720 ) ) ) * ( step( texCoord2_g720.x , ( temp_output_3_0_g720 / temp_output_7_0_g720 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g720.y , ( ( temp_output_9_0_g720 - 1.0 ) / temp_output_8_0_g720 ) ) ) * ( step( texCoord2_g720.y , ( temp_output_9_0_g720 / temp_output_8_0_g720 ) ) * 1.0 ) ) ) ) + ( _Color10 * ( ( ( 1.0 - step( texCoord2_g743.x , ( ( temp_output_3_0_g743 - 1.0 ) / temp_output_7_0_g743 ) ) ) * ( step( texCoord2_g743.x , ( temp_output_3_0_g743 / temp_output_7_0_g743 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g743.y , ( ( temp_output_9_0_g743 - 1.0 ) / temp_output_8_0_g743 ) ) ) * ( step( texCoord2_g743.y , ( temp_output_9_0_g743 / temp_output_8_0_g743 ) ) * 1.0 ) ) ) ) + ( _Color11 * ( ( ( 1.0 - step( texCoord2_g723.x , ( ( temp_output_3_0_g723 - 1.0 ) / temp_output_7_0_g723 ) ) ) * ( step( texCoord2_g723.x , ( temp_output_3_0_g723 / temp_output_7_0_g723 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g723.y , ( ( temp_output_9_0_g723 - 1.0 ) / temp_output_8_0_g723 ) ) ) * ( step( texCoord2_g723.y , ( temp_output_9_0_g723 / temp_output_8_0_g723 ) ) * 1.0 ) ) ) ) + ( _Color12 * ( ( ( 1.0 - step( texCoord2_g721.x , ( ( temp_output_3_0_g721 - 1.0 ) / temp_output_7_0_g721 ) ) ) * ( step( texCoord2_g721.x , ( temp_output_3_0_g721 / temp_output_7_0_g721 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g721.y , ( ( temp_output_9_0_g721 - 1.0 ) / temp_output_8_0_g721 ) ) ) * ( step( texCoord2_g721.y , ( temp_output_9_0_g721 / temp_output_8_0_g721 ) ) * 1.0 ) ) ) ) ) + ( ( _Color13 * ( ( ( 1.0 - step( texCoord2_g742.x , ( ( temp_output_3_0_g742 - 1.0 ) / temp_output_7_0_g742 ) ) ) * ( step( texCoord2_g742.x , ( temp_output_3_0_g742 / temp_output_7_0_g742 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g742.y , ( ( temp_output_9_0_g742 - 1.0 ) / temp_output_8_0_g742 ) ) ) * ( step( texCoord2_g742.y , ( temp_output_9_0_g742 / temp_output_8_0_g742 ) ) * 1.0 ) ) ) ) + ( _Color14 * ( ( ( 1.0 - step( texCoord2_g724.x , ( ( temp_output_3_0_g724 - 1.0 ) / temp_output_7_0_g724 ) ) ) * ( step( texCoord2_g724.x , ( temp_output_3_0_g724 / temp_output_7_0_g724 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g724.y , ( ( temp_output_9_0_g724 - 1.0 ) / temp_output_8_0_g724 ) ) ) * ( step( texCoord2_g724.y , ( temp_output_9_0_g724 / temp_output_8_0_g724 ) ) * 1.0 ) ) ) ) + ( _Color15 * ( ( ( 1.0 - step( texCoord2_g733.x , ( ( temp_output_3_0_g733 - 1.0 ) / temp_output_7_0_g733 ) ) ) * ( step( texCoord2_g733.x , ( temp_output_3_0_g733 / temp_output_7_0_g733 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g733.y , ( ( temp_output_9_0_g733 - 1.0 ) / temp_output_8_0_g733 ) ) ) * ( step( texCoord2_g733.y , ( temp_output_9_0_g733 / temp_output_8_0_g733 ) ) * 1.0 ) ) ) ) + ( _Color16 * ( ( ( 1.0 - step( texCoord2_g737.x , ( ( temp_output_3_0_g737 - 1.0 ) / temp_output_7_0_g737 ) ) ) * ( step( texCoord2_g737.x , ( temp_output_3_0_g737 / temp_output_7_0_g737 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g737.y , ( ( temp_output_9_0_g737 - 1.0 ) / temp_output_8_0_g737 ) ) ) * ( step( texCoord2_g737.y , ( temp_output_9_0_g737 / temp_output_8_0_g737 ) ) * 1.0 ) ) ) ) ) );
+				float4 clampResult261 = clamp( ( pow( saferPower258 , temp_cast_0 ) + ( 1.0 - (temp_output_155_0).a ) ) , float4( 0,0,0,0 ) , float4( 1,1,1,1 ) );
+				
+				float2 texCoord2_g753 = IN.ase_texcoord4.xy * float2( 1,1 ) + float2( 0,0 );
+				float temp_output_3_0_g753 = 1.0;
+				float temp_output_7_0_g753 = 4.0;
+				float temp_output_9_0_g753 = 4.0;
+				float temp_output_8_0_g753 = 4.0;
+				float2 texCoord2_g759 = IN.ase_texcoord4.xy * float2( 1,1 ) + float2( 0,0 );
+				float temp_output_3_0_g759 = 2.0;
+				float temp_output_7_0_g759 = 4.0;
+				float temp_output_9_0_g759 = 4.0;
+				float temp_output_8_0_g759 = 4.0;
+				float2 texCoord2_g752 = IN.ase_texcoord4.xy * float2( 1,1 ) + float2( 0,0 );
+				float temp_output_3_0_g752 = 3.0;
+				float temp_output_7_0_g752 = 4.0;
+				float temp_output_9_0_g752 = 4.0;
+				float temp_output_8_0_g752 = 4.0;
+				float2 texCoord2_g750 = IN.ase_texcoord4.xy * float2( 1,1 ) + float2( 0,0 );
+				float temp_output_3_0_g750 = 4.0;
+				float temp_output_7_0_g750 = 4.0;
+				float temp_output_9_0_g750 = 4.0;
+				float temp_output_8_0_g750 = 4.0;
+				float2 texCoord2_g751 = IN.ase_texcoord4.xy * float2( 1,1 ) + float2( 0,0 );
+				float temp_output_3_0_g751 = 1.0;
+				float temp_output_7_0_g751 = 4.0;
+				float temp_output_9_0_g751 = 3.0;
+				float temp_output_8_0_g751 = 4.0;
+				float2 texCoord2_g755 = IN.ase_texcoord4.xy * float2( 1,1 ) + float2( 0,0 );
+				float temp_output_3_0_g755 = 2.0;
+				float temp_output_7_0_g755 = 4.0;
+				float temp_output_9_0_g755 = 3.0;
+				float temp_output_8_0_g755 = 4.0;
+				float2 texCoord2_g758 = IN.ase_texcoord4.xy * float2( 1,1 ) + float2( 0,0 );
+				float temp_output_3_0_g758 = 3.0;
+				float temp_output_7_0_g758 = 4.0;
+				float temp_output_9_0_g758 = 3.0;
+				float temp_output_8_0_g758 = 4.0;
+				float2 texCoord2_g748 = IN.ase_texcoord4.xy * float2( 1,1 ) + float2( 0,0 );
+				float temp_output_3_0_g748 = 4.0;
+				float temp_output_7_0_g748 = 4.0;
+				float temp_output_9_0_g748 = 3.0;
+				float temp_output_8_0_g748 = 4.0;
+				float2 texCoord2_g756 = IN.ase_texcoord4.xy * float2( 1,1 ) + float2( 0,0 );
+				float temp_output_3_0_g756 = 1.0;
+				float temp_output_7_0_g756 = 4.0;
+				float temp_output_9_0_g756 = 2.0;
+				float temp_output_8_0_g756 = 4.0;
+				float2 texCoord2_g749 = IN.ase_texcoord4.xy * float2( 1,1 ) + float2( 0,0 );
+				float temp_output_3_0_g749 = 2.0;
+				float temp_output_7_0_g749 = 4.0;
+				float temp_output_9_0_g749 = 2.0;
+				float temp_output_8_0_g749 = 4.0;
+				float2 texCoord2_g754 = IN.ase_texcoord4.xy * float2( 1,1 ) + float2( 0,0 );
+				float temp_output_3_0_g754 = 3.0;
+				float temp_output_7_0_g754 = 4.0;
+				float temp_output_9_0_g754 = 2.0;
+				float temp_output_8_0_g754 = 4.0;
+				float2 texCoord2_g757 = IN.ase_texcoord4.xy * float2( 1,1 ) + float2( 0,0 );
+				float temp_output_3_0_g757 = 4.0;
+				float temp_output_7_0_g757 = 4.0;
+				float temp_output_9_0_g757 = 2.0;
+				float temp_output_8_0_g757 = 4.0;
 				float2 texCoord2_g745 = IN.ase_texcoord4.xy * float2( 1,1 ) + float2( 0,0 );
 				float temp_output_3_0_g745 = 1.0;
 				float temp_output_7_0_g745 = 4.0;
 				float temp_output_9_0_g745 = 1.0;
 				float temp_output_8_0_g745 = 4.0;
-				float2 texCoord2_g744 = IN.ase_texcoord4.xy * float2( 1,1 ) + float2( 0,0 );
-				float temp_output_3_0_g744 = 2.0;
-				float temp_output_7_0_g744 = 4.0;
-				float temp_output_9_0_g744 = 1.0;
-				float temp_output_8_0_g744 = 4.0;
-				float2 texCoord2_g742 = IN.ase_texcoord4.xy * float2( 1,1 ) + float2( 0,0 );
-				float temp_output_3_0_g742 = 3.0;
-				float temp_output_7_0_g742 = 4.0;
-				float temp_output_9_0_g742 = 1.0;
-				float temp_output_8_0_g742 = 4.0;
 				float2 texCoord2_g747 = IN.ase_texcoord4.xy * float2( 1,1 ) + float2( 0,0 );
-				float temp_output_3_0_g747 = 4.0;
+				float temp_output_3_0_g747 = 2.0;
 				float temp_output_7_0_g747 = 4.0;
 				float temp_output_9_0_g747 = 1.0;
 				float temp_output_8_0_g747 = 4.0;
-				float4 temp_output_344_0 = ( ( ( _MRE1 * ( ( ( 1.0 - step( texCoord2_g739.x , ( ( temp_output_3_0_g739 - 1.0 ) / temp_output_7_0_g739 ) ) ) * ( step( texCoord2_g739.x , ( temp_output_3_0_g739 / temp_output_7_0_g739 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g739.y , ( ( temp_output_9_0_g739 - 1.0 ) / temp_output_8_0_g739 ) ) ) * ( step( texCoord2_g739.y , ( temp_output_9_0_g739 / temp_output_8_0_g739 ) ) * 1.0 ) ) ) ) + ( _MRE2 * ( ( ( 1.0 - step( texCoord2_g751.x , ( ( temp_output_3_0_g751 - 1.0 ) / temp_output_7_0_g751 ) ) ) * ( step( texCoord2_g751.x , ( temp_output_3_0_g751 / temp_output_7_0_g751 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g751.y , ( ( temp_output_9_0_g751 - 1.0 ) / temp_output_8_0_g751 ) ) ) * ( step( texCoord2_g751.y , ( temp_output_9_0_g751 / temp_output_8_0_g751 ) ) * 1.0 ) ) ) ) + ( _MRE3 * ( ( ( 1.0 - step( texCoord2_g740.x , ( ( temp_output_3_0_g740 - 1.0 ) / temp_output_7_0_g740 ) ) ) * ( step( texCoord2_g740.x , ( temp_output_3_0_g740 / temp_output_7_0_g740 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g740.y , ( ( temp_output_9_0_g740 - 1.0 ) / temp_output_8_0_g740 ) ) ) * ( step( texCoord2_g740.y , ( temp_output_9_0_g740 / temp_output_8_0_g740 ) ) * 1.0 ) ) ) ) + ( _MRE4 * ( ( ( 1.0 - step( texCoord2_g749.x , ( ( temp_output_3_0_g749 - 1.0 ) / temp_output_7_0_g749 ) ) ) * ( step( texCoord2_g749.x , ( temp_output_3_0_g749 / temp_output_7_0_g749 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g749.y , ( ( temp_output_9_0_g749 - 1.0 ) / temp_output_8_0_g749 ) ) ) * ( step( texCoord2_g749.y , ( temp_output_9_0_g749 / temp_output_8_0_g749 ) ) * 1.0 ) ) ) ) ) + ( ( _MRE5 * ( ( ( 1.0 - step( texCoord2_g746.x , ( ( temp_output_3_0_g746 - 1.0 ) / temp_output_7_0_g746 ) ) ) * ( step( texCoord2_g746.x , ( temp_output_3_0_g746 / temp_output_7_0_g746 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g746.y , ( ( temp_output_9_0_g746 - 1.0 ) / temp_output_8_0_g746 ) ) ) * ( step( texCoord2_g746.y , ( temp_output_9_0_g746 / temp_output_8_0_g746 ) ) * 1.0 ) ) ) ) + ( _MRE6 * ( ( ( 1.0 - step( texCoord2_g741.x , ( ( temp_output_3_0_g741 - 1.0 ) / temp_output_7_0_g741 ) ) ) * ( step( texCoord2_g741.x , ( temp_output_3_0_g741 / temp_output_7_0_g741 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g741.y , ( ( temp_output_9_0_g741 - 1.0 ) / temp_output_8_0_g741 ) ) ) * ( step( texCoord2_g741.y , ( temp_output_9_0_g741 / temp_output_8_0_g741 ) ) * 1.0 ) ) ) ) + ( _MRE7 * ( ( ( 1.0 - step( texCoord2_g750.x , ( ( temp_output_3_0_g750 - 1.0 ) / temp_output_7_0_g750 ) ) ) * ( step( texCoord2_g750.x , ( temp_output_3_0_g750 / temp_output_7_0_g750 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g750.y , ( ( temp_output_9_0_g750 - 1.0 ) / temp_output_8_0_g750 ) ) ) * ( step( texCoord2_g750.y , ( temp_output_9_0_g750 / temp_output_8_0_g750 ) ) * 1.0 ) ) ) ) + ( _MRE8 * ( ( ( 1.0 - step( texCoord2_g736.x , ( ( temp_output_3_0_g736 - 1.0 ) / temp_output_7_0_g736 ) ) ) * ( step( texCoord2_g736.x , ( temp_output_3_0_g736 / temp_output_7_0_g736 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g736.y , ( ( temp_output_9_0_g736 - 1.0 ) / temp_output_8_0_g736 ) ) ) * ( step( texCoord2_g736.y , ( temp_output_9_0_g736 / temp_output_8_0_g736 ) ) * 1.0 ) ) ) ) ) + ( ( _MRE9 * ( ( ( 1.0 - step( texCoord2_g748.x , ( ( temp_output_3_0_g748 - 1.0 ) / temp_output_7_0_g748 ) ) ) * ( step( texCoord2_g748.x , ( temp_output_3_0_g748 / temp_output_7_0_g748 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g748.y , ( ( temp_output_9_0_g748 - 1.0 ) / temp_output_8_0_g748 ) ) ) * ( step( texCoord2_g748.y , ( temp_output_9_0_g748 / temp_output_8_0_g748 ) ) * 1.0 ) ) ) ) + ( _MRE10 * ( ( ( 1.0 - step( texCoord2_g743.x , ( ( temp_output_3_0_g743 - 1.0 ) / temp_output_7_0_g743 ) ) ) * ( step( texCoord2_g743.x , ( temp_output_3_0_g743 / temp_output_7_0_g743 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g743.y , ( ( temp_output_9_0_g743 - 1.0 ) / temp_output_8_0_g743 ) ) ) * ( step( texCoord2_g743.y , ( temp_output_9_0_g743 / temp_output_8_0_g743 ) ) * 1.0 ) ) ) ) + ( _MRE11 * ( ( ( 1.0 - step( texCoord2_g737.x , ( ( temp_output_3_0_g737 - 1.0 ) / temp_output_7_0_g737 ) ) ) * ( step( texCoord2_g737.x , ( temp_output_3_0_g737 / temp_output_7_0_g737 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g737.y , ( ( temp_output_9_0_g737 - 1.0 ) / temp_output_8_0_g737 ) ) ) * ( step( texCoord2_g737.y , ( temp_output_9_0_g737 / temp_output_8_0_g737 ) ) * 1.0 ) ) ) ) + ( _MRE12 * ( ( ( 1.0 - step( texCoord2_g738.x , ( ( temp_output_3_0_g738 - 1.0 ) / temp_output_7_0_g738 ) ) ) * ( step( texCoord2_g738.x , ( temp_output_3_0_g738 / temp_output_7_0_g738 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g738.y , ( ( temp_output_9_0_g738 - 1.0 ) / temp_output_8_0_g738 ) ) ) * ( step( texCoord2_g738.y , ( temp_output_9_0_g738 / temp_output_8_0_g738 ) ) * 1.0 ) ) ) ) ) + ( ( _MRE13 * ( ( ( 1.0 - step( texCoord2_g745.x , ( ( temp_output_3_0_g745 - 1.0 ) / temp_output_7_0_g745 ) ) ) * ( step( texCoord2_g745.x , ( temp_output_3_0_g745 / temp_output_7_0_g745 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g745.y , ( ( temp_output_9_0_g745 - 1.0 ) / temp_output_8_0_g745 ) ) ) * ( step( texCoord2_g745.y , ( temp_output_9_0_g745 / temp_output_8_0_g745 ) ) * 1.0 ) ) ) ) + ( _MRE14 * ( ( ( 1.0 - step( texCoord2_g744.x , ( ( temp_output_3_0_g744 - 1.0 ) / temp_output_7_0_g744 ) ) ) * ( step( texCoord2_g744.x , ( temp_output_3_0_g744 / temp_output_7_0_g744 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g744.y , ( ( temp_output_9_0_g744 - 1.0 ) / temp_output_8_0_g744 ) ) ) * ( step( texCoord2_g744.y , ( temp_output_9_0_g744 / temp_output_8_0_g744 ) ) * 1.0 ) ) ) ) + ( _MRE15 * ( ( ( 1.0 - step( texCoord2_g742.x , ( ( temp_output_3_0_g742 - 1.0 ) / temp_output_7_0_g742 ) ) ) * ( step( texCoord2_g742.x , ( temp_output_3_0_g742 / temp_output_7_0_g742 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g742.y , ( ( temp_output_9_0_g742 - 1.0 ) / temp_output_8_0_g742 ) ) ) * ( step( texCoord2_g742.y , ( temp_output_9_0_g742 / temp_output_8_0_g742 ) ) * 1.0 ) ) ) ) + ( _MRE16 * ( ( ( 1.0 - step( texCoord2_g747.x , ( ( temp_output_3_0_g747 - 1.0 ) / temp_output_7_0_g747 ) ) ) * ( step( texCoord2_g747.x , ( temp_output_3_0_g747 / temp_output_7_0_g747 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g747.y , ( ( temp_output_9_0_g747 - 1.0 ) / temp_output_8_0_g747 ) ) ) * ( step( texCoord2_g747.y , ( temp_output_9_0_g747 / temp_output_8_0_g747 ) ) * 1.0 ) ) ) ) ) );
+				float2 texCoord2_g746 = IN.ase_texcoord4.xy * float2( 1,1 ) + float2( 0,0 );
+				float temp_output_3_0_g746 = 3.0;
+				float temp_output_7_0_g746 = 4.0;
+				float temp_output_9_0_g746 = 1.0;
+				float temp_output_8_0_g746 = 4.0;
+				float2 texCoord2_g744 = IN.ase_texcoord4.xy * float2( 1,1 ) + float2( 0,0 );
+				float temp_output_3_0_g744 = 4.0;
+				float temp_output_7_0_g744 = 4.0;
+				float temp_output_9_0_g744 = 1.0;
+				float temp_output_8_0_g744 = 4.0;
+				float4 temp_output_283_0 = ( ( ( _MRE1 * ( ( ( 1.0 - step( texCoord2_g753.x , ( ( temp_output_3_0_g753 - 1.0 ) / temp_output_7_0_g753 ) ) ) * ( step( texCoord2_g753.x , ( temp_output_3_0_g753 / temp_output_7_0_g753 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g753.y , ( ( temp_output_9_0_g753 - 1.0 ) / temp_output_8_0_g753 ) ) ) * ( step( texCoord2_g753.y , ( temp_output_9_0_g753 / temp_output_8_0_g753 ) ) * 1.0 ) ) ) ) + ( _MRE2 * ( ( ( 1.0 - step( texCoord2_g759.x , ( ( temp_output_3_0_g759 - 1.0 ) / temp_output_7_0_g759 ) ) ) * ( step( texCoord2_g759.x , ( temp_output_3_0_g759 / temp_output_7_0_g759 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g759.y , ( ( temp_output_9_0_g759 - 1.0 ) / temp_output_8_0_g759 ) ) ) * ( step( texCoord2_g759.y , ( temp_output_9_0_g759 / temp_output_8_0_g759 ) ) * 1.0 ) ) ) ) + ( _MRE3 * ( ( ( 1.0 - step( texCoord2_g752.x , ( ( temp_output_3_0_g752 - 1.0 ) / temp_output_7_0_g752 ) ) ) * ( step( texCoord2_g752.x , ( temp_output_3_0_g752 / temp_output_7_0_g752 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g752.y , ( ( temp_output_9_0_g752 - 1.0 ) / temp_output_8_0_g752 ) ) ) * ( step( texCoord2_g752.y , ( temp_output_9_0_g752 / temp_output_8_0_g752 ) ) * 1.0 ) ) ) ) + ( _MRE4 * ( ( ( 1.0 - step( texCoord2_g750.x , ( ( temp_output_3_0_g750 - 1.0 ) / temp_output_7_0_g750 ) ) ) * ( step( texCoord2_g750.x , ( temp_output_3_0_g750 / temp_output_7_0_g750 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g750.y , ( ( temp_output_9_0_g750 - 1.0 ) / temp_output_8_0_g750 ) ) ) * ( step( texCoord2_g750.y , ( temp_output_9_0_g750 / temp_output_8_0_g750 ) ) * 1.0 ) ) ) ) ) + ( ( _MRE5 * ( ( ( 1.0 - step( texCoord2_g751.x , ( ( temp_output_3_0_g751 - 1.0 ) / temp_output_7_0_g751 ) ) ) * ( step( texCoord2_g751.x , ( temp_output_3_0_g751 / temp_output_7_0_g751 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g751.y , ( ( temp_output_9_0_g751 - 1.0 ) / temp_output_8_0_g751 ) ) ) * ( step( texCoord2_g751.y , ( temp_output_9_0_g751 / temp_output_8_0_g751 ) ) * 1.0 ) ) ) ) + ( _MRE6 * ( ( ( 1.0 - step( texCoord2_g755.x , ( ( temp_output_3_0_g755 - 1.0 ) / temp_output_7_0_g755 ) ) ) * ( step( texCoord2_g755.x , ( temp_output_3_0_g755 / temp_output_7_0_g755 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g755.y , ( ( temp_output_9_0_g755 - 1.0 ) / temp_output_8_0_g755 ) ) ) * ( step( texCoord2_g755.y , ( temp_output_9_0_g755 / temp_output_8_0_g755 ) ) * 1.0 ) ) ) ) + ( _MRE7 * ( ( ( 1.0 - step( texCoord2_g758.x , ( ( temp_output_3_0_g758 - 1.0 ) / temp_output_7_0_g758 ) ) ) * ( step( texCoord2_g758.x , ( temp_output_3_0_g758 / temp_output_7_0_g758 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g758.y , ( ( temp_output_9_0_g758 - 1.0 ) / temp_output_8_0_g758 ) ) ) * ( step( texCoord2_g758.y , ( temp_output_9_0_g758 / temp_output_8_0_g758 ) ) * 1.0 ) ) ) ) + ( _MRE8 * ( ( ( 1.0 - step( texCoord2_g748.x , ( ( temp_output_3_0_g748 - 1.0 ) / temp_output_7_0_g748 ) ) ) * ( step( texCoord2_g748.x , ( temp_output_3_0_g748 / temp_output_7_0_g748 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g748.y , ( ( temp_output_9_0_g748 - 1.0 ) / temp_output_8_0_g748 ) ) ) * ( step( texCoord2_g748.y , ( temp_output_9_0_g748 / temp_output_8_0_g748 ) ) * 1.0 ) ) ) ) ) + ( ( _MRE9 * ( ( ( 1.0 - step( texCoord2_g756.x , ( ( temp_output_3_0_g756 - 1.0 ) / temp_output_7_0_g756 ) ) ) * ( step( texCoord2_g756.x , ( temp_output_3_0_g756 / temp_output_7_0_g756 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g756.y , ( ( temp_output_9_0_g756 - 1.0 ) / temp_output_8_0_g756 ) ) ) * ( step( texCoord2_g756.y , ( temp_output_9_0_g756 / temp_output_8_0_g756 ) ) * 1.0 ) ) ) ) + ( _MRE10 * ( ( ( 1.0 - step( texCoord2_g749.x , ( ( temp_output_3_0_g749 - 1.0 ) / temp_output_7_0_g749 ) ) ) * ( step( texCoord2_g749.x , ( temp_output_3_0_g749 / temp_output_7_0_g749 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g749.y , ( ( temp_output_9_0_g749 - 1.0 ) / temp_output_8_0_g749 ) ) ) * ( step( texCoord2_g749.y , ( temp_output_9_0_g749 / temp_output_8_0_g749 ) ) * 1.0 ) ) ) ) + ( _MRE11 * ( ( ( 1.0 - step( texCoord2_g754.x , ( ( temp_output_3_0_g754 - 1.0 ) / temp_output_7_0_g754 ) ) ) * ( step( texCoord2_g754.x , ( temp_output_3_0_g754 / temp_output_7_0_g754 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g754.y , ( ( temp_output_9_0_g754 - 1.0 ) / temp_output_8_0_g754 ) ) ) * ( step( texCoord2_g754.y , ( temp_output_9_0_g754 / temp_output_8_0_g754 ) ) * 1.0 ) ) ) ) + ( _MRE12 * ( ( ( 1.0 - step( texCoord2_g757.x , ( ( temp_output_3_0_g757 - 1.0 ) / temp_output_7_0_g757 ) ) ) * ( step( texCoord2_g757.x , ( temp_output_3_0_g757 / temp_output_7_0_g757 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g757.y , ( ( temp_output_9_0_g757 - 1.0 ) / temp_output_8_0_g757 ) ) ) * ( step( texCoord2_g757.y , ( temp_output_9_0_g757 / temp_output_8_0_g757 ) ) * 1.0 ) ) ) ) ) + ( ( _MRE13 * ( ( ( 1.0 - step( texCoord2_g745.x , ( ( temp_output_3_0_g745 - 1.0 ) / temp_output_7_0_g745 ) ) ) * ( step( texCoord2_g745.x , ( temp_output_3_0_g745 / temp_output_7_0_g745 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g745.y , ( ( temp_output_9_0_g745 - 1.0 ) / temp_output_8_0_g745 ) ) ) * ( step( texCoord2_g745.y , ( temp_output_9_0_g745 / temp_output_8_0_g745 ) ) * 1.0 ) ) ) ) + ( _MRE14 * ( ( ( 1.0 - step( texCoord2_g747.x , ( ( temp_output_3_0_g747 - 1.0 ) / temp_output_7_0_g747 ) ) ) * ( step( texCoord2_g747.x , ( temp_output_3_0_g747 / temp_output_7_0_g747 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g747.y , ( ( temp_output_9_0_g747 - 1.0 ) / temp_output_8_0_g747 ) ) ) * ( step( texCoord2_g747.y , ( temp_output_9_0_g747 / temp_output_8_0_g747 ) ) * 1.0 ) ) ) ) + ( _MRE15 * ( ( ( 1.0 - step( texCoord2_g746.x , ( ( temp_output_3_0_g746 - 1.0 ) / temp_output_7_0_g746 ) ) ) * ( step( texCoord2_g746.x , ( temp_output_3_0_g746 / temp_output_7_0_g746 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g746.y , ( ( temp_output_9_0_g746 - 1.0 ) / temp_output_8_0_g746 ) ) ) * ( step( texCoord2_g746.y , ( temp_output_9_0_g746 / temp_output_8_0_g746 ) ) * 1.0 ) ) ) ) + ( _MRE16 * ( ( ( 1.0 - step( texCoord2_g744.x , ( ( temp_output_3_0_g744 - 1.0 ) / temp_output_7_0_g744 ) ) ) * ( step( texCoord2_g744.x , ( temp_output_3_0_g744 / temp_output_7_0_g744 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g744.y , ( ( temp_output_9_0_g744 - 1.0 ) / temp_output_8_0_g744 ) ) ) * ( step( texCoord2_g744.y , ( temp_output_9_0_g744 / temp_output_8_0_g744 ) ) * 1.0 ) ) ) ) ) );
 				
 
-				float3 BaseColor = ( clampResult348 * temp_output_329_0 ).rgb;
-				float3 Emission = ( temp_output_329_0 * ( _EmissionPower1 * (temp_output_344_0).b ) ).rgb;
+				float3 BaseColor = ( clampResult261 * temp_output_155_0 ).rgb;
+				float3 Emission = ( temp_output_155_0 * ( _EmissionPower1 * (temp_output_283_0).b ) ).rgb;
 				float Alpha = 1;
 				float AlphaClipThreshold = 0.5;
 
@@ -2469,95 +2469,95 @@ Shader "Malbers/Color4x4"
 					#endif
 				#endif
 
-				float2 texCoord256 = IN.ase_texcoord2.xy * float2( 1,4 ) + float2( 0,0 );
-				float4 clampResult328 = clamp( ( ( tex2D( _Gradient, texCoord256 ) + _GradientColor ) + ( 1.0 - _GradientIntensity ) ) , float4( 0,0,0,0 ) , float4( 1,1,1,0 ) );
-				float4 saferPower342 = abs( (clampResult328*_GradientScale + _GradientOffset) );
+				float2 texCoord255 = IN.ase_texcoord2.xy * float2( 1,4 ) + float2( 0,0 );
+				float4 clampResult234 = clamp( ( ( tex2D( _Gradient, texCoord255 ) + _GradientColor ) + ( 1.0 - _GradientIntensity ) ) , float4( 0,0,0,0 ) , float4( 1,1,1,0 ) );
+				float4 saferPower258 = abs( (clampResult234*_GradientScale + _GradientOffset) );
 				float4 temp_cast_0 = (_GradientPower).xxxx;
-				float2 texCoord2_g764 = IN.ase_texcoord2.xy * float2( 1,1 ) + float2( 0,0 );
-				float temp_output_3_0_g764 = 1.0;
-				float temp_output_7_0_g764 = 4.0;
-				float temp_output_9_0_g764 = 4.0;
-				float temp_output_8_0_g764 = 4.0;
-				float2 texCoord2_g766 = IN.ase_texcoord2.xy * float2( 1,1 ) + float2( 0,0 );
-				float temp_output_3_0_g766 = 2.0;
-				float temp_output_7_0_g766 = 4.0;
-				float temp_output_9_0_g766 = 4.0;
-				float temp_output_8_0_g766 = 4.0;
-				float2 texCoord2_g765 = IN.ase_texcoord2.xy * float2( 1,1 ) + float2( 0,0 );
-				float temp_output_3_0_g765 = 3.0;
-				float temp_output_7_0_g765 = 4.0;
-				float temp_output_9_0_g765 = 4.0;
-				float temp_output_8_0_g765 = 4.0;
-				float2 texCoord2_g763 = IN.ase_texcoord2.xy * float2( 1,1 ) + float2( 0,0 );
-				float temp_output_3_0_g763 = 4.0;
-				float temp_output_7_0_g763 = 4.0;
-				float temp_output_9_0_g763 = 4.0;
-				float temp_output_8_0_g763 = 4.0;
-				float2 texCoord2_g757 = IN.ase_texcoord2.xy * float2( 1,1 ) + float2( 0,0 );
-				float temp_output_3_0_g757 = 1.0;
-				float temp_output_7_0_g757 = 4.0;
-				float temp_output_9_0_g757 = 3.0;
-				float temp_output_8_0_g757 = 4.0;
-				float2 texCoord2_g752 = IN.ase_texcoord2.xy * float2( 1,1 ) + float2( 0,0 );
-				float temp_output_3_0_g752 = 2.0;
-				float temp_output_7_0_g752 = 4.0;
-				float temp_output_9_0_g752 = 3.0;
-				float temp_output_8_0_g752 = 4.0;
-				float2 texCoord2_g760 = IN.ase_texcoord2.xy * float2( 1,1 ) + float2( 0,0 );
-				float temp_output_3_0_g760 = 3.0;
-				float temp_output_7_0_g760 = 4.0;
-				float temp_output_9_0_g760 = 3.0;
-				float temp_output_8_0_g760 = 4.0;
-				float2 texCoord2_g753 = IN.ase_texcoord2.xy * float2( 1,1 ) + float2( 0,0 );
-				float temp_output_3_0_g753 = 4.0;
-				float temp_output_7_0_g753 = 4.0;
-				float temp_output_9_0_g753 = 3.0;
-				float temp_output_8_0_g753 = 4.0;
-				float2 texCoord2_g754 = IN.ase_texcoord2.xy * float2( 1,1 ) + float2( 0,0 );
-				float temp_output_3_0_g754 = 1.0;
-				float temp_output_7_0_g754 = 4.0;
-				float temp_output_9_0_g754 = 2.0;
-				float temp_output_8_0_g754 = 4.0;
-				float2 texCoord2_g767 = IN.ase_texcoord2.xy * float2( 1,1 ) + float2( 0,0 );
-				float temp_output_3_0_g767 = 2.0;
-				float temp_output_7_0_g767 = 4.0;
-				float temp_output_9_0_g767 = 2.0;
-				float temp_output_8_0_g767 = 4.0;
-				float2 texCoord2_g755 = IN.ase_texcoord2.xy * float2( 1,1 ) + float2( 0,0 );
-				float temp_output_3_0_g755 = 3.0;
-				float temp_output_7_0_g755 = 4.0;
-				float temp_output_9_0_g755 = 2.0;
-				float temp_output_8_0_g755 = 4.0;
-				float2 texCoord2_g761 = IN.ase_texcoord2.xy * float2( 1,1 ) + float2( 0,0 );
-				float temp_output_3_0_g761 = 4.0;
-				float temp_output_7_0_g761 = 4.0;
-				float temp_output_9_0_g761 = 2.0;
-				float temp_output_8_0_g761 = 4.0;
-				float2 texCoord2_g762 = IN.ase_texcoord2.xy * float2( 1,1 ) + float2( 0,0 );
-				float temp_output_3_0_g762 = 1.0;
-				float temp_output_7_0_g762 = 4.0;
-				float temp_output_9_0_g762 = 1.0;
-				float temp_output_8_0_g762 = 4.0;
-				float2 texCoord2_g758 = IN.ase_texcoord2.xy * float2( 1,1 ) + float2( 0,0 );
-				float temp_output_3_0_g758 = 2.0;
-				float temp_output_7_0_g758 = 4.0;
-				float temp_output_9_0_g758 = 1.0;
-				float temp_output_8_0_g758 = 4.0;
-				float2 texCoord2_g759 = IN.ase_texcoord2.xy * float2( 1,1 ) + float2( 0,0 );
-				float temp_output_3_0_g759 = 3.0;
-				float temp_output_7_0_g759 = 4.0;
-				float temp_output_9_0_g759 = 1.0;
-				float temp_output_8_0_g759 = 4.0;
-				float2 texCoord2_g756 = IN.ase_texcoord2.xy * float2( 1,1 ) + float2( 0,0 );
-				float temp_output_3_0_g756 = 4.0;
-				float temp_output_7_0_g756 = 4.0;
-				float temp_output_9_0_g756 = 1.0;
-				float temp_output_8_0_g756 = 4.0;
-				float4 temp_output_329_0 = ( ( ( _Color1 * ( ( ( 1.0 - step( texCoord2_g764.x , ( ( temp_output_3_0_g764 - 1.0 ) / temp_output_7_0_g764 ) ) ) * ( step( texCoord2_g764.x , ( temp_output_3_0_g764 / temp_output_7_0_g764 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g764.y , ( ( temp_output_9_0_g764 - 1.0 ) / temp_output_8_0_g764 ) ) ) * ( step( texCoord2_g764.y , ( temp_output_9_0_g764 / temp_output_8_0_g764 ) ) * 1.0 ) ) ) ) + ( _Color2 * ( ( ( 1.0 - step( texCoord2_g766.x , ( ( temp_output_3_0_g766 - 1.0 ) / temp_output_7_0_g766 ) ) ) * ( step( texCoord2_g766.x , ( temp_output_3_0_g766 / temp_output_7_0_g766 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g766.y , ( ( temp_output_9_0_g766 - 1.0 ) / temp_output_8_0_g766 ) ) ) * ( step( texCoord2_g766.y , ( temp_output_9_0_g766 / temp_output_8_0_g766 ) ) * 1.0 ) ) ) ) + ( _Color3 * ( ( ( 1.0 - step( texCoord2_g765.x , ( ( temp_output_3_0_g765 - 1.0 ) / temp_output_7_0_g765 ) ) ) * ( step( texCoord2_g765.x , ( temp_output_3_0_g765 / temp_output_7_0_g765 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g765.y , ( ( temp_output_9_0_g765 - 1.0 ) / temp_output_8_0_g765 ) ) ) * ( step( texCoord2_g765.y , ( temp_output_9_0_g765 / temp_output_8_0_g765 ) ) * 1.0 ) ) ) ) + ( _Color4 * ( ( ( 1.0 - step( texCoord2_g763.x , ( ( temp_output_3_0_g763 - 1.0 ) / temp_output_7_0_g763 ) ) ) * ( step( texCoord2_g763.x , ( temp_output_3_0_g763 / temp_output_7_0_g763 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g763.y , ( ( temp_output_9_0_g763 - 1.0 ) / temp_output_8_0_g763 ) ) ) * ( step( texCoord2_g763.y , ( temp_output_9_0_g763 / temp_output_8_0_g763 ) ) * 1.0 ) ) ) ) ) + ( ( _Color5 * ( ( ( 1.0 - step( texCoord2_g757.x , ( ( temp_output_3_0_g757 - 1.0 ) / temp_output_7_0_g757 ) ) ) * ( step( texCoord2_g757.x , ( temp_output_3_0_g757 / temp_output_7_0_g757 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g757.y , ( ( temp_output_9_0_g757 - 1.0 ) / temp_output_8_0_g757 ) ) ) * ( step( texCoord2_g757.y , ( temp_output_9_0_g757 / temp_output_8_0_g757 ) ) * 1.0 ) ) ) ) + ( _Color6 * ( ( ( 1.0 - step( texCoord2_g752.x , ( ( temp_output_3_0_g752 - 1.0 ) / temp_output_7_0_g752 ) ) ) * ( step( texCoord2_g752.x , ( temp_output_3_0_g752 / temp_output_7_0_g752 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g752.y , ( ( temp_output_9_0_g752 - 1.0 ) / temp_output_8_0_g752 ) ) ) * ( step( texCoord2_g752.y , ( temp_output_9_0_g752 / temp_output_8_0_g752 ) ) * 1.0 ) ) ) ) + ( _Color7 * ( ( ( 1.0 - step( texCoord2_g760.x , ( ( temp_output_3_0_g760 - 1.0 ) / temp_output_7_0_g760 ) ) ) * ( step( texCoord2_g760.x , ( temp_output_3_0_g760 / temp_output_7_0_g760 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g760.y , ( ( temp_output_9_0_g760 - 1.0 ) / temp_output_8_0_g760 ) ) ) * ( step( texCoord2_g760.y , ( temp_output_9_0_g760 / temp_output_8_0_g760 ) ) * 1.0 ) ) ) ) + ( _Color8 * ( ( ( 1.0 - step( texCoord2_g753.x , ( ( temp_output_3_0_g753 - 1.0 ) / temp_output_7_0_g753 ) ) ) * ( step( texCoord2_g753.x , ( temp_output_3_0_g753 / temp_output_7_0_g753 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g753.y , ( ( temp_output_9_0_g753 - 1.0 ) / temp_output_8_0_g753 ) ) ) * ( step( texCoord2_g753.y , ( temp_output_9_0_g753 / temp_output_8_0_g753 ) ) * 1.0 ) ) ) ) ) + ( ( _Color9 * ( ( ( 1.0 - step( texCoord2_g754.x , ( ( temp_output_3_0_g754 - 1.0 ) / temp_output_7_0_g754 ) ) ) * ( step( texCoord2_g754.x , ( temp_output_3_0_g754 / temp_output_7_0_g754 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g754.y , ( ( temp_output_9_0_g754 - 1.0 ) / temp_output_8_0_g754 ) ) ) * ( step( texCoord2_g754.y , ( temp_output_9_0_g754 / temp_output_8_0_g754 ) ) * 1.0 ) ) ) ) + ( _Color10 * ( ( ( 1.0 - step( texCoord2_g767.x , ( ( temp_output_3_0_g767 - 1.0 ) / temp_output_7_0_g767 ) ) ) * ( step( texCoord2_g767.x , ( temp_output_3_0_g767 / temp_output_7_0_g767 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g767.y , ( ( temp_output_9_0_g767 - 1.0 ) / temp_output_8_0_g767 ) ) ) * ( step( texCoord2_g767.y , ( temp_output_9_0_g767 / temp_output_8_0_g767 ) ) * 1.0 ) ) ) ) + ( _Color11 * ( ( ( 1.0 - step( texCoord2_g755.x , ( ( temp_output_3_0_g755 - 1.0 ) / temp_output_7_0_g755 ) ) ) * ( step( texCoord2_g755.x , ( temp_output_3_0_g755 / temp_output_7_0_g755 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g755.y , ( ( temp_output_9_0_g755 - 1.0 ) / temp_output_8_0_g755 ) ) ) * ( step( texCoord2_g755.y , ( temp_output_9_0_g755 / temp_output_8_0_g755 ) ) * 1.0 ) ) ) ) + ( _Color12 * ( ( ( 1.0 - step( texCoord2_g761.x , ( ( temp_output_3_0_g761 - 1.0 ) / temp_output_7_0_g761 ) ) ) * ( step( texCoord2_g761.x , ( temp_output_3_0_g761 / temp_output_7_0_g761 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g761.y , ( ( temp_output_9_0_g761 - 1.0 ) / temp_output_8_0_g761 ) ) ) * ( step( texCoord2_g761.y , ( temp_output_9_0_g761 / temp_output_8_0_g761 ) ) * 1.0 ) ) ) ) ) + ( ( _Color13 * ( ( ( 1.0 - step( texCoord2_g762.x , ( ( temp_output_3_0_g762 - 1.0 ) / temp_output_7_0_g762 ) ) ) * ( step( texCoord2_g762.x , ( temp_output_3_0_g762 / temp_output_7_0_g762 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g762.y , ( ( temp_output_9_0_g762 - 1.0 ) / temp_output_8_0_g762 ) ) ) * ( step( texCoord2_g762.y , ( temp_output_9_0_g762 / temp_output_8_0_g762 ) ) * 1.0 ) ) ) ) + ( _Color14 * ( ( ( 1.0 - step( texCoord2_g758.x , ( ( temp_output_3_0_g758 - 1.0 ) / temp_output_7_0_g758 ) ) ) * ( step( texCoord2_g758.x , ( temp_output_3_0_g758 / temp_output_7_0_g758 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g758.y , ( ( temp_output_9_0_g758 - 1.0 ) / temp_output_8_0_g758 ) ) ) * ( step( texCoord2_g758.y , ( temp_output_9_0_g758 / temp_output_8_0_g758 ) ) * 1.0 ) ) ) ) + ( _Color15 * ( ( ( 1.0 - step( texCoord2_g759.x , ( ( temp_output_3_0_g759 - 1.0 ) / temp_output_7_0_g759 ) ) ) * ( step( texCoord2_g759.x , ( temp_output_3_0_g759 / temp_output_7_0_g759 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g759.y , ( ( temp_output_9_0_g759 - 1.0 ) / temp_output_8_0_g759 ) ) ) * ( step( texCoord2_g759.y , ( temp_output_9_0_g759 / temp_output_8_0_g759 ) ) * 1.0 ) ) ) ) + ( _Color16 * ( ( ( 1.0 - step( texCoord2_g756.x , ( ( temp_output_3_0_g756 - 1.0 ) / temp_output_7_0_g756 ) ) ) * ( step( texCoord2_g756.x , ( temp_output_3_0_g756 / temp_output_7_0_g756 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g756.y , ( ( temp_output_9_0_g756 - 1.0 ) / temp_output_8_0_g756 ) ) ) * ( step( texCoord2_g756.y , ( temp_output_9_0_g756 / temp_output_8_0_g756 ) ) * 1.0 ) ) ) ) ) );
-				float4 clampResult348 = clamp( ( pow( saferPower342 , temp_cast_0 ) + ( 1.0 - (temp_output_329_0).a ) ) , float4( 0,0,0,0 ) , float4( 1,1,1,1 ) );
+				float2 texCoord2_g735 = IN.ase_texcoord2.xy * float2( 1,1 ) + float2( 0,0 );
+				float temp_output_3_0_g735 = 1.0;
+				float temp_output_7_0_g735 = 4.0;
+				float temp_output_9_0_g735 = 4.0;
+				float temp_output_8_0_g735 = 4.0;
+				float2 texCoord2_g739 = IN.ase_texcoord2.xy * float2( 1,1 ) + float2( 0,0 );
+				float temp_output_3_0_g739 = 2.0;
+				float temp_output_7_0_g739 = 4.0;
+				float temp_output_9_0_g739 = 4.0;
+				float temp_output_8_0_g739 = 4.0;
+				float2 texCoord2_g738 = IN.ase_texcoord2.xy * float2( 1,1 ) + float2( 0,0 );
+				float temp_output_3_0_g738 = 3.0;
+				float temp_output_7_0_g738 = 4.0;
+				float temp_output_9_0_g738 = 4.0;
+				float temp_output_8_0_g738 = 4.0;
+				float2 texCoord2_g736 = IN.ase_texcoord2.xy * float2( 1,1 ) + float2( 0,0 );
+				float temp_output_3_0_g736 = 4.0;
+				float temp_output_7_0_g736 = 4.0;
+				float temp_output_9_0_g736 = 4.0;
+				float temp_output_8_0_g736 = 4.0;
+				float2 texCoord2_g741 = IN.ase_texcoord2.xy * float2( 1,1 ) + float2( 0,0 );
+				float temp_output_3_0_g741 = 1.0;
+				float temp_output_7_0_g741 = 4.0;
+				float temp_output_9_0_g741 = 3.0;
+				float temp_output_8_0_g741 = 4.0;
+				float2 texCoord2_g722 = IN.ase_texcoord2.xy * float2( 1,1 ) + float2( 0,0 );
+				float temp_output_3_0_g722 = 2.0;
+				float temp_output_7_0_g722 = 4.0;
+				float temp_output_9_0_g722 = 3.0;
+				float temp_output_8_0_g722 = 4.0;
+				float2 texCoord2_g734 = IN.ase_texcoord2.xy * float2( 1,1 ) + float2( 0,0 );
+				float temp_output_3_0_g734 = 3.0;
+				float temp_output_7_0_g734 = 4.0;
+				float temp_output_9_0_g734 = 3.0;
+				float temp_output_8_0_g734 = 4.0;
+				float2 texCoord2_g740 = IN.ase_texcoord2.xy * float2( 1,1 ) + float2( 0,0 );
+				float temp_output_3_0_g740 = 4.0;
+				float temp_output_7_0_g740 = 4.0;
+				float temp_output_9_0_g740 = 3.0;
+				float temp_output_8_0_g740 = 4.0;
+				float2 texCoord2_g720 = IN.ase_texcoord2.xy * float2( 1,1 ) + float2( 0,0 );
+				float temp_output_3_0_g720 = 1.0;
+				float temp_output_7_0_g720 = 4.0;
+				float temp_output_9_0_g720 = 2.0;
+				float temp_output_8_0_g720 = 4.0;
+				float2 texCoord2_g743 = IN.ase_texcoord2.xy * float2( 1,1 ) + float2( 0,0 );
+				float temp_output_3_0_g743 = 2.0;
+				float temp_output_7_0_g743 = 4.0;
+				float temp_output_9_0_g743 = 2.0;
+				float temp_output_8_0_g743 = 4.0;
+				float2 texCoord2_g723 = IN.ase_texcoord2.xy * float2( 1,1 ) + float2( 0,0 );
+				float temp_output_3_0_g723 = 3.0;
+				float temp_output_7_0_g723 = 4.0;
+				float temp_output_9_0_g723 = 2.0;
+				float temp_output_8_0_g723 = 4.0;
+				float2 texCoord2_g721 = IN.ase_texcoord2.xy * float2( 1,1 ) + float2( 0,0 );
+				float temp_output_3_0_g721 = 4.0;
+				float temp_output_7_0_g721 = 4.0;
+				float temp_output_9_0_g721 = 2.0;
+				float temp_output_8_0_g721 = 4.0;
+				float2 texCoord2_g742 = IN.ase_texcoord2.xy * float2( 1,1 ) + float2( 0,0 );
+				float temp_output_3_0_g742 = 1.0;
+				float temp_output_7_0_g742 = 4.0;
+				float temp_output_9_0_g742 = 1.0;
+				float temp_output_8_0_g742 = 4.0;
+				float2 texCoord2_g724 = IN.ase_texcoord2.xy * float2( 1,1 ) + float2( 0,0 );
+				float temp_output_3_0_g724 = 2.0;
+				float temp_output_7_0_g724 = 4.0;
+				float temp_output_9_0_g724 = 1.0;
+				float temp_output_8_0_g724 = 4.0;
+				float2 texCoord2_g733 = IN.ase_texcoord2.xy * float2( 1,1 ) + float2( 0,0 );
+				float temp_output_3_0_g733 = 3.0;
+				float temp_output_7_0_g733 = 4.0;
+				float temp_output_9_0_g733 = 1.0;
+				float temp_output_8_0_g733 = 4.0;
+				float2 texCoord2_g737 = IN.ase_texcoord2.xy * float2( 1,1 ) + float2( 0,0 );
+				float temp_output_3_0_g737 = 4.0;
+				float temp_output_7_0_g737 = 4.0;
+				float temp_output_9_0_g737 = 1.0;
+				float temp_output_8_0_g737 = 4.0;
+				float4 temp_output_155_0 = ( ( ( _Color1 * ( ( ( 1.0 - step( texCoord2_g735.x , ( ( temp_output_3_0_g735 - 1.0 ) / temp_output_7_0_g735 ) ) ) * ( step( texCoord2_g735.x , ( temp_output_3_0_g735 / temp_output_7_0_g735 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g735.y , ( ( temp_output_9_0_g735 - 1.0 ) / temp_output_8_0_g735 ) ) ) * ( step( texCoord2_g735.y , ( temp_output_9_0_g735 / temp_output_8_0_g735 ) ) * 1.0 ) ) ) ) + ( _Color2 * ( ( ( 1.0 - step( texCoord2_g739.x , ( ( temp_output_3_0_g739 - 1.0 ) / temp_output_7_0_g739 ) ) ) * ( step( texCoord2_g739.x , ( temp_output_3_0_g739 / temp_output_7_0_g739 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g739.y , ( ( temp_output_9_0_g739 - 1.0 ) / temp_output_8_0_g739 ) ) ) * ( step( texCoord2_g739.y , ( temp_output_9_0_g739 / temp_output_8_0_g739 ) ) * 1.0 ) ) ) ) + ( _Color3 * ( ( ( 1.0 - step( texCoord2_g738.x , ( ( temp_output_3_0_g738 - 1.0 ) / temp_output_7_0_g738 ) ) ) * ( step( texCoord2_g738.x , ( temp_output_3_0_g738 / temp_output_7_0_g738 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g738.y , ( ( temp_output_9_0_g738 - 1.0 ) / temp_output_8_0_g738 ) ) ) * ( step( texCoord2_g738.y , ( temp_output_9_0_g738 / temp_output_8_0_g738 ) ) * 1.0 ) ) ) ) + ( _Color4 * ( ( ( 1.0 - step( texCoord2_g736.x , ( ( temp_output_3_0_g736 - 1.0 ) / temp_output_7_0_g736 ) ) ) * ( step( texCoord2_g736.x , ( temp_output_3_0_g736 / temp_output_7_0_g736 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g736.y , ( ( temp_output_9_0_g736 - 1.0 ) / temp_output_8_0_g736 ) ) ) * ( step( texCoord2_g736.y , ( temp_output_9_0_g736 / temp_output_8_0_g736 ) ) * 1.0 ) ) ) ) ) + ( ( _Color5 * ( ( ( 1.0 - step( texCoord2_g741.x , ( ( temp_output_3_0_g741 - 1.0 ) / temp_output_7_0_g741 ) ) ) * ( step( texCoord2_g741.x , ( temp_output_3_0_g741 / temp_output_7_0_g741 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g741.y , ( ( temp_output_9_0_g741 - 1.0 ) / temp_output_8_0_g741 ) ) ) * ( step( texCoord2_g741.y , ( temp_output_9_0_g741 / temp_output_8_0_g741 ) ) * 1.0 ) ) ) ) + ( _Color6 * ( ( ( 1.0 - step( texCoord2_g722.x , ( ( temp_output_3_0_g722 - 1.0 ) / temp_output_7_0_g722 ) ) ) * ( step( texCoord2_g722.x , ( temp_output_3_0_g722 / temp_output_7_0_g722 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g722.y , ( ( temp_output_9_0_g722 - 1.0 ) / temp_output_8_0_g722 ) ) ) * ( step( texCoord2_g722.y , ( temp_output_9_0_g722 / temp_output_8_0_g722 ) ) * 1.0 ) ) ) ) + ( _Color7 * ( ( ( 1.0 - step( texCoord2_g734.x , ( ( temp_output_3_0_g734 - 1.0 ) / temp_output_7_0_g734 ) ) ) * ( step( texCoord2_g734.x , ( temp_output_3_0_g734 / temp_output_7_0_g734 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g734.y , ( ( temp_output_9_0_g734 - 1.0 ) / temp_output_8_0_g734 ) ) ) * ( step( texCoord2_g734.y , ( temp_output_9_0_g734 / temp_output_8_0_g734 ) ) * 1.0 ) ) ) ) + ( _Color8 * ( ( ( 1.0 - step( texCoord2_g740.x , ( ( temp_output_3_0_g740 - 1.0 ) / temp_output_7_0_g740 ) ) ) * ( step( texCoord2_g740.x , ( temp_output_3_0_g740 / temp_output_7_0_g740 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g740.y , ( ( temp_output_9_0_g740 - 1.0 ) / temp_output_8_0_g740 ) ) ) * ( step( texCoord2_g740.y , ( temp_output_9_0_g740 / temp_output_8_0_g740 ) ) * 1.0 ) ) ) ) ) + ( ( _Color9 * ( ( ( 1.0 - step( texCoord2_g720.x , ( ( temp_output_3_0_g720 - 1.0 ) / temp_output_7_0_g720 ) ) ) * ( step( texCoord2_g720.x , ( temp_output_3_0_g720 / temp_output_7_0_g720 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g720.y , ( ( temp_output_9_0_g720 - 1.0 ) / temp_output_8_0_g720 ) ) ) * ( step( texCoord2_g720.y , ( temp_output_9_0_g720 / temp_output_8_0_g720 ) ) * 1.0 ) ) ) ) + ( _Color10 * ( ( ( 1.0 - step( texCoord2_g743.x , ( ( temp_output_3_0_g743 - 1.0 ) / temp_output_7_0_g743 ) ) ) * ( step( texCoord2_g743.x , ( temp_output_3_0_g743 / temp_output_7_0_g743 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g743.y , ( ( temp_output_9_0_g743 - 1.0 ) / temp_output_8_0_g743 ) ) ) * ( step( texCoord2_g743.y , ( temp_output_9_0_g743 / temp_output_8_0_g743 ) ) * 1.0 ) ) ) ) + ( _Color11 * ( ( ( 1.0 - step( texCoord2_g723.x , ( ( temp_output_3_0_g723 - 1.0 ) / temp_output_7_0_g723 ) ) ) * ( step( texCoord2_g723.x , ( temp_output_3_0_g723 / temp_output_7_0_g723 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g723.y , ( ( temp_output_9_0_g723 - 1.0 ) / temp_output_8_0_g723 ) ) ) * ( step( texCoord2_g723.y , ( temp_output_9_0_g723 / temp_output_8_0_g723 ) ) * 1.0 ) ) ) ) + ( _Color12 * ( ( ( 1.0 - step( texCoord2_g721.x , ( ( temp_output_3_0_g721 - 1.0 ) / temp_output_7_0_g721 ) ) ) * ( step( texCoord2_g721.x , ( temp_output_3_0_g721 / temp_output_7_0_g721 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g721.y , ( ( temp_output_9_0_g721 - 1.0 ) / temp_output_8_0_g721 ) ) ) * ( step( texCoord2_g721.y , ( temp_output_9_0_g721 / temp_output_8_0_g721 ) ) * 1.0 ) ) ) ) ) + ( ( _Color13 * ( ( ( 1.0 - step( texCoord2_g742.x , ( ( temp_output_3_0_g742 - 1.0 ) / temp_output_7_0_g742 ) ) ) * ( step( texCoord2_g742.x , ( temp_output_3_0_g742 / temp_output_7_0_g742 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g742.y , ( ( temp_output_9_0_g742 - 1.0 ) / temp_output_8_0_g742 ) ) ) * ( step( texCoord2_g742.y , ( temp_output_9_0_g742 / temp_output_8_0_g742 ) ) * 1.0 ) ) ) ) + ( _Color14 * ( ( ( 1.0 - step( texCoord2_g724.x , ( ( temp_output_3_0_g724 - 1.0 ) / temp_output_7_0_g724 ) ) ) * ( step( texCoord2_g724.x , ( temp_output_3_0_g724 / temp_output_7_0_g724 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g724.y , ( ( temp_output_9_0_g724 - 1.0 ) / temp_output_8_0_g724 ) ) ) * ( step( texCoord2_g724.y , ( temp_output_9_0_g724 / temp_output_8_0_g724 ) ) * 1.0 ) ) ) ) + ( _Color15 * ( ( ( 1.0 - step( texCoord2_g733.x , ( ( temp_output_3_0_g733 - 1.0 ) / temp_output_7_0_g733 ) ) ) * ( step( texCoord2_g733.x , ( temp_output_3_0_g733 / temp_output_7_0_g733 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g733.y , ( ( temp_output_9_0_g733 - 1.0 ) / temp_output_8_0_g733 ) ) ) * ( step( texCoord2_g733.y , ( temp_output_9_0_g733 / temp_output_8_0_g733 ) ) * 1.0 ) ) ) ) + ( _Color16 * ( ( ( 1.0 - step( texCoord2_g737.x , ( ( temp_output_3_0_g737 - 1.0 ) / temp_output_7_0_g737 ) ) ) * ( step( texCoord2_g737.x , ( temp_output_3_0_g737 / temp_output_7_0_g737 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g737.y , ( ( temp_output_9_0_g737 - 1.0 ) / temp_output_8_0_g737 ) ) ) * ( step( texCoord2_g737.y , ( temp_output_9_0_g737 / temp_output_8_0_g737 ) ) * 1.0 ) ) ) ) ) );
+				float4 clampResult261 = clamp( ( pow( saferPower258 , temp_cast_0 ) + ( 1.0 - (temp_output_155_0).a ) ) , float4( 0,0,0,0 ) , float4( 1,1,1,1 ) );
 				
 
-				float3 BaseColor = ( clampResult348 * temp_output_329_0 ).rgb;
+				float3 BaseColor = ( clampResult261 * temp_output_155_0 ).rgb;
 				float Alpha = 1;
 				float AlphaClipThreshold = 0.5;
 
@@ -3330,182 +3330,182 @@ Shader "Malbers/Color4x4"
 
 				WorldViewDirection = SafeNormalize( WorldViewDirection );
 
-				float2 texCoord256 = IN.ase_texcoord8.xy * float2( 1,4 ) + float2( 0,0 );
-				float4 clampResult328 = clamp( ( ( tex2D( _Gradient, texCoord256 ) + _GradientColor ) + ( 1.0 - _GradientIntensity ) ) , float4( 0,0,0,0 ) , float4( 1,1,1,0 ) );
-				float4 saferPower342 = abs( (clampResult328*_GradientScale + _GradientOffset) );
+				float2 texCoord255 = IN.ase_texcoord8.xy * float2( 1,4 ) + float2( 0,0 );
+				float4 clampResult234 = clamp( ( ( tex2D( _Gradient, texCoord255 ) + _GradientColor ) + ( 1.0 - _GradientIntensity ) ) , float4( 0,0,0,0 ) , float4( 1,1,1,0 ) );
+				float4 saferPower258 = abs( (clampResult234*_GradientScale + _GradientOffset) );
 				float4 temp_cast_0 = (_GradientPower).xxxx;
-				float2 texCoord2_g764 = IN.ase_texcoord8.xy * float2( 1,1 ) + float2( 0,0 );
-				float temp_output_3_0_g764 = 1.0;
-				float temp_output_7_0_g764 = 4.0;
-				float temp_output_9_0_g764 = 4.0;
-				float temp_output_8_0_g764 = 4.0;
-				float2 texCoord2_g766 = IN.ase_texcoord8.xy * float2( 1,1 ) + float2( 0,0 );
-				float temp_output_3_0_g766 = 2.0;
-				float temp_output_7_0_g766 = 4.0;
-				float temp_output_9_0_g766 = 4.0;
-				float temp_output_8_0_g766 = 4.0;
-				float2 texCoord2_g765 = IN.ase_texcoord8.xy * float2( 1,1 ) + float2( 0,0 );
-				float temp_output_3_0_g765 = 3.0;
-				float temp_output_7_0_g765 = 4.0;
-				float temp_output_9_0_g765 = 4.0;
-				float temp_output_8_0_g765 = 4.0;
-				float2 texCoord2_g763 = IN.ase_texcoord8.xy * float2( 1,1 ) + float2( 0,0 );
-				float temp_output_3_0_g763 = 4.0;
-				float temp_output_7_0_g763 = 4.0;
-				float temp_output_9_0_g763 = 4.0;
-				float temp_output_8_0_g763 = 4.0;
-				float2 texCoord2_g757 = IN.ase_texcoord8.xy * float2( 1,1 ) + float2( 0,0 );
-				float temp_output_3_0_g757 = 1.0;
-				float temp_output_7_0_g757 = 4.0;
-				float temp_output_9_0_g757 = 3.0;
-				float temp_output_8_0_g757 = 4.0;
-				float2 texCoord2_g752 = IN.ase_texcoord8.xy * float2( 1,1 ) + float2( 0,0 );
-				float temp_output_3_0_g752 = 2.0;
-				float temp_output_7_0_g752 = 4.0;
-				float temp_output_9_0_g752 = 3.0;
-				float temp_output_8_0_g752 = 4.0;
-				float2 texCoord2_g760 = IN.ase_texcoord8.xy * float2( 1,1 ) + float2( 0,0 );
-				float temp_output_3_0_g760 = 3.0;
-				float temp_output_7_0_g760 = 4.0;
-				float temp_output_9_0_g760 = 3.0;
-				float temp_output_8_0_g760 = 4.0;
-				float2 texCoord2_g753 = IN.ase_texcoord8.xy * float2( 1,1 ) + float2( 0,0 );
-				float temp_output_3_0_g753 = 4.0;
-				float temp_output_7_0_g753 = 4.0;
-				float temp_output_9_0_g753 = 3.0;
-				float temp_output_8_0_g753 = 4.0;
-				float2 texCoord2_g754 = IN.ase_texcoord8.xy * float2( 1,1 ) + float2( 0,0 );
-				float temp_output_3_0_g754 = 1.0;
-				float temp_output_7_0_g754 = 4.0;
-				float temp_output_9_0_g754 = 2.0;
-				float temp_output_8_0_g754 = 4.0;
-				float2 texCoord2_g767 = IN.ase_texcoord8.xy * float2( 1,1 ) + float2( 0,0 );
-				float temp_output_3_0_g767 = 2.0;
-				float temp_output_7_0_g767 = 4.0;
-				float temp_output_9_0_g767 = 2.0;
-				float temp_output_8_0_g767 = 4.0;
-				float2 texCoord2_g755 = IN.ase_texcoord8.xy * float2( 1,1 ) + float2( 0,0 );
-				float temp_output_3_0_g755 = 3.0;
-				float temp_output_7_0_g755 = 4.0;
-				float temp_output_9_0_g755 = 2.0;
-				float temp_output_8_0_g755 = 4.0;
-				float2 texCoord2_g761 = IN.ase_texcoord8.xy * float2( 1,1 ) + float2( 0,0 );
-				float temp_output_3_0_g761 = 4.0;
-				float temp_output_7_0_g761 = 4.0;
-				float temp_output_9_0_g761 = 2.0;
-				float temp_output_8_0_g761 = 4.0;
-				float2 texCoord2_g762 = IN.ase_texcoord8.xy * float2( 1,1 ) + float2( 0,0 );
-				float temp_output_3_0_g762 = 1.0;
-				float temp_output_7_0_g762 = 4.0;
-				float temp_output_9_0_g762 = 1.0;
-				float temp_output_8_0_g762 = 4.0;
-				float2 texCoord2_g758 = IN.ase_texcoord8.xy * float2( 1,1 ) + float2( 0,0 );
-				float temp_output_3_0_g758 = 2.0;
-				float temp_output_7_0_g758 = 4.0;
-				float temp_output_9_0_g758 = 1.0;
-				float temp_output_8_0_g758 = 4.0;
-				float2 texCoord2_g759 = IN.ase_texcoord8.xy * float2( 1,1 ) + float2( 0,0 );
-				float temp_output_3_0_g759 = 3.0;
-				float temp_output_7_0_g759 = 4.0;
-				float temp_output_9_0_g759 = 1.0;
-				float temp_output_8_0_g759 = 4.0;
-				float2 texCoord2_g756 = IN.ase_texcoord8.xy * float2( 1,1 ) + float2( 0,0 );
-				float temp_output_3_0_g756 = 4.0;
-				float temp_output_7_0_g756 = 4.0;
-				float temp_output_9_0_g756 = 1.0;
-				float temp_output_8_0_g756 = 4.0;
-				float4 temp_output_329_0 = ( ( ( _Color1 * ( ( ( 1.0 - step( texCoord2_g764.x , ( ( temp_output_3_0_g764 - 1.0 ) / temp_output_7_0_g764 ) ) ) * ( step( texCoord2_g764.x , ( temp_output_3_0_g764 / temp_output_7_0_g764 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g764.y , ( ( temp_output_9_0_g764 - 1.0 ) / temp_output_8_0_g764 ) ) ) * ( step( texCoord2_g764.y , ( temp_output_9_0_g764 / temp_output_8_0_g764 ) ) * 1.0 ) ) ) ) + ( _Color2 * ( ( ( 1.0 - step( texCoord2_g766.x , ( ( temp_output_3_0_g766 - 1.0 ) / temp_output_7_0_g766 ) ) ) * ( step( texCoord2_g766.x , ( temp_output_3_0_g766 / temp_output_7_0_g766 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g766.y , ( ( temp_output_9_0_g766 - 1.0 ) / temp_output_8_0_g766 ) ) ) * ( step( texCoord2_g766.y , ( temp_output_9_0_g766 / temp_output_8_0_g766 ) ) * 1.0 ) ) ) ) + ( _Color3 * ( ( ( 1.0 - step( texCoord2_g765.x , ( ( temp_output_3_0_g765 - 1.0 ) / temp_output_7_0_g765 ) ) ) * ( step( texCoord2_g765.x , ( temp_output_3_0_g765 / temp_output_7_0_g765 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g765.y , ( ( temp_output_9_0_g765 - 1.0 ) / temp_output_8_0_g765 ) ) ) * ( step( texCoord2_g765.y , ( temp_output_9_0_g765 / temp_output_8_0_g765 ) ) * 1.0 ) ) ) ) + ( _Color4 * ( ( ( 1.0 - step( texCoord2_g763.x , ( ( temp_output_3_0_g763 - 1.0 ) / temp_output_7_0_g763 ) ) ) * ( step( texCoord2_g763.x , ( temp_output_3_0_g763 / temp_output_7_0_g763 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g763.y , ( ( temp_output_9_0_g763 - 1.0 ) / temp_output_8_0_g763 ) ) ) * ( step( texCoord2_g763.y , ( temp_output_9_0_g763 / temp_output_8_0_g763 ) ) * 1.0 ) ) ) ) ) + ( ( _Color5 * ( ( ( 1.0 - step( texCoord2_g757.x , ( ( temp_output_3_0_g757 - 1.0 ) / temp_output_7_0_g757 ) ) ) * ( step( texCoord2_g757.x , ( temp_output_3_0_g757 / temp_output_7_0_g757 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g757.y , ( ( temp_output_9_0_g757 - 1.0 ) / temp_output_8_0_g757 ) ) ) * ( step( texCoord2_g757.y , ( temp_output_9_0_g757 / temp_output_8_0_g757 ) ) * 1.0 ) ) ) ) + ( _Color6 * ( ( ( 1.0 - step( texCoord2_g752.x , ( ( temp_output_3_0_g752 - 1.0 ) / temp_output_7_0_g752 ) ) ) * ( step( texCoord2_g752.x , ( temp_output_3_0_g752 / temp_output_7_0_g752 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g752.y , ( ( temp_output_9_0_g752 - 1.0 ) / temp_output_8_0_g752 ) ) ) * ( step( texCoord2_g752.y , ( temp_output_9_0_g752 / temp_output_8_0_g752 ) ) * 1.0 ) ) ) ) + ( _Color7 * ( ( ( 1.0 - step( texCoord2_g760.x , ( ( temp_output_3_0_g760 - 1.0 ) / temp_output_7_0_g760 ) ) ) * ( step( texCoord2_g760.x , ( temp_output_3_0_g760 / temp_output_7_0_g760 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g760.y , ( ( temp_output_9_0_g760 - 1.0 ) / temp_output_8_0_g760 ) ) ) * ( step( texCoord2_g760.y , ( temp_output_9_0_g760 / temp_output_8_0_g760 ) ) * 1.0 ) ) ) ) + ( _Color8 * ( ( ( 1.0 - step( texCoord2_g753.x , ( ( temp_output_3_0_g753 - 1.0 ) / temp_output_7_0_g753 ) ) ) * ( step( texCoord2_g753.x , ( temp_output_3_0_g753 / temp_output_7_0_g753 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g753.y , ( ( temp_output_9_0_g753 - 1.0 ) / temp_output_8_0_g753 ) ) ) * ( step( texCoord2_g753.y , ( temp_output_9_0_g753 / temp_output_8_0_g753 ) ) * 1.0 ) ) ) ) ) + ( ( _Color9 * ( ( ( 1.0 - step( texCoord2_g754.x , ( ( temp_output_3_0_g754 - 1.0 ) / temp_output_7_0_g754 ) ) ) * ( step( texCoord2_g754.x , ( temp_output_3_0_g754 / temp_output_7_0_g754 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g754.y , ( ( temp_output_9_0_g754 - 1.0 ) / temp_output_8_0_g754 ) ) ) * ( step( texCoord2_g754.y , ( temp_output_9_0_g754 / temp_output_8_0_g754 ) ) * 1.0 ) ) ) ) + ( _Color10 * ( ( ( 1.0 - step( texCoord2_g767.x , ( ( temp_output_3_0_g767 - 1.0 ) / temp_output_7_0_g767 ) ) ) * ( step( texCoord2_g767.x , ( temp_output_3_0_g767 / temp_output_7_0_g767 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g767.y , ( ( temp_output_9_0_g767 - 1.0 ) / temp_output_8_0_g767 ) ) ) * ( step( texCoord2_g767.y , ( temp_output_9_0_g767 / temp_output_8_0_g767 ) ) * 1.0 ) ) ) ) + ( _Color11 * ( ( ( 1.0 - step( texCoord2_g755.x , ( ( temp_output_3_0_g755 - 1.0 ) / temp_output_7_0_g755 ) ) ) * ( step( texCoord2_g755.x , ( temp_output_3_0_g755 / temp_output_7_0_g755 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g755.y , ( ( temp_output_9_0_g755 - 1.0 ) / temp_output_8_0_g755 ) ) ) * ( step( texCoord2_g755.y , ( temp_output_9_0_g755 / temp_output_8_0_g755 ) ) * 1.0 ) ) ) ) + ( _Color12 * ( ( ( 1.0 - step( texCoord2_g761.x , ( ( temp_output_3_0_g761 - 1.0 ) / temp_output_7_0_g761 ) ) ) * ( step( texCoord2_g761.x , ( temp_output_3_0_g761 / temp_output_7_0_g761 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g761.y , ( ( temp_output_9_0_g761 - 1.0 ) / temp_output_8_0_g761 ) ) ) * ( step( texCoord2_g761.y , ( temp_output_9_0_g761 / temp_output_8_0_g761 ) ) * 1.0 ) ) ) ) ) + ( ( _Color13 * ( ( ( 1.0 - step( texCoord2_g762.x , ( ( temp_output_3_0_g762 - 1.0 ) / temp_output_7_0_g762 ) ) ) * ( step( texCoord2_g762.x , ( temp_output_3_0_g762 / temp_output_7_0_g762 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g762.y , ( ( temp_output_9_0_g762 - 1.0 ) / temp_output_8_0_g762 ) ) ) * ( step( texCoord2_g762.y , ( temp_output_9_0_g762 / temp_output_8_0_g762 ) ) * 1.0 ) ) ) ) + ( _Color14 * ( ( ( 1.0 - step( texCoord2_g758.x , ( ( temp_output_3_0_g758 - 1.0 ) / temp_output_7_0_g758 ) ) ) * ( step( texCoord2_g758.x , ( temp_output_3_0_g758 / temp_output_7_0_g758 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g758.y , ( ( temp_output_9_0_g758 - 1.0 ) / temp_output_8_0_g758 ) ) ) * ( step( texCoord2_g758.y , ( temp_output_9_0_g758 / temp_output_8_0_g758 ) ) * 1.0 ) ) ) ) + ( _Color15 * ( ( ( 1.0 - step( texCoord2_g759.x , ( ( temp_output_3_0_g759 - 1.0 ) / temp_output_7_0_g759 ) ) ) * ( step( texCoord2_g759.x , ( temp_output_3_0_g759 / temp_output_7_0_g759 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g759.y , ( ( temp_output_9_0_g759 - 1.0 ) / temp_output_8_0_g759 ) ) ) * ( step( texCoord2_g759.y , ( temp_output_9_0_g759 / temp_output_8_0_g759 ) ) * 1.0 ) ) ) ) + ( _Color16 * ( ( ( 1.0 - step( texCoord2_g756.x , ( ( temp_output_3_0_g756 - 1.0 ) / temp_output_7_0_g756 ) ) ) * ( step( texCoord2_g756.x , ( temp_output_3_0_g756 / temp_output_7_0_g756 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g756.y , ( ( temp_output_9_0_g756 - 1.0 ) / temp_output_8_0_g756 ) ) ) * ( step( texCoord2_g756.y , ( temp_output_9_0_g756 / temp_output_8_0_g756 ) ) * 1.0 ) ) ) ) ) );
-				float4 clampResult348 = clamp( ( pow( saferPower342 , temp_cast_0 ) + ( 1.0 - (temp_output_329_0).a ) ) , float4( 0,0,0,0 ) , float4( 1,1,1,1 ) );
-				
+				float2 texCoord2_g735 = IN.ase_texcoord8.xy * float2( 1,1 ) + float2( 0,0 );
+				float temp_output_3_0_g735 = 1.0;
+				float temp_output_7_0_g735 = 4.0;
+				float temp_output_9_0_g735 = 4.0;
+				float temp_output_8_0_g735 = 4.0;
 				float2 texCoord2_g739 = IN.ase_texcoord8.xy * float2( 1,1 ) + float2( 0,0 );
-				float temp_output_3_0_g739 = 1.0;
+				float temp_output_3_0_g739 = 2.0;
 				float temp_output_7_0_g739 = 4.0;
 				float temp_output_9_0_g739 = 4.0;
 				float temp_output_8_0_g739 = 4.0;
-				float2 texCoord2_g751 = IN.ase_texcoord8.xy * float2( 1,1 ) + float2( 0,0 );
-				float temp_output_3_0_g751 = 2.0;
-				float temp_output_7_0_g751 = 4.0;
-				float temp_output_9_0_g751 = 4.0;
-				float temp_output_8_0_g751 = 4.0;
-				float2 texCoord2_g740 = IN.ase_texcoord8.xy * float2( 1,1 ) + float2( 0,0 );
-				float temp_output_3_0_g740 = 3.0;
-				float temp_output_7_0_g740 = 4.0;
-				float temp_output_9_0_g740 = 4.0;
-				float temp_output_8_0_g740 = 4.0;
-				float2 texCoord2_g749 = IN.ase_texcoord8.xy * float2( 1,1 ) + float2( 0,0 );
-				float temp_output_3_0_g749 = 4.0;
-				float temp_output_7_0_g749 = 4.0;
-				float temp_output_9_0_g749 = 4.0;
-				float temp_output_8_0_g749 = 4.0;
-				float2 texCoord2_g746 = IN.ase_texcoord8.xy * float2( 1,1 ) + float2( 0,0 );
-				float temp_output_3_0_g746 = 1.0;
-				float temp_output_7_0_g746 = 4.0;
-				float temp_output_9_0_g746 = 3.0;
-				float temp_output_8_0_g746 = 4.0;
-				float2 texCoord2_g741 = IN.ase_texcoord8.xy * float2( 1,1 ) + float2( 0,0 );
-				float temp_output_3_0_g741 = 2.0;
-				float temp_output_7_0_g741 = 4.0;
-				float temp_output_9_0_g741 = 3.0;
-				float temp_output_8_0_g741 = 4.0;
-				float2 texCoord2_g750 = IN.ase_texcoord8.xy * float2( 1,1 ) + float2( 0,0 );
-				float temp_output_3_0_g750 = 3.0;
-				float temp_output_7_0_g750 = 4.0;
-				float temp_output_9_0_g750 = 3.0;
-				float temp_output_8_0_g750 = 4.0;
+				float2 texCoord2_g738 = IN.ase_texcoord8.xy * float2( 1,1 ) + float2( 0,0 );
+				float temp_output_3_0_g738 = 3.0;
+				float temp_output_7_0_g738 = 4.0;
+				float temp_output_9_0_g738 = 4.0;
+				float temp_output_8_0_g738 = 4.0;
 				float2 texCoord2_g736 = IN.ase_texcoord8.xy * float2( 1,1 ) + float2( 0,0 );
 				float temp_output_3_0_g736 = 4.0;
 				float temp_output_7_0_g736 = 4.0;
-				float temp_output_9_0_g736 = 3.0;
+				float temp_output_9_0_g736 = 4.0;
 				float temp_output_8_0_g736 = 4.0;
-				float2 texCoord2_g748 = IN.ase_texcoord8.xy * float2( 1,1 ) + float2( 0,0 );
-				float temp_output_3_0_g748 = 1.0;
-				float temp_output_7_0_g748 = 4.0;
-				float temp_output_9_0_g748 = 2.0;
-				float temp_output_8_0_g748 = 4.0;
+				float2 texCoord2_g741 = IN.ase_texcoord8.xy * float2( 1,1 ) + float2( 0,0 );
+				float temp_output_3_0_g741 = 1.0;
+				float temp_output_7_0_g741 = 4.0;
+				float temp_output_9_0_g741 = 3.0;
+				float temp_output_8_0_g741 = 4.0;
+				float2 texCoord2_g722 = IN.ase_texcoord8.xy * float2( 1,1 ) + float2( 0,0 );
+				float temp_output_3_0_g722 = 2.0;
+				float temp_output_7_0_g722 = 4.0;
+				float temp_output_9_0_g722 = 3.0;
+				float temp_output_8_0_g722 = 4.0;
+				float2 texCoord2_g734 = IN.ase_texcoord8.xy * float2( 1,1 ) + float2( 0,0 );
+				float temp_output_3_0_g734 = 3.0;
+				float temp_output_7_0_g734 = 4.0;
+				float temp_output_9_0_g734 = 3.0;
+				float temp_output_8_0_g734 = 4.0;
+				float2 texCoord2_g740 = IN.ase_texcoord8.xy * float2( 1,1 ) + float2( 0,0 );
+				float temp_output_3_0_g740 = 4.0;
+				float temp_output_7_0_g740 = 4.0;
+				float temp_output_9_0_g740 = 3.0;
+				float temp_output_8_0_g740 = 4.0;
+				float2 texCoord2_g720 = IN.ase_texcoord8.xy * float2( 1,1 ) + float2( 0,0 );
+				float temp_output_3_0_g720 = 1.0;
+				float temp_output_7_0_g720 = 4.0;
+				float temp_output_9_0_g720 = 2.0;
+				float temp_output_8_0_g720 = 4.0;
 				float2 texCoord2_g743 = IN.ase_texcoord8.xy * float2( 1,1 ) + float2( 0,0 );
 				float temp_output_3_0_g743 = 2.0;
 				float temp_output_7_0_g743 = 4.0;
 				float temp_output_9_0_g743 = 2.0;
 				float temp_output_8_0_g743 = 4.0;
+				float2 texCoord2_g723 = IN.ase_texcoord8.xy * float2( 1,1 ) + float2( 0,0 );
+				float temp_output_3_0_g723 = 3.0;
+				float temp_output_7_0_g723 = 4.0;
+				float temp_output_9_0_g723 = 2.0;
+				float temp_output_8_0_g723 = 4.0;
+				float2 texCoord2_g721 = IN.ase_texcoord8.xy * float2( 1,1 ) + float2( 0,0 );
+				float temp_output_3_0_g721 = 4.0;
+				float temp_output_7_0_g721 = 4.0;
+				float temp_output_9_0_g721 = 2.0;
+				float temp_output_8_0_g721 = 4.0;
+				float2 texCoord2_g742 = IN.ase_texcoord8.xy * float2( 1,1 ) + float2( 0,0 );
+				float temp_output_3_0_g742 = 1.0;
+				float temp_output_7_0_g742 = 4.0;
+				float temp_output_9_0_g742 = 1.0;
+				float temp_output_8_0_g742 = 4.0;
+				float2 texCoord2_g724 = IN.ase_texcoord8.xy * float2( 1,1 ) + float2( 0,0 );
+				float temp_output_3_0_g724 = 2.0;
+				float temp_output_7_0_g724 = 4.0;
+				float temp_output_9_0_g724 = 1.0;
+				float temp_output_8_0_g724 = 4.0;
+				float2 texCoord2_g733 = IN.ase_texcoord8.xy * float2( 1,1 ) + float2( 0,0 );
+				float temp_output_3_0_g733 = 3.0;
+				float temp_output_7_0_g733 = 4.0;
+				float temp_output_9_0_g733 = 1.0;
+				float temp_output_8_0_g733 = 4.0;
 				float2 texCoord2_g737 = IN.ase_texcoord8.xy * float2( 1,1 ) + float2( 0,0 );
-				float temp_output_3_0_g737 = 3.0;
+				float temp_output_3_0_g737 = 4.0;
 				float temp_output_7_0_g737 = 4.0;
-				float temp_output_9_0_g737 = 2.0;
+				float temp_output_9_0_g737 = 1.0;
 				float temp_output_8_0_g737 = 4.0;
-				float2 texCoord2_g738 = IN.ase_texcoord8.xy * float2( 1,1 ) + float2( 0,0 );
-				float temp_output_3_0_g738 = 4.0;
-				float temp_output_7_0_g738 = 4.0;
-				float temp_output_9_0_g738 = 2.0;
-				float temp_output_8_0_g738 = 4.0;
+				float4 temp_output_155_0 = ( ( ( _Color1 * ( ( ( 1.0 - step( texCoord2_g735.x , ( ( temp_output_3_0_g735 - 1.0 ) / temp_output_7_0_g735 ) ) ) * ( step( texCoord2_g735.x , ( temp_output_3_0_g735 / temp_output_7_0_g735 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g735.y , ( ( temp_output_9_0_g735 - 1.0 ) / temp_output_8_0_g735 ) ) ) * ( step( texCoord2_g735.y , ( temp_output_9_0_g735 / temp_output_8_0_g735 ) ) * 1.0 ) ) ) ) + ( _Color2 * ( ( ( 1.0 - step( texCoord2_g739.x , ( ( temp_output_3_0_g739 - 1.0 ) / temp_output_7_0_g739 ) ) ) * ( step( texCoord2_g739.x , ( temp_output_3_0_g739 / temp_output_7_0_g739 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g739.y , ( ( temp_output_9_0_g739 - 1.0 ) / temp_output_8_0_g739 ) ) ) * ( step( texCoord2_g739.y , ( temp_output_9_0_g739 / temp_output_8_0_g739 ) ) * 1.0 ) ) ) ) + ( _Color3 * ( ( ( 1.0 - step( texCoord2_g738.x , ( ( temp_output_3_0_g738 - 1.0 ) / temp_output_7_0_g738 ) ) ) * ( step( texCoord2_g738.x , ( temp_output_3_0_g738 / temp_output_7_0_g738 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g738.y , ( ( temp_output_9_0_g738 - 1.0 ) / temp_output_8_0_g738 ) ) ) * ( step( texCoord2_g738.y , ( temp_output_9_0_g738 / temp_output_8_0_g738 ) ) * 1.0 ) ) ) ) + ( _Color4 * ( ( ( 1.0 - step( texCoord2_g736.x , ( ( temp_output_3_0_g736 - 1.0 ) / temp_output_7_0_g736 ) ) ) * ( step( texCoord2_g736.x , ( temp_output_3_0_g736 / temp_output_7_0_g736 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g736.y , ( ( temp_output_9_0_g736 - 1.0 ) / temp_output_8_0_g736 ) ) ) * ( step( texCoord2_g736.y , ( temp_output_9_0_g736 / temp_output_8_0_g736 ) ) * 1.0 ) ) ) ) ) + ( ( _Color5 * ( ( ( 1.0 - step( texCoord2_g741.x , ( ( temp_output_3_0_g741 - 1.0 ) / temp_output_7_0_g741 ) ) ) * ( step( texCoord2_g741.x , ( temp_output_3_0_g741 / temp_output_7_0_g741 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g741.y , ( ( temp_output_9_0_g741 - 1.0 ) / temp_output_8_0_g741 ) ) ) * ( step( texCoord2_g741.y , ( temp_output_9_0_g741 / temp_output_8_0_g741 ) ) * 1.0 ) ) ) ) + ( _Color6 * ( ( ( 1.0 - step( texCoord2_g722.x , ( ( temp_output_3_0_g722 - 1.0 ) / temp_output_7_0_g722 ) ) ) * ( step( texCoord2_g722.x , ( temp_output_3_0_g722 / temp_output_7_0_g722 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g722.y , ( ( temp_output_9_0_g722 - 1.0 ) / temp_output_8_0_g722 ) ) ) * ( step( texCoord2_g722.y , ( temp_output_9_0_g722 / temp_output_8_0_g722 ) ) * 1.0 ) ) ) ) + ( _Color7 * ( ( ( 1.0 - step( texCoord2_g734.x , ( ( temp_output_3_0_g734 - 1.0 ) / temp_output_7_0_g734 ) ) ) * ( step( texCoord2_g734.x , ( temp_output_3_0_g734 / temp_output_7_0_g734 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g734.y , ( ( temp_output_9_0_g734 - 1.0 ) / temp_output_8_0_g734 ) ) ) * ( step( texCoord2_g734.y , ( temp_output_9_0_g734 / temp_output_8_0_g734 ) ) * 1.0 ) ) ) ) + ( _Color8 * ( ( ( 1.0 - step( texCoord2_g740.x , ( ( temp_output_3_0_g740 - 1.0 ) / temp_output_7_0_g740 ) ) ) * ( step( texCoord2_g740.x , ( temp_output_3_0_g740 / temp_output_7_0_g740 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g740.y , ( ( temp_output_9_0_g740 - 1.0 ) / temp_output_8_0_g740 ) ) ) * ( step( texCoord2_g740.y , ( temp_output_9_0_g740 / temp_output_8_0_g740 ) ) * 1.0 ) ) ) ) ) + ( ( _Color9 * ( ( ( 1.0 - step( texCoord2_g720.x , ( ( temp_output_3_0_g720 - 1.0 ) / temp_output_7_0_g720 ) ) ) * ( step( texCoord2_g720.x , ( temp_output_3_0_g720 / temp_output_7_0_g720 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g720.y , ( ( temp_output_9_0_g720 - 1.0 ) / temp_output_8_0_g720 ) ) ) * ( step( texCoord2_g720.y , ( temp_output_9_0_g720 / temp_output_8_0_g720 ) ) * 1.0 ) ) ) ) + ( _Color10 * ( ( ( 1.0 - step( texCoord2_g743.x , ( ( temp_output_3_0_g743 - 1.0 ) / temp_output_7_0_g743 ) ) ) * ( step( texCoord2_g743.x , ( temp_output_3_0_g743 / temp_output_7_0_g743 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g743.y , ( ( temp_output_9_0_g743 - 1.0 ) / temp_output_8_0_g743 ) ) ) * ( step( texCoord2_g743.y , ( temp_output_9_0_g743 / temp_output_8_0_g743 ) ) * 1.0 ) ) ) ) + ( _Color11 * ( ( ( 1.0 - step( texCoord2_g723.x , ( ( temp_output_3_0_g723 - 1.0 ) / temp_output_7_0_g723 ) ) ) * ( step( texCoord2_g723.x , ( temp_output_3_0_g723 / temp_output_7_0_g723 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g723.y , ( ( temp_output_9_0_g723 - 1.0 ) / temp_output_8_0_g723 ) ) ) * ( step( texCoord2_g723.y , ( temp_output_9_0_g723 / temp_output_8_0_g723 ) ) * 1.0 ) ) ) ) + ( _Color12 * ( ( ( 1.0 - step( texCoord2_g721.x , ( ( temp_output_3_0_g721 - 1.0 ) / temp_output_7_0_g721 ) ) ) * ( step( texCoord2_g721.x , ( temp_output_3_0_g721 / temp_output_7_0_g721 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g721.y , ( ( temp_output_9_0_g721 - 1.0 ) / temp_output_8_0_g721 ) ) ) * ( step( texCoord2_g721.y , ( temp_output_9_0_g721 / temp_output_8_0_g721 ) ) * 1.0 ) ) ) ) ) + ( ( _Color13 * ( ( ( 1.0 - step( texCoord2_g742.x , ( ( temp_output_3_0_g742 - 1.0 ) / temp_output_7_0_g742 ) ) ) * ( step( texCoord2_g742.x , ( temp_output_3_0_g742 / temp_output_7_0_g742 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g742.y , ( ( temp_output_9_0_g742 - 1.0 ) / temp_output_8_0_g742 ) ) ) * ( step( texCoord2_g742.y , ( temp_output_9_0_g742 / temp_output_8_0_g742 ) ) * 1.0 ) ) ) ) + ( _Color14 * ( ( ( 1.0 - step( texCoord2_g724.x , ( ( temp_output_3_0_g724 - 1.0 ) / temp_output_7_0_g724 ) ) ) * ( step( texCoord2_g724.x , ( temp_output_3_0_g724 / temp_output_7_0_g724 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g724.y , ( ( temp_output_9_0_g724 - 1.0 ) / temp_output_8_0_g724 ) ) ) * ( step( texCoord2_g724.y , ( temp_output_9_0_g724 / temp_output_8_0_g724 ) ) * 1.0 ) ) ) ) + ( _Color15 * ( ( ( 1.0 - step( texCoord2_g733.x , ( ( temp_output_3_0_g733 - 1.0 ) / temp_output_7_0_g733 ) ) ) * ( step( texCoord2_g733.x , ( temp_output_3_0_g733 / temp_output_7_0_g733 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g733.y , ( ( temp_output_9_0_g733 - 1.0 ) / temp_output_8_0_g733 ) ) ) * ( step( texCoord2_g733.y , ( temp_output_9_0_g733 / temp_output_8_0_g733 ) ) * 1.0 ) ) ) ) + ( _Color16 * ( ( ( 1.0 - step( texCoord2_g737.x , ( ( temp_output_3_0_g737 - 1.0 ) / temp_output_7_0_g737 ) ) ) * ( step( texCoord2_g737.x , ( temp_output_3_0_g737 / temp_output_7_0_g737 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g737.y , ( ( temp_output_9_0_g737 - 1.0 ) / temp_output_8_0_g737 ) ) ) * ( step( texCoord2_g737.y , ( temp_output_9_0_g737 / temp_output_8_0_g737 ) ) * 1.0 ) ) ) ) ) );
+				float4 clampResult261 = clamp( ( pow( saferPower258 , temp_cast_0 ) + ( 1.0 - (temp_output_155_0).a ) ) , float4( 0,0,0,0 ) , float4( 1,1,1,1 ) );
+				
+				float2 texCoord2_g753 = IN.ase_texcoord8.xy * float2( 1,1 ) + float2( 0,0 );
+				float temp_output_3_0_g753 = 1.0;
+				float temp_output_7_0_g753 = 4.0;
+				float temp_output_9_0_g753 = 4.0;
+				float temp_output_8_0_g753 = 4.0;
+				float2 texCoord2_g759 = IN.ase_texcoord8.xy * float2( 1,1 ) + float2( 0,0 );
+				float temp_output_3_0_g759 = 2.0;
+				float temp_output_7_0_g759 = 4.0;
+				float temp_output_9_0_g759 = 4.0;
+				float temp_output_8_0_g759 = 4.0;
+				float2 texCoord2_g752 = IN.ase_texcoord8.xy * float2( 1,1 ) + float2( 0,0 );
+				float temp_output_3_0_g752 = 3.0;
+				float temp_output_7_0_g752 = 4.0;
+				float temp_output_9_0_g752 = 4.0;
+				float temp_output_8_0_g752 = 4.0;
+				float2 texCoord2_g750 = IN.ase_texcoord8.xy * float2( 1,1 ) + float2( 0,0 );
+				float temp_output_3_0_g750 = 4.0;
+				float temp_output_7_0_g750 = 4.0;
+				float temp_output_9_0_g750 = 4.0;
+				float temp_output_8_0_g750 = 4.0;
+				float2 texCoord2_g751 = IN.ase_texcoord8.xy * float2( 1,1 ) + float2( 0,0 );
+				float temp_output_3_0_g751 = 1.0;
+				float temp_output_7_0_g751 = 4.0;
+				float temp_output_9_0_g751 = 3.0;
+				float temp_output_8_0_g751 = 4.0;
+				float2 texCoord2_g755 = IN.ase_texcoord8.xy * float2( 1,1 ) + float2( 0,0 );
+				float temp_output_3_0_g755 = 2.0;
+				float temp_output_7_0_g755 = 4.0;
+				float temp_output_9_0_g755 = 3.0;
+				float temp_output_8_0_g755 = 4.0;
+				float2 texCoord2_g758 = IN.ase_texcoord8.xy * float2( 1,1 ) + float2( 0,0 );
+				float temp_output_3_0_g758 = 3.0;
+				float temp_output_7_0_g758 = 4.0;
+				float temp_output_9_0_g758 = 3.0;
+				float temp_output_8_0_g758 = 4.0;
+				float2 texCoord2_g748 = IN.ase_texcoord8.xy * float2( 1,1 ) + float2( 0,0 );
+				float temp_output_3_0_g748 = 4.0;
+				float temp_output_7_0_g748 = 4.0;
+				float temp_output_9_0_g748 = 3.0;
+				float temp_output_8_0_g748 = 4.0;
+				float2 texCoord2_g756 = IN.ase_texcoord8.xy * float2( 1,1 ) + float2( 0,0 );
+				float temp_output_3_0_g756 = 1.0;
+				float temp_output_7_0_g756 = 4.0;
+				float temp_output_9_0_g756 = 2.0;
+				float temp_output_8_0_g756 = 4.0;
+				float2 texCoord2_g749 = IN.ase_texcoord8.xy * float2( 1,1 ) + float2( 0,0 );
+				float temp_output_3_0_g749 = 2.0;
+				float temp_output_7_0_g749 = 4.0;
+				float temp_output_9_0_g749 = 2.0;
+				float temp_output_8_0_g749 = 4.0;
+				float2 texCoord2_g754 = IN.ase_texcoord8.xy * float2( 1,1 ) + float2( 0,0 );
+				float temp_output_3_0_g754 = 3.0;
+				float temp_output_7_0_g754 = 4.0;
+				float temp_output_9_0_g754 = 2.0;
+				float temp_output_8_0_g754 = 4.0;
+				float2 texCoord2_g757 = IN.ase_texcoord8.xy * float2( 1,1 ) + float2( 0,0 );
+				float temp_output_3_0_g757 = 4.0;
+				float temp_output_7_0_g757 = 4.0;
+				float temp_output_9_0_g757 = 2.0;
+				float temp_output_8_0_g757 = 4.0;
 				float2 texCoord2_g745 = IN.ase_texcoord8.xy * float2( 1,1 ) + float2( 0,0 );
 				float temp_output_3_0_g745 = 1.0;
 				float temp_output_7_0_g745 = 4.0;
 				float temp_output_9_0_g745 = 1.0;
 				float temp_output_8_0_g745 = 4.0;
-				float2 texCoord2_g744 = IN.ase_texcoord8.xy * float2( 1,1 ) + float2( 0,0 );
-				float temp_output_3_0_g744 = 2.0;
-				float temp_output_7_0_g744 = 4.0;
-				float temp_output_9_0_g744 = 1.0;
-				float temp_output_8_0_g744 = 4.0;
-				float2 texCoord2_g742 = IN.ase_texcoord8.xy * float2( 1,1 ) + float2( 0,0 );
-				float temp_output_3_0_g742 = 3.0;
-				float temp_output_7_0_g742 = 4.0;
-				float temp_output_9_0_g742 = 1.0;
-				float temp_output_8_0_g742 = 4.0;
 				float2 texCoord2_g747 = IN.ase_texcoord8.xy * float2( 1,1 ) + float2( 0,0 );
-				float temp_output_3_0_g747 = 4.0;
+				float temp_output_3_0_g747 = 2.0;
 				float temp_output_7_0_g747 = 4.0;
 				float temp_output_9_0_g747 = 1.0;
 				float temp_output_8_0_g747 = 4.0;
-				float4 temp_output_344_0 = ( ( ( _MRE1 * ( ( ( 1.0 - step( texCoord2_g739.x , ( ( temp_output_3_0_g739 - 1.0 ) / temp_output_7_0_g739 ) ) ) * ( step( texCoord2_g739.x , ( temp_output_3_0_g739 / temp_output_7_0_g739 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g739.y , ( ( temp_output_9_0_g739 - 1.0 ) / temp_output_8_0_g739 ) ) ) * ( step( texCoord2_g739.y , ( temp_output_9_0_g739 / temp_output_8_0_g739 ) ) * 1.0 ) ) ) ) + ( _MRE2 * ( ( ( 1.0 - step( texCoord2_g751.x , ( ( temp_output_3_0_g751 - 1.0 ) / temp_output_7_0_g751 ) ) ) * ( step( texCoord2_g751.x , ( temp_output_3_0_g751 / temp_output_7_0_g751 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g751.y , ( ( temp_output_9_0_g751 - 1.0 ) / temp_output_8_0_g751 ) ) ) * ( step( texCoord2_g751.y , ( temp_output_9_0_g751 / temp_output_8_0_g751 ) ) * 1.0 ) ) ) ) + ( _MRE3 * ( ( ( 1.0 - step( texCoord2_g740.x , ( ( temp_output_3_0_g740 - 1.0 ) / temp_output_7_0_g740 ) ) ) * ( step( texCoord2_g740.x , ( temp_output_3_0_g740 / temp_output_7_0_g740 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g740.y , ( ( temp_output_9_0_g740 - 1.0 ) / temp_output_8_0_g740 ) ) ) * ( step( texCoord2_g740.y , ( temp_output_9_0_g740 / temp_output_8_0_g740 ) ) * 1.0 ) ) ) ) + ( _MRE4 * ( ( ( 1.0 - step( texCoord2_g749.x , ( ( temp_output_3_0_g749 - 1.0 ) / temp_output_7_0_g749 ) ) ) * ( step( texCoord2_g749.x , ( temp_output_3_0_g749 / temp_output_7_0_g749 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g749.y , ( ( temp_output_9_0_g749 - 1.0 ) / temp_output_8_0_g749 ) ) ) * ( step( texCoord2_g749.y , ( temp_output_9_0_g749 / temp_output_8_0_g749 ) ) * 1.0 ) ) ) ) ) + ( ( _MRE5 * ( ( ( 1.0 - step( texCoord2_g746.x , ( ( temp_output_3_0_g746 - 1.0 ) / temp_output_7_0_g746 ) ) ) * ( step( texCoord2_g746.x , ( temp_output_3_0_g746 / temp_output_7_0_g746 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g746.y , ( ( temp_output_9_0_g746 - 1.0 ) / temp_output_8_0_g746 ) ) ) * ( step( texCoord2_g746.y , ( temp_output_9_0_g746 / temp_output_8_0_g746 ) ) * 1.0 ) ) ) ) + ( _MRE6 * ( ( ( 1.0 - step( texCoord2_g741.x , ( ( temp_output_3_0_g741 - 1.0 ) / temp_output_7_0_g741 ) ) ) * ( step( texCoord2_g741.x , ( temp_output_3_0_g741 / temp_output_7_0_g741 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g741.y , ( ( temp_output_9_0_g741 - 1.0 ) / temp_output_8_0_g741 ) ) ) * ( step( texCoord2_g741.y , ( temp_output_9_0_g741 / temp_output_8_0_g741 ) ) * 1.0 ) ) ) ) + ( _MRE7 * ( ( ( 1.0 - step( texCoord2_g750.x , ( ( temp_output_3_0_g750 - 1.0 ) / temp_output_7_0_g750 ) ) ) * ( step( texCoord2_g750.x , ( temp_output_3_0_g750 / temp_output_7_0_g750 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g750.y , ( ( temp_output_9_0_g750 - 1.0 ) / temp_output_8_0_g750 ) ) ) * ( step( texCoord2_g750.y , ( temp_output_9_0_g750 / temp_output_8_0_g750 ) ) * 1.0 ) ) ) ) + ( _MRE8 * ( ( ( 1.0 - step( texCoord2_g736.x , ( ( temp_output_3_0_g736 - 1.0 ) / temp_output_7_0_g736 ) ) ) * ( step( texCoord2_g736.x , ( temp_output_3_0_g736 / temp_output_7_0_g736 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g736.y , ( ( temp_output_9_0_g736 - 1.0 ) / temp_output_8_0_g736 ) ) ) * ( step( texCoord2_g736.y , ( temp_output_9_0_g736 / temp_output_8_0_g736 ) ) * 1.0 ) ) ) ) ) + ( ( _MRE9 * ( ( ( 1.0 - step( texCoord2_g748.x , ( ( temp_output_3_0_g748 - 1.0 ) / temp_output_7_0_g748 ) ) ) * ( step( texCoord2_g748.x , ( temp_output_3_0_g748 / temp_output_7_0_g748 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g748.y , ( ( temp_output_9_0_g748 - 1.0 ) / temp_output_8_0_g748 ) ) ) * ( step( texCoord2_g748.y , ( temp_output_9_0_g748 / temp_output_8_0_g748 ) ) * 1.0 ) ) ) ) + ( _MRE10 * ( ( ( 1.0 - step( texCoord2_g743.x , ( ( temp_output_3_0_g743 - 1.0 ) / temp_output_7_0_g743 ) ) ) * ( step( texCoord2_g743.x , ( temp_output_3_0_g743 / temp_output_7_0_g743 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g743.y , ( ( temp_output_9_0_g743 - 1.0 ) / temp_output_8_0_g743 ) ) ) * ( step( texCoord2_g743.y , ( temp_output_9_0_g743 / temp_output_8_0_g743 ) ) * 1.0 ) ) ) ) + ( _MRE11 * ( ( ( 1.0 - step( texCoord2_g737.x , ( ( temp_output_3_0_g737 - 1.0 ) / temp_output_7_0_g737 ) ) ) * ( step( texCoord2_g737.x , ( temp_output_3_0_g737 / temp_output_7_0_g737 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g737.y , ( ( temp_output_9_0_g737 - 1.0 ) / temp_output_8_0_g737 ) ) ) * ( step( texCoord2_g737.y , ( temp_output_9_0_g737 / temp_output_8_0_g737 ) ) * 1.0 ) ) ) ) + ( _MRE12 * ( ( ( 1.0 - step( texCoord2_g738.x , ( ( temp_output_3_0_g738 - 1.0 ) / temp_output_7_0_g738 ) ) ) * ( step( texCoord2_g738.x , ( temp_output_3_0_g738 / temp_output_7_0_g738 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g738.y , ( ( temp_output_9_0_g738 - 1.0 ) / temp_output_8_0_g738 ) ) ) * ( step( texCoord2_g738.y , ( temp_output_9_0_g738 / temp_output_8_0_g738 ) ) * 1.0 ) ) ) ) ) + ( ( _MRE13 * ( ( ( 1.0 - step( texCoord2_g745.x , ( ( temp_output_3_0_g745 - 1.0 ) / temp_output_7_0_g745 ) ) ) * ( step( texCoord2_g745.x , ( temp_output_3_0_g745 / temp_output_7_0_g745 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g745.y , ( ( temp_output_9_0_g745 - 1.0 ) / temp_output_8_0_g745 ) ) ) * ( step( texCoord2_g745.y , ( temp_output_9_0_g745 / temp_output_8_0_g745 ) ) * 1.0 ) ) ) ) + ( _MRE14 * ( ( ( 1.0 - step( texCoord2_g744.x , ( ( temp_output_3_0_g744 - 1.0 ) / temp_output_7_0_g744 ) ) ) * ( step( texCoord2_g744.x , ( temp_output_3_0_g744 / temp_output_7_0_g744 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g744.y , ( ( temp_output_9_0_g744 - 1.0 ) / temp_output_8_0_g744 ) ) ) * ( step( texCoord2_g744.y , ( temp_output_9_0_g744 / temp_output_8_0_g744 ) ) * 1.0 ) ) ) ) + ( _MRE15 * ( ( ( 1.0 - step( texCoord2_g742.x , ( ( temp_output_3_0_g742 - 1.0 ) / temp_output_7_0_g742 ) ) ) * ( step( texCoord2_g742.x , ( temp_output_3_0_g742 / temp_output_7_0_g742 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g742.y , ( ( temp_output_9_0_g742 - 1.0 ) / temp_output_8_0_g742 ) ) ) * ( step( texCoord2_g742.y , ( temp_output_9_0_g742 / temp_output_8_0_g742 ) ) * 1.0 ) ) ) ) + ( _MRE16 * ( ( ( 1.0 - step( texCoord2_g747.x , ( ( temp_output_3_0_g747 - 1.0 ) / temp_output_7_0_g747 ) ) ) * ( step( texCoord2_g747.x , ( temp_output_3_0_g747 / temp_output_7_0_g747 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g747.y , ( ( temp_output_9_0_g747 - 1.0 ) / temp_output_8_0_g747 ) ) ) * ( step( texCoord2_g747.y , ( temp_output_9_0_g747 / temp_output_8_0_g747 ) ) * 1.0 ) ) ) ) ) );
+				float2 texCoord2_g746 = IN.ase_texcoord8.xy * float2( 1,1 ) + float2( 0,0 );
+				float temp_output_3_0_g746 = 3.0;
+				float temp_output_7_0_g746 = 4.0;
+				float temp_output_9_0_g746 = 1.0;
+				float temp_output_8_0_g746 = 4.0;
+				float2 texCoord2_g744 = IN.ase_texcoord8.xy * float2( 1,1 ) + float2( 0,0 );
+				float temp_output_3_0_g744 = 4.0;
+				float temp_output_7_0_g744 = 4.0;
+				float temp_output_9_0_g744 = 1.0;
+				float temp_output_8_0_g744 = 4.0;
+				float4 temp_output_283_0 = ( ( ( _MRE1 * ( ( ( 1.0 - step( texCoord2_g753.x , ( ( temp_output_3_0_g753 - 1.0 ) / temp_output_7_0_g753 ) ) ) * ( step( texCoord2_g753.x , ( temp_output_3_0_g753 / temp_output_7_0_g753 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g753.y , ( ( temp_output_9_0_g753 - 1.0 ) / temp_output_8_0_g753 ) ) ) * ( step( texCoord2_g753.y , ( temp_output_9_0_g753 / temp_output_8_0_g753 ) ) * 1.0 ) ) ) ) + ( _MRE2 * ( ( ( 1.0 - step( texCoord2_g759.x , ( ( temp_output_3_0_g759 - 1.0 ) / temp_output_7_0_g759 ) ) ) * ( step( texCoord2_g759.x , ( temp_output_3_0_g759 / temp_output_7_0_g759 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g759.y , ( ( temp_output_9_0_g759 - 1.0 ) / temp_output_8_0_g759 ) ) ) * ( step( texCoord2_g759.y , ( temp_output_9_0_g759 / temp_output_8_0_g759 ) ) * 1.0 ) ) ) ) + ( _MRE3 * ( ( ( 1.0 - step( texCoord2_g752.x , ( ( temp_output_3_0_g752 - 1.0 ) / temp_output_7_0_g752 ) ) ) * ( step( texCoord2_g752.x , ( temp_output_3_0_g752 / temp_output_7_0_g752 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g752.y , ( ( temp_output_9_0_g752 - 1.0 ) / temp_output_8_0_g752 ) ) ) * ( step( texCoord2_g752.y , ( temp_output_9_0_g752 / temp_output_8_0_g752 ) ) * 1.0 ) ) ) ) + ( _MRE4 * ( ( ( 1.0 - step( texCoord2_g750.x , ( ( temp_output_3_0_g750 - 1.0 ) / temp_output_7_0_g750 ) ) ) * ( step( texCoord2_g750.x , ( temp_output_3_0_g750 / temp_output_7_0_g750 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g750.y , ( ( temp_output_9_0_g750 - 1.0 ) / temp_output_8_0_g750 ) ) ) * ( step( texCoord2_g750.y , ( temp_output_9_0_g750 / temp_output_8_0_g750 ) ) * 1.0 ) ) ) ) ) + ( ( _MRE5 * ( ( ( 1.0 - step( texCoord2_g751.x , ( ( temp_output_3_0_g751 - 1.0 ) / temp_output_7_0_g751 ) ) ) * ( step( texCoord2_g751.x , ( temp_output_3_0_g751 / temp_output_7_0_g751 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g751.y , ( ( temp_output_9_0_g751 - 1.0 ) / temp_output_8_0_g751 ) ) ) * ( step( texCoord2_g751.y , ( temp_output_9_0_g751 / temp_output_8_0_g751 ) ) * 1.0 ) ) ) ) + ( _MRE6 * ( ( ( 1.0 - step( texCoord2_g755.x , ( ( temp_output_3_0_g755 - 1.0 ) / temp_output_7_0_g755 ) ) ) * ( step( texCoord2_g755.x , ( temp_output_3_0_g755 / temp_output_7_0_g755 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g755.y , ( ( temp_output_9_0_g755 - 1.0 ) / temp_output_8_0_g755 ) ) ) * ( step( texCoord2_g755.y , ( temp_output_9_0_g755 / temp_output_8_0_g755 ) ) * 1.0 ) ) ) ) + ( _MRE7 * ( ( ( 1.0 - step( texCoord2_g758.x , ( ( temp_output_3_0_g758 - 1.0 ) / temp_output_7_0_g758 ) ) ) * ( step( texCoord2_g758.x , ( temp_output_3_0_g758 / temp_output_7_0_g758 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g758.y , ( ( temp_output_9_0_g758 - 1.0 ) / temp_output_8_0_g758 ) ) ) * ( step( texCoord2_g758.y , ( temp_output_9_0_g758 / temp_output_8_0_g758 ) ) * 1.0 ) ) ) ) + ( _MRE8 * ( ( ( 1.0 - step( texCoord2_g748.x , ( ( temp_output_3_0_g748 - 1.0 ) / temp_output_7_0_g748 ) ) ) * ( step( texCoord2_g748.x , ( temp_output_3_0_g748 / temp_output_7_0_g748 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g748.y , ( ( temp_output_9_0_g748 - 1.0 ) / temp_output_8_0_g748 ) ) ) * ( step( texCoord2_g748.y , ( temp_output_9_0_g748 / temp_output_8_0_g748 ) ) * 1.0 ) ) ) ) ) + ( ( _MRE9 * ( ( ( 1.0 - step( texCoord2_g756.x , ( ( temp_output_3_0_g756 - 1.0 ) / temp_output_7_0_g756 ) ) ) * ( step( texCoord2_g756.x , ( temp_output_3_0_g756 / temp_output_7_0_g756 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g756.y , ( ( temp_output_9_0_g756 - 1.0 ) / temp_output_8_0_g756 ) ) ) * ( step( texCoord2_g756.y , ( temp_output_9_0_g756 / temp_output_8_0_g756 ) ) * 1.0 ) ) ) ) + ( _MRE10 * ( ( ( 1.0 - step( texCoord2_g749.x , ( ( temp_output_3_0_g749 - 1.0 ) / temp_output_7_0_g749 ) ) ) * ( step( texCoord2_g749.x , ( temp_output_3_0_g749 / temp_output_7_0_g749 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g749.y , ( ( temp_output_9_0_g749 - 1.0 ) / temp_output_8_0_g749 ) ) ) * ( step( texCoord2_g749.y , ( temp_output_9_0_g749 / temp_output_8_0_g749 ) ) * 1.0 ) ) ) ) + ( _MRE11 * ( ( ( 1.0 - step( texCoord2_g754.x , ( ( temp_output_3_0_g754 - 1.0 ) / temp_output_7_0_g754 ) ) ) * ( step( texCoord2_g754.x , ( temp_output_3_0_g754 / temp_output_7_0_g754 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g754.y , ( ( temp_output_9_0_g754 - 1.0 ) / temp_output_8_0_g754 ) ) ) * ( step( texCoord2_g754.y , ( temp_output_9_0_g754 / temp_output_8_0_g754 ) ) * 1.0 ) ) ) ) + ( _MRE12 * ( ( ( 1.0 - step( texCoord2_g757.x , ( ( temp_output_3_0_g757 - 1.0 ) / temp_output_7_0_g757 ) ) ) * ( step( texCoord2_g757.x , ( temp_output_3_0_g757 / temp_output_7_0_g757 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g757.y , ( ( temp_output_9_0_g757 - 1.0 ) / temp_output_8_0_g757 ) ) ) * ( step( texCoord2_g757.y , ( temp_output_9_0_g757 / temp_output_8_0_g757 ) ) * 1.0 ) ) ) ) ) + ( ( _MRE13 * ( ( ( 1.0 - step( texCoord2_g745.x , ( ( temp_output_3_0_g745 - 1.0 ) / temp_output_7_0_g745 ) ) ) * ( step( texCoord2_g745.x , ( temp_output_3_0_g745 / temp_output_7_0_g745 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g745.y , ( ( temp_output_9_0_g745 - 1.0 ) / temp_output_8_0_g745 ) ) ) * ( step( texCoord2_g745.y , ( temp_output_9_0_g745 / temp_output_8_0_g745 ) ) * 1.0 ) ) ) ) + ( _MRE14 * ( ( ( 1.0 - step( texCoord2_g747.x , ( ( temp_output_3_0_g747 - 1.0 ) / temp_output_7_0_g747 ) ) ) * ( step( texCoord2_g747.x , ( temp_output_3_0_g747 / temp_output_7_0_g747 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g747.y , ( ( temp_output_9_0_g747 - 1.0 ) / temp_output_8_0_g747 ) ) ) * ( step( texCoord2_g747.y , ( temp_output_9_0_g747 / temp_output_8_0_g747 ) ) * 1.0 ) ) ) ) + ( _MRE15 * ( ( ( 1.0 - step( texCoord2_g746.x , ( ( temp_output_3_0_g746 - 1.0 ) / temp_output_7_0_g746 ) ) ) * ( step( texCoord2_g746.x , ( temp_output_3_0_g746 / temp_output_7_0_g746 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g746.y , ( ( temp_output_9_0_g746 - 1.0 ) / temp_output_8_0_g746 ) ) ) * ( step( texCoord2_g746.y , ( temp_output_9_0_g746 / temp_output_8_0_g746 ) ) * 1.0 ) ) ) ) + ( _MRE16 * ( ( ( 1.0 - step( texCoord2_g744.x , ( ( temp_output_3_0_g744 - 1.0 ) / temp_output_7_0_g744 ) ) ) * ( step( texCoord2_g744.x , ( temp_output_3_0_g744 / temp_output_7_0_g744 ) ) * 1.0 ) ) * ( ( 1.0 - step( texCoord2_g744.y , ( ( temp_output_9_0_g744 - 1.0 ) / temp_output_8_0_g744 ) ) ) * ( step( texCoord2_g744.y , ( temp_output_9_0_g744 / temp_output_8_0_g744 ) ) * 1.0 ) ) ) ) ) );
 				
 
-				float3 BaseColor = ( clampResult348 * temp_output_329_0 ).rgb;
+				float3 BaseColor = ( clampResult261 * temp_output_155_0 ).rgb;
 				float3 Normal = float3(0, 0, 1);
-				float3 Emission = ( temp_output_329_0 * ( _EmissionPower1 * (temp_output_344_0).b ) ).rgb;
+				float3 Emission = ( temp_output_155_0 * ( _EmissionPower1 * (temp_output_283_0).b ) ).rgb;
 				float3 Specular = 0.5;
-				float Metallic = (temp_output_344_0).r;
-				float Smoothness = ( 1.0 - (temp_output_344_0).g );
+				float Metallic = (temp_output_283_0).r;
+				float Smoothness = ( 1.0 - (temp_output_283_0).g );
 				float Occlusion = 1;
 				float Alpha = 1;
 				float AlphaClipThreshold = 0.5;
@@ -4184,217 +4184,219 @@ Shader "Malbers/Color4x4"
 }
 /*ASEBEGIN
 Version=19106
-Node;AmplifyShaderEditor.TextureCoordinatesNode;256;288.1596,87.91077;Inherit;False;0;-1;2;3;2;SAMPLER2D;;False;0;FLOAT2;1,4;False;1;FLOAT2;0,0;False;5;FLOAT2;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
-Node;AmplifyShaderEditor.FunctionNode;318;855.679,4178.713;Inherit;True;ColorShartSlot;-1;;736;231fe18505db4a84b9c478d379c9247d;0;5;38;COLOR;1,1,1,1;False;3;FLOAT;4;False;9;FLOAT;3;False;7;FLOAT;4;False;8;FLOAT;4;False;1;COLOR;0
-Node;AmplifyShaderEditor.FunctionNode;327;862.4109,4930.181;Inherit;True;ColorShartSlot;-1;;737;231fe18505db4a84b9c478d379c9247d;0;5;38;COLOR;1,1,1,1;False;3;FLOAT;3;False;9;FLOAT;2;False;7;FLOAT;4;False;8;FLOAT;4;False;1;COLOR;0
-Node;AmplifyShaderEditor.ClampOpNode;328;1325.247,67.20997;Inherit;True;3;0;COLOR;0,0,0,0;False;1;COLOR;0,0,0,0;False;2;COLOR;1,1,1,0;False;1;COLOR;0
-Node;AmplifyShaderEditor.FunctionNode;332;853.4119,5152.679;Inherit;True;ColorShartSlot;-1;;738;231fe18505db4a84b9c478d379c9247d;0;5;38;COLOR;1,1,1,1;False;3;FLOAT;4;False;9;FLOAT;2;False;7;FLOAT;4;False;8;FLOAT;4;False;1;COLOR;0
-Node;AmplifyShaderEditor.SimpleAddOpNode;329;689.7629,1490.179;Inherit;True;4;4;0;COLOR;0,0,0,0;False;1;COLOR;0,0,0,0;False;2;COLOR;0,0,0,0;False;3;COLOR;0,0,0,0;False;1;COLOR;0
-Node;AmplifyShaderEditor.RangedFloatNode;325;1321.758,324.4118;Float;False;Property;_GradientScale;Gradient Scale;36;0;Create;True;0;0;0;False;0;False;1;1;0;0;0;1;FLOAT;0
-Node;AmplifyShaderEditor.FunctionNode;324;877.594,2625.656;Inherit;True;ColorShartSlot;-1;;739;231fe18505db4a84b9c478d379c9247d;0;5;38;COLOR;1,1,1,1;False;3;FLOAT;1;False;9;FLOAT;4;False;7;FLOAT;4;False;8;FLOAT;4;False;1;COLOR;0
-Node;AmplifyShaderEditor.FunctionNode;323;873.4548,3051.996;Inherit;True;ColorShartSlot;-1;;740;231fe18505db4a84b9c478d379c9247d;0;5;38;COLOR;1,1,1,1;False;3;FLOAT;3;False;9;FLOAT;4;False;7;FLOAT;4;False;8;FLOAT;4;False;1;COLOR;0
-Node;AmplifyShaderEditor.FunctionNode;319;860.446,3741.301;Inherit;True;ColorShartSlot;-1;;741;231fe18505db4a84b9c478d379c9247d;0;5;38;COLOR;1,1,1,1;False;3;FLOAT;2;False;9;FLOAT;3;False;7;FLOAT;4;False;8;FLOAT;4;False;1;COLOR;0
-Node;AmplifyShaderEditor.FunctionNode;316;867.7078,6001.553;Inherit;True;ColorShartSlot;-1;;742;231fe18505db4a84b9c478d379c9247d;0;5;38;COLOR;1,1,1,1;False;3;FLOAT;3;False;9;FLOAT;1;False;7;FLOAT;4;False;8;FLOAT;4;False;1;COLOR;0
-Node;AmplifyShaderEditor.FunctionNode;320;860.7371,4715.267;Inherit;True;ColorShartSlot;-1;;743;231fe18505db4a84b9c478d379c9247d;0;5;38;COLOR;1,1,1,1;False;3;FLOAT;2;False;9;FLOAT;2;False;7;FLOAT;4;False;8;FLOAT;4;False;1;COLOR;0
-Node;AmplifyShaderEditor.ColorNode;311;556.5591,3968.35;Float;False;Property;_MRE7;MRE 7;22;0;Create;True;0;0;0;False;0;False;0,1,0,0;0,1,0,0;False;0;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
-Node;AmplifyShaderEditor.ColorNode;310;554.5208,4730.661;Float;False;Property;_MRE10;MRE 10;25;0;Create;True;0;0;0;False;0;False;0,1,0,0;0,1,0,0;False;0;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
-Node;AmplifyShaderEditor.FunctionNode;317;866.0349,5786.639;Inherit;True;ColorShartSlot;-1;;744;231fe18505db4a84b9c478d379c9247d;0;5;38;COLOR;1,1,1,1;False;3;FLOAT;2;False;9;FLOAT;1;False;7;FLOAT;4;False;8;FLOAT;4;False;1;COLOR;0
-Node;AmplifyShaderEditor.FunctionNode;315;851.7717,5565.973;Inherit;True;ColorShartSlot;-1;;745;231fe18505db4a84b9c478d379c9247d;0;5;38;COLOR;1,1,1,1;False;3;FLOAT;1;False;9;FLOAT;1;False;7;FLOAT;4;False;8;FLOAT;4;False;1;COLOR;0
-Node;AmplifyShaderEditor.FunctionNode;322;862.8147,3533.231;Inherit;True;ColorShartSlot;-1;;746;231fe18505db4a84b9c478d379c9247d;0;5;38;COLOR;1,1,1,1;False;3;FLOAT;1;False;9;FLOAT;3;False;7;FLOAT;4;False;8;FLOAT;4;False;1;COLOR;0
-Node;AmplifyShaderEditor.ColorNode;294;561.9038,6013.687;Float;False;Property;_MRE15;MRE 15;30;0;Create;True;0;0;0;False;0;False;0,1,0,0;0,1,0,0;False;0;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
-Node;AmplifyShaderEditor.ColorNode;313;593.4414,2625.924;Float;False;Property;_MRE1;MRE 1;16;0;Create;True;0;0;0;False;1;Header(Metallic(R) Rough(G) Emmission(B));False;0,1,0,0;0,1,0,0;False;0;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
-Node;AmplifyShaderEditor.ColorNode;312;554.5156,4184.477;Float;False;Property;_MRE8;MRE 8;23;0;Create;True;0;0;0;False;0;False;0,1,0,0;0,1,0,0;False;0;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
-Node;AmplifyShaderEditor.ColorNode;314;600.7974,3259.348;Float;False;Property;_MRE4;MRE 4;19;0;Create;True;0;0;0;False;0;False;0,1,0,0;0,1,0,0;False;0;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
-Node;AmplifyShaderEditor.FunctionNode;330;858.7087,6224.051;Inherit;True;ColorShartSlot;-1;;747;231fe18505db4a84b9c478d379c9247d;0;5;38;COLOR;1,1,1,1;False;3;FLOAT;4;False;9;FLOAT;1;False;7;FLOAT;4;False;8;FLOAT;4;False;1;COLOR;0
-Node;AmplifyShaderEditor.FunctionNode;331;846.4747,4494.602;Inherit;True;ColorShartSlot;-1;;748;231fe18505db4a84b9c478d379c9247d;0;5;38;COLOR;1,1,1,1;False;3;FLOAT;1;False;9;FLOAT;2;False;7;FLOAT;4;False;8;FLOAT;4;False;1;COLOR;0
-Node;AmplifyShaderEditor.FunctionNode;321;873.4221,3262.493;Inherit;True;ColorShartSlot;-1;;749;231fe18505db4a84b9c478d379c9247d;0;5;38;COLOR;1,1,1,1;False;3;FLOAT;4;False;9;FLOAT;4;False;7;FLOAT;4;False;8;FLOAT;4;False;1;COLOR;0
-Node;AmplifyShaderEditor.ColorNode;308;597.8821,3050.848;Float;False;Property;_MRE3;MRE 3;18;0;Create;True;0;0;0;False;0;False;0,1,0,0;0,1,0,0;False;0;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
-Node;AmplifyShaderEditor.ColorNode;309;560.7014,3530.267;Float;False;Property;_MRE5;MRE 5;20;0;Create;True;0;0;0;False;1;Space(10);False;0,1,0,0;0,1,0,0;False;0;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
-Node;AmplifyShaderEditor.ComponentMaskNode;354;2243.338,1191.311;Inherit;True;True;False;False;False;1;0;COLOR;0,0,0,0;False;1;FLOAT;0
-Node;AmplifyShaderEditor.OneMinusNode;343;1955.269,393.4111;Inherit;False;1;0;FLOAT;0;False;1;FLOAT;0
-Node;AmplifyShaderEditor.SimpleMultiplyOpNode;353;3107.01,689.065;Inherit;True;2;2;0;COLOR;0,0,0,0;False;1;COLOR;0,0,0,0;False;1;COLOR;0
-Node;AmplifyShaderEditor.SimpleMultiplyOpNode;351;2787.695,1612.243;Inherit;False;2;2;0;COLOR;0,0,0,0;False;1;FLOAT;0;False;1;COLOR;0
-Node;AmplifyShaderEditor.ComponentMaskNode;349;2249.315,1389.258;Inherit;True;False;True;False;False;1;0;COLOR;0,0,0,0;False;1;FLOAT;0
-Node;AmplifyShaderEditor.RangedFloatNode;345;2197.731,1690.528;Inherit;False;Property;_EmissionPower1;Emission Power;32;0;Create;True;0;0;0;False;1;Header(Emmision);False;1;1;0;0;0;1;FLOAT;0
-Node;AmplifyShaderEditor.SimpleMultiplyOpNode;350;2501.627,1677.187;Inherit;True;2;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0
-Node;AmplifyShaderEditor.SimpleAddOpNode;347;2203.216,104.3341;Inherit;True;2;2;0;COLOR;0,0,0,0;False;1;FLOAT;0;False;1;COLOR;0
-Node;AmplifyShaderEditor.ComponentMaskNode;346;2187.081,1825.551;Inherit;True;False;False;True;False;1;0;COLOR;0,0,0,0;False;1;FLOAT;0
-Node;AmplifyShaderEditor.RangedFloatNode;338;1333.067,513.5909;Float;False;Property;_GradientPower;Gradient Power;38;0;Create;True;0;0;0;False;0;False;1;1;0;0;0;1;FLOAT;0
-Node;AmplifyShaderEditor.SimpleAddOpNode;344;1633.28,3281.224;Inherit;True;4;4;0;COLOR;0,0,0,0;False;1;COLOR;0,0,0,0;False;2;COLOR;0,0,0,0;False;3;COLOR;0,0,0,0;False;1;COLOR;0
-Node;AmplifyShaderEditor.SimpleAddOpNode;335;1245.005,5733.872;Inherit;True;4;4;0;COLOR;0,0,0,0;False;1;COLOR;0,0,0,0;False;2;COLOR;0,0,0,0;False;3;COLOR;0,0,0,0;False;1;COLOR;0
-Node;AmplifyShaderEditor.ComponentMaskNode;340;1733.138,385.1413;Inherit;False;False;False;False;True;1;0;COLOR;0,0,0,0;False;1;FLOAT;0
-Node;AmplifyShaderEditor.SimpleAddOpNode;339;1226.362,3693.714;Inherit;True;4;4;0;COLOR;0,0,0,0;False;1;COLOR;0,0,0,0;False;2;COLOR;0,0,0,0;False;3;COLOR;0,0,0,0;False;1;COLOR;0
-Node;AmplifyShaderEditor.ScaleAndOffsetNode;341;1603.028,106.3281;Inherit;True;3;0;COLOR;0,0,0,0;False;1;FLOAT;1;False;2;FLOAT;0;False;1;COLOR;0
-Node;AmplifyShaderEditor.RangedFloatNode;326;1328.576,417.155;Float;False;Property;_GradientOffset;Gradient Offset;37;0;Create;True;0;0;0;False;0;False;0;0;0;0;0;1;FLOAT;0
-Node;AmplifyShaderEditor.OneMinusNode;355;2617.921,1385.25;Inherit;True;1;0;FLOAT;0;False;1;FLOAT;0
-Node;AmplifyShaderEditor.SimpleAddOpNode;337;1242.845,2960.129;Inherit;True;4;4;0;COLOR;0,0,0,0;False;1;COLOR;0,0,0,0;False;2;COLOR;0,0,0,0;False;3;COLOR;0,0,0,0;False;1;COLOR;0
-Node;AmplifyShaderEditor.SimpleAddOpNode;336;1239.708,4662.5;Inherit;True;4;4;0;COLOR;0,0,0,0;False;1;COLOR;0,0,0,0;False;2;COLOR;0,0,0,0;False;3;COLOR;0,0,0,0;False;1;COLOR;0
-Node;AmplifyShaderEditor.FunctionNode;334;862.1199,3956.216;Inherit;True;ColorShartSlot;-1;;750;231fe18505db4a84b9c478d379c9247d;0;5;38;COLOR;1,1,1,1;False;3;FLOAT;3;False;9;FLOAT;3;False;7;FLOAT;4;False;8;FLOAT;4;False;1;COLOR;0
-Node;AmplifyShaderEditor.FunctionNode;333;875.3811,2841.581;Inherit;True;ColorShartSlot;-1;;751;231fe18505db4a84b9c478d379c9247d;0;5;38;COLOR;1,1,1,1;False;3;FLOAT;2;False;9;FLOAT;4;False;7;FLOAT;4;False;8;FLOAT;4;False;1;COLOR;0
-Node;AmplifyShaderEditor.ClampOpNode;348;2469.75,101.3337;Inherit;True;3;0;COLOR;0,0,0,0;False;1;COLOR;0,0,0,0;False;2;COLOR;1,1,1,1;False;1;COLOR;0
-Node;AmplifyShaderEditor.ColorNode;272;-522.8309,1407.066;Float;False;Property;_Color6;Color 6;5;0;Create;True;0;0;0;False;0;False;0.2720588,0.1294625,0,0.097;1,0.4519259,0.152941,1;False;0;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
-Node;AmplifyShaderEditor.ColorNode;304;561.4189,3756.696;Float;False;Property;_MRE6;MRE 6;21;0;Create;True;0;0;0;False;0;False;0,1,0,0;0,1,0,0;False;0;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
-Node;AmplifyShaderEditor.FunctionNode;280;-207.1133,1411.907;Inherit;True;ColorShartSlot;-1;;752;231fe18505db4a84b9c478d379c9247d;0;5;38;COLOR;0.7843138,0.3137255,0,0;False;3;FLOAT;2;False;9;FLOAT;3;False;7;FLOAT;4;False;8;FLOAT;4;False;1;COLOR;0
-Node;AmplifyShaderEditor.ColorNode;266;-556.0259,3635.911;Float;False;Property;_Color15;Color 15;14;0;Create;True;0;0;0;False;0;False;1,0,0,0.391;1,0,0,0.391;False;0;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
-Node;AmplifyShaderEditor.ColorNode;306;549.3809,4496.889;Float;False;Property;_MRE9;MRE 9;24;0;Create;True;0;0;0;False;1;Space(10);False;0,1,0,0;0,1,0,0;False;0;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
-Node;AmplifyShaderEditor.ColorNode;274;-551.3253,2140.742;Float;False;Property;_Color9;Color 9;8;0;Create;True;0;0;0;False;1;Space(10);False;0.3164301,0,0.7058823,0.134;0.152941,0.9929401,1,1;False;0;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
-Node;AmplifyShaderEditor.ColorNode;271;-522.5457,870.9286;Float;False;Property;_Color4;Color 4;3;0;Create;True;0;0;0;False;0;False;0.1544118,0.5451319,1,0.253;0.9533468,1,0.1544116,1;False;0;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
-Node;AmplifyShaderEditor.ColorNode;275;-534.6641,392.7433;Float;False;Property;_Color2;Color 2;1;0;Create;True;0;0;0;False;0;False;1,0.1544118,0.8017241,0.253;1,0.1544116,0.8017241,1;False;0;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
-Node;AmplifyShaderEditor.ColorNode;269;-547.1475,2877.121;Float;False;Property;_Color12;Color 12;11;0;Create;True;0;0;0;False;0;False;0.5073529,0.1574544,0,0.128;0.02270761,0.1632712,0.2205881,0.484;False;0;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
-Node;AmplifyShaderEditor.ColorNode;268;-559.2659,2400.1;Float;False;Property;_Color10;Color 10;9;0;Create;True;0;0;0;False;0;False;0.362069,0.4411765,0,0.759;0.1544117,0.1602433,1,0.341;False;0;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
-Node;AmplifyShaderEditor.FunctionNode;284;-193.0711,1888.928;Inherit;True;ColorShartSlot;-1;;753;231fe18505db4a84b9c478d379c9247d;0;5;38;COLOR;0.7843138,0.3137255,0,0;False;3;FLOAT;4;False;9;FLOAT;3;False;7;FLOAT;4;False;8;FLOAT;4;False;1;COLOR;0
-Node;AmplifyShaderEditor.SamplerNode;259;532.3035,61.52296;Inherit;True;Property;_Gradient;Gradient;33;1;[SingleLineTexture];Create;True;0;0;0;False;1;Header(Gradient);False;-1;0f424a347039ef447a763d3d4b4782b0;0f424a347039ef447a763d3d4b4782b0;True;0;False;white;Auto;False;Object;-1;Auto;Texture2D;8;0;SAMPLER2D;;False;1;FLOAT2;0,0;False;2;FLOAT;0;False;3;FLOAT2;0,0;False;4;FLOAT2;0,0;False;5;FLOAT;1;False;6;FLOAT;0;False;7;SAMPLERSTATE;;False;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
-Node;AmplifyShaderEditor.ColorNode;262;-510.7125,1884.087;Float;False;Property;_Color8;Color 8;7;0;Create;True;0;0;0;False;0;False;0.4849697,0.5008695,0.5073529,0.078;0.1544116,0.1602432,1,1;False;0;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
-Node;AmplifyShaderEditor.FunctionNode;279;-235.6077,2145.583;Inherit;True;ColorShartSlot;-1;;754;231fe18505db4a84b9c478d379c9247d;0;5;38;COLOR;0.7843138,0.3137255,0,0;False;3;FLOAT;1;False;9;FLOAT;2;False;7;FLOAT;4;False;8;FLOAT;4;False;1;COLOR;0
-Node;AmplifyShaderEditor.ColorNode;273;-591.2968,3879.068;Float;False;Property;_Color16;Color 16;15;0;Create;True;0;0;0;False;0;False;0.4080882,0.75,0.4811866,0.134;0.4080881,0.75,0.4811865,0.134;False;0;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
-Node;AmplifyShaderEditor.RangedFloatNode;270;518.8171,472.1493;Float;False;Property;_GradientIntensity;Gradient Intensity;34;0;Create;True;0;0;0;False;0;False;1;0.75;0;1;0;1;FLOAT;0
-Node;AmplifyShaderEditor.ColorNode;263;-545.7383,2633.965;Float;False;Property;_Color11;Color 11;10;0;Create;True;0;0;0;False;0;False;0.6691177,0.6691177,0.6691177,0.647;1,0.1544117,0.3818459,0.316;False;0;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
-Node;AmplifyShaderEditor.ColorNode;257;-514.8902,1147.708;Float;False;Property;_Color5;Color 5;4;0;Create;True;0;0;0;False;1;Space(10);False;0.9533468,1,0.1544118,0.553;0.2669382,0.3207545,0.0226949,1;False;0;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
-Node;AmplifyShaderEditor.ColorNode;261;-521.1363,626.6081;Float;False;Property;_Color3;Color 3;2;0;Create;True;0;0;0;False;0;False;0.2535501,0.1544118,1,0.541;0.2535499,0.1544116,1,1;False;0;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
-Node;AmplifyShaderEditor.ColorNode;258;-561.6131,3142.689;Float;False;Property;_Color13;Color 13;12;0;Create;True;0;0;0;False;1;Space(10);False;1,0.5586207,0,0.272;1,0.5586207,0,0.272;False;0;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
-Node;AmplifyShaderEditor.ColorNode;265;-526.7234,133.3854;Float;False;Property;_Color1;Color 1;0;0;Create;True;0;0;0;False;1;Header(Albedo (A Gradient));False;1,0.1544118,0.1544118,0.291;1,0.1544116,0.1544116,0;False;0;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
-Node;AmplifyShaderEditor.ColorNode;260;-569.5535,3402.046;Float;False;Property;_Color14;Color 14;13;0;Create;True;0;0;0;False;0;False;0,0.8025862,0.875,0.047;0,0.8025862,0.875,0.047;False;0;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
-Node;AmplifyShaderEditor.ColorNode;267;-509.303,1640.931;Float;False;Property;_Color7;Color 7;6;0;Create;True;0;0;0;False;0;False;0.1544118,0.6151115,1,0.178;0.9099331,0.9264706,0.6267301,1;False;0;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
-Node;AmplifyShaderEditor.FunctionNode;276;-230.0205,2638.806;Inherit;True;ColorShartSlot;-1;;755;231fe18505db4a84b9c478d379c9247d;0;5;38;COLOR;0.7843138,0.3137255,0,0;False;3;FLOAT;3;False;9;FLOAT;2;False;7;FLOAT;4;False;8;FLOAT;4;False;1;COLOR;0
-Node;AmplifyShaderEditor.FunctionNode;283;-239.794,3883.909;Inherit;True;ColorShartSlot;-1;;756;231fe18505db4a84b9c478d379c9247d;0;5;38;COLOR;0.7843138,0.3137255,0,0;False;3;FLOAT;4;False;9;FLOAT;1;False;7;FLOAT;4;False;8;FLOAT;4;False;1;COLOR;0
-Node;AmplifyShaderEditor.ColorNode;264;547.1333,288.8422;Float;False;Property;_GradientColor;Gradient Color;35;0;Create;True;0;0;0;False;0;False;0,0,0,0;0,0,0,0;True;0;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
-Node;AmplifyShaderEditor.ColorNode;307;554.6787,5568.261;Float;False;Property;_MRE13;MRE 13;28;0;Create;True;0;0;0;False;1;Space(10);False;0,1,0,0;0,1,0,0;False;0;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
-Node;AmplifyShaderEditor.ColorNode;301;554.292,4942.316;Float;False;Property;_MRE11;MRE 11;26;0;Create;True;0;0;0;False;0;False;0,1,0,0;0,1,0,0;False;0;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
-Node;AmplifyShaderEditor.PowerNode;342;1910.574,105.6353;Inherit;True;True;2;0;COLOR;0,0,0,0;False;1;FLOAT;1;False;1;COLOR;0
-Node;AmplifyShaderEditor.ColorNode;298;552.2485,5158.444;Float;False;Property;_MRE12;MRE 12;27;0;Create;True;0;0;0;False;0;False;0,1,0,0;0,1,0,0;False;0;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
-Node;AmplifyShaderEditor.ColorNode;300;557.5464,6229.815;Float;False;Property;_MRE16;MRE 16;31;0;Create;True;0;0;0;False;0;False;0,1,0,0;0,1,0,0;False;0;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
-Node;AmplifyShaderEditor.SimpleAddOpNode;299;359.8215,1720.239;Inherit;True;4;4;0;COLOR;0,0,0,0;False;1;COLOR;0,0,0,0;False;2;COLOR;0,0,0,0;False;3;COLOR;0,0,0,0;False;1;COLOR;0
-Node;AmplifyShaderEditor.FunctionNode;278;-199.1724,1152.549;Inherit;True;ColorShartSlot;-1;;757;231fe18505db4a84b9c478d379c9247d;0;5;38;COLOR;0.7843138,0.3137255,0,0;False;3;FLOAT;1;False;9;FLOAT;3;False;7;FLOAT;4;False;8;FLOAT;4;False;1;COLOR;0
-Node;AmplifyShaderEditor.FunctionNode;282;-253.836,3404.727;Inherit;True;ColorShartSlot;-1;;758;231fe18505db4a84b9c478d379c9247d;0;5;38;COLOR;0.7843138,0.3137255,0,0;False;3;FLOAT;2;False;9;FLOAT;1;False;7;FLOAT;4;False;8;FLOAT;4;False;1;COLOR;0
-Node;AmplifyShaderEditor.ColorNode;297;559.8184,5802.033;Float;False;Property;_MRE14;MRE 14;29;0;Create;True;0;0;0;False;0;False;0,1,0,0;0,1,0,0;False;0;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
-Node;AmplifyShaderEditor.SimpleAddOpNode;295;1040.498,75.77015;Inherit;True;2;2;0;COLOR;0,0,0,0;False;1;FLOAT;0;False;1;COLOR;0
-Node;AmplifyShaderEditor.SimpleAddOpNode;302;361.3183,1187.068;Inherit;True;4;4;0;COLOR;0,0,0,0;False;1;COLOR;0,0,0,0;False;2;COLOR;0,0,0,0;False;3;COLOR;0,0,0,0;False;1;COLOR;0
-Node;AmplifyShaderEditor.ColorNode;305;601.9778,2839.576;Float;False;Property;_MRE2;MRE 2;17;0;Create;True;0;0;0;False;0;False;0,1,0,0;0,1,0,0;False;0;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
-Node;AmplifyShaderEditor.SimpleAddOpNode;303;362.0073,1453.096;Inherit;True;4;4;0;COLOR;0,0,0,0;False;1;COLOR;0,0,0,0;False;2;COLOR;0,0,0,0;False;3;COLOR;0,0,0,0;False;1;COLOR;0
-Node;AmplifyShaderEditor.SimpleAddOpNode;296;356.4282,1984.446;Inherit;True;4;4;0;COLOR;0,0,0,0;False;1;COLOR;0,0,0,0;False;2;COLOR;0,0,0,0;False;3;COLOR;0,0,0,0;False;1;COLOR;0
-Node;AmplifyShaderEditor.FunctionNode;287;-240.3081,3640.752;Inherit;True;ColorShartSlot;-1;;759;231fe18505db4a84b9c478d379c9247d;0;5;38;COLOR;0.7843138,0.3137255,0,0;False;3;FLOAT;3;False;9;FLOAT;1;False;7;FLOAT;4;False;8;FLOAT;4;False;1;COLOR;0
-Node;AmplifyShaderEditor.FunctionNode;291;-193.5855,1645.772;Inherit;True;ColorShartSlot;-1;;760;231fe18505db4a84b9c478d379c9247d;0;5;38;COLOR;0.7843138,0.3137255,0,0;False;3;FLOAT;3;False;9;FLOAT;3;False;7;FLOAT;4;False;8;FLOAT;4;False;1;COLOR;0
-Node;AmplifyShaderEditor.FunctionNode;277;-229.5064,2881.962;Inherit;True;ColorShartSlot;-1;;761;231fe18505db4a84b9c478d379c9247d;0;5;38;COLOR;0.7843138,0.3137255,0,0;False;3;FLOAT;4;False;9;FLOAT;2;False;7;FLOAT;4;False;8;FLOAT;4;False;1;COLOR;0
-Node;AmplifyShaderEditor.FunctionNode;293;-245.8953,3147.53;Inherit;True;ColorShartSlot;-1;;762;231fe18505db4a84b9c478d379c9247d;0;5;38;COLOR;0.7843138,0.3137255,0,0;False;3;FLOAT;1;False;9;FLOAT;1;False;7;FLOAT;4;False;8;FLOAT;4;False;1;COLOR;0
-Node;AmplifyShaderEditor.FunctionNode;288;-204.9043,874.6049;Inherit;True;ColorShartSlot;-1;;763;231fe18505db4a84b9c478d379c9247d;0;5;38;COLOR;0.7843138,0.3137255,0,0;False;3;FLOAT;4;False;9;FLOAT;4;False;7;FLOAT;4;False;8;FLOAT;4;False;1;COLOR;0
-Node;AmplifyShaderEditor.FunctionNode;290;-211.0059,138.2261;Inherit;True;ColorShartSlot;-1;;764;231fe18505db4a84b9c478d379c9247d;0;5;38;COLOR;0.7843138,0.3137255,0,0;False;3;FLOAT;1;False;9;FLOAT;4;False;7;FLOAT;4;False;8;FLOAT;4;False;1;COLOR;0
-Node;AmplifyShaderEditor.SimpleAddOpNode;289;855.199,86.99012;Inherit;False;2;2;0;COLOR;0,0,0,0;False;1;COLOR;0,0,0,0;False;1;COLOR;0
-Node;AmplifyShaderEditor.OneMinusNode;292;829.6819,391.2721;Inherit;False;1;0;FLOAT;0;False;1;FLOAT;0
-Node;AmplifyShaderEditor.FunctionNode;286;-205.4187,631.4487;Inherit;True;ColorShartSlot;-1;;765;231fe18505db4a84b9c478d379c9247d;0;5;38;COLOR;0.7843138,0.3137255,0,0;False;3;FLOAT;3;False;9;FLOAT;4;False;7;FLOAT;4;False;8;FLOAT;4;False;1;COLOR;0
-Node;AmplifyShaderEditor.FunctionNode;285;-218.9466,397.584;Inherit;True;ColorShartSlot;-1;;766;231fe18505db4a84b9c478d379c9247d;0;5;38;COLOR;0.7843138,0.3137255,0,0;False;3;FLOAT;2;False;9;FLOAT;4;False;7;FLOAT;4;False;8;FLOAT;4;False;1;COLOR;0
-Node;AmplifyShaderEditor.FunctionNode;281;-243.5486,2404.941;Inherit;True;ColorShartSlot;-1;;767;231fe18505db4a84b9c478d379c9247d;0;5;38;COLOR;0.7843138,0.3137255,0,0;False;3;FLOAT;2;False;9;FLOAT;2;False;7;FLOAT;4;False;8;FLOAT;4;False;1;COLOR;0
-Node;AmplifyShaderEditor.TemplateMultiPassMasterNode;360;3722.291,1294.892;Float;False;False;-1;2;UnityEditor.ShaderGraphLitGUI;0;1;New Amplify Shader;94348b07e5e8bab40bd6c8a1e3df54cd;True;Meta;0;4;Meta;0;False;False;False;False;False;False;False;False;False;False;False;False;True;0;False;;False;True;0;False;;False;False;False;False;False;False;False;False;False;True;False;255;False;;255;False;;255;False;;7;False;;1;False;;1;False;;1;False;;7;False;;1;False;;1;False;;1;False;;False;True;1;False;;True;3;False;;True;True;0;False;;0;False;;True;4;RenderPipeline=UniversalPipeline;RenderType=Opaque=RenderType;Queue=Geometry=Queue=0;UniversalMaterialType=Lit;True;5;True;12;all;0;False;False;False;False;False;False;False;False;False;False;False;False;False;False;True;2;False;;False;False;False;False;False;False;False;False;False;False;False;False;False;False;True;1;LightMode=Meta;False;False;0;Hidden/InternalErrorShader;0;0;Standard;0;False;0
-Node;AmplifyShaderEditor.TemplateMultiPassMasterNode;361;3722.291,1294.892;Float;False;False;-1;2;UnityEditor.ShaderGraphLitGUI;0;1;New Amplify Shader;94348b07e5e8bab40bd6c8a1e3df54cd;True;Universal2D;0;5;Universal2D;0;False;False;False;False;False;False;False;False;False;False;False;False;True;0;False;;False;True;0;False;;False;False;False;False;False;False;False;False;False;True;False;255;False;;255;False;;255;False;;7;False;;1;False;;1;False;;1;False;;7;False;;1;False;;1;False;;1;False;;False;True;1;False;;True;3;False;;True;True;0;False;;0;False;;True;4;RenderPipeline=UniversalPipeline;RenderType=Opaque=RenderType;Queue=Geometry=Queue=0;UniversalMaterialType=Lit;True;5;True;12;all;0;False;True;1;1;False;;0;False;;1;1;False;;0;False;;False;False;False;False;False;False;False;False;False;False;False;False;False;False;True;True;True;True;True;0;False;;False;False;False;False;False;False;False;False;False;True;1;False;;True;3;False;;True;True;0;False;;0;False;;True;1;LightMode=Universal2D;False;False;0;Hidden/InternalErrorShader;0;0;Standard;0;False;0
-Node;AmplifyShaderEditor.TemplateMultiPassMasterNode;365;3722.291,1294.892;Float;False;False;-1;2;UnityEditor.ShaderGraphLitGUI;0;1;New Amplify Shader;94348b07e5e8bab40bd6c8a1e3df54cd;True;ScenePickingPass;0;9;ScenePickingPass;0;False;False;False;False;False;False;False;False;False;False;False;False;True;0;False;;False;True;0;False;;False;False;False;False;False;False;False;False;False;True;False;255;False;;255;False;;255;False;;7;False;;1;False;;1;False;;1;False;;7;False;;1;False;;1;False;;1;False;;False;True;1;False;;True;3;False;;True;True;0;False;;0;False;;True;4;RenderPipeline=UniversalPipeline;RenderType=Opaque=RenderType;Queue=Geometry=Queue=0;UniversalMaterialType=Lit;True;5;True;12;all;0;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;True;1;LightMode=Picking;False;False;0;Hidden/InternalErrorShader;0;0;Standard;0;False;0
-Node;AmplifyShaderEditor.TemplateMultiPassMasterNode;363;3722.291,1294.892;Float;False;False;-1;2;UnityEditor.ShaderGraphLitGUI;0;1;New Amplify Shader;94348b07e5e8bab40bd6c8a1e3df54cd;True;GBuffer;0;7;GBuffer;0;False;False;False;False;False;False;False;False;False;False;False;False;True;0;False;;False;True;0;False;;False;False;False;False;False;False;False;False;False;True;False;255;False;;255;False;;255;False;;7;False;;1;False;;1;False;;1;False;;7;False;;1;False;;1;False;;1;False;;False;True;1;False;;True;3;False;;True;True;0;False;;0;False;;True;4;RenderPipeline=UniversalPipeline;RenderType=Opaque=RenderType;Queue=Geometry=Queue=0;UniversalMaterialType=Lit;True;5;True;12;all;0;False;True;1;1;False;;0;False;;1;1;False;;0;False;;False;False;False;False;False;False;False;False;False;False;False;False;False;False;True;True;True;True;True;0;False;;False;False;False;False;False;False;False;True;False;255;False;;255;False;;255;False;;7;False;;1;False;;1;False;;1;False;;7;False;;1;False;;1;False;;1;False;;False;True;1;False;;True;3;False;;True;True;0;False;;0;False;;True;1;LightMode=UniversalGBuffer;False;False;0;Hidden/InternalErrorShader;0;0;Standard;0;False;0
-Node;AmplifyShaderEditor.TemplateMultiPassMasterNode;364;3722.291,1294.892;Float;False;False;-1;2;UnityEditor.ShaderGraphLitGUI;0;1;New Amplify Shader;94348b07e5e8bab40bd6c8a1e3df54cd;True;SceneSelectionPass;0;8;SceneSelectionPass;0;False;False;False;False;False;False;False;False;False;False;False;False;True;0;False;;False;True;0;False;;False;False;False;False;False;False;False;False;False;True;False;255;False;;255;False;;255;False;;7;False;;1;False;;1;False;;1;False;;7;False;;1;False;;1;False;;1;False;;False;True;1;False;;True;3;False;;True;True;0;False;;0;False;;True;4;RenderPipeline=UniversalPipeline;RenderType=Opaque=RenderType;Queue=Geometry=Queue=0;UniversalMaterialType=Lit;True;5;True;12;all;0;False;False;False;False;False;False;False;False;False;False;False;False;False;False;True;2;False;;False;False;False;False;False;False;False;False;False;False;False;False;False;False;True;1;LightMode=SceneSelectionPass;False;False;0;Hidden/InternalErrorShader;0;0;Standard;0;False;0
-Node;AmplifyShaderEditor.TemplateMultiPassMasterNode;356;3722.291,1294.892;Float;False;False;-1;2;UnityEditor.ShaderGraphLitGUI;0;1;New Amplify Shader;94348b07e5e8bab40bd6c8a1e3df54cd;True;ExtraPrePass;0;0;ExtraPrePass;5;False;False;False;False;False;False;False;False;False;False;False;False;True;0;False;;False;True;0;False;;False;False;False;False;False;False;False;False;False;True;False;255;False;;255;False;;255;False;;7;False;;1;False;;1;False;;1;False;;7;False;;1;False;;1;False;;1;False;;False;True;1;False;;True;3;False;;True;True;0;False;;0;False;;True;4;RenderPipeline=UniversalPipeline;RenderType=Opaque=RenderType;Queue=Geometry=Queue=0;UniversalMaterialType=Lit;True;5;True;12;all;0;False;True;1;1;False;;0;False;;0;1;False;;0;False;;False;False;False;False;False;False;False;False;False;False;False;False;True;0;False;;False;True;True;True;True;True;0;False;;False;False;False;False;False;False;False;True;False;255;False;;255;False;;255;False;;7;False;;1;False;;1;False;;1;False;;7;False;;1;False;;1;False;;1;False;;False;True;1;False;;True;3;False;;True;True;0;False;;0;False;;True;0;False;False;0;Hidden/InternalErrorShader;0;0;Standard;0;False;0
-Node;AmplifyShaderEditor.TemplateMultiPassMasterNode;357;3722.291,1294.892;Float;False;True;-1;2;ASEMaterialInspector;0;12;Malbers/Color4x4;94348b07e5e8bab40bd6c8a1e3df54cd;True;Forward;0;1;Forward;19;False;False;False;False;False;False;False;False;False;False;False;False;True;0;False;;False;True;2;False;;False;False;False;False;False;False;False;False;False;True;False;255;False;;255;False;;255;False;;7;False;;1;False;;1;False;;1;False;;7;False;;1;False;;1;False;;1;False;;False;True;1;False;;True;3;False;;True;True;0;False;;0;False;;True;4;RenderPipeline=UniversalPipeline;RenderType=Opaque=RenderType;Queue=Geometry=Queue=0;UniversalMaterialType=Lit;True;5;True;12;all;0;False;True;1;1;False;;0;False;;1;1;False;;0;False;;False;False;False;False;False;False;False;False;False;False;False;False;False;False;True;True;True;True;True;0;False;;False;False;False;False;False;False;False;True;False;255;False;;255;False;;255;False;;7;False;;1;False;;1;False;;1;False;;7;False;;1;False;;1;False;;1;False;;False;True;1;False;;True;3;False;;True;True;0;False;;0;False;;True;1;LightMode=UniversalForward;False;False;0;;0;0;Standard;41;Workflow;1;0;Surface;0;0;  Refraction Model;0;0;  Blend;0;0;Two Sided;0;637780419590991176;Fragment Normal Space,InvertActionOnDeselection;0;0;Forward Only;0;0;Transmission;0;0;  Transmission Shadow;0.5,False,;0;Translucency;0;0;  Translucency Strength;1,False,;0;  Normal Distortion;0.5,False,;0;  Scattering;2,False,;0;  Direct;0.9,False,;0;  Ambient;0.1,False,;0;  Shadow;0.5,False,;0;Cast Shadows;1;0;  Use Shadow Threshold;0;0;Receive Shadows;1;0;GPU Instancing;1;0;LOD CrossFade;1;0;Built-in Fog;1;0;_FinalColorxAlpha;0;0;Meta Pass;1;0;Override Baked GI;0;0;Extra Pre Pass;0;0;DOTS Instancing;0;0;Tessellation;0;0;  Phong;0;0;  Strength;0.5,False,;0;  Type;0;0;  Tess;16,False,;0;  Min;10,False,;0;  Max;25,False,;0;  Edge Length;16,False,;0;  Max Displacement;25,False,;0;Write Depth;0;0;  Early Z;0;0;Vertex Position,InvertActionOnDeselection;1;0;Debug Display;0;0;Clear Coat;0;0;0;10;False;True;True;True;True;True;True;True;True;True;False;;False;0
-Node;AmplifyShaderEditor.TemplateMultiPassMasterNode;358;3722.291,1294.892;Float;False;False;-1;2;UnityEditor.ShaderGraphLitGUI;0;1;New Amplify Shader;94348b07e5e8bab40bd6c8a1e3df54cd;True;ShadowCaster;0;2;ShadowCaster;0;False;False;False;False;False;False;False;False;False;False;False;False;True;0;False;;False;True;0;False;;False;False;False;False;False;False;False;False;False;True;False;255;False;;255;False;;255;False;;7;False;;1;False;;1;False;;1;False;;7;False;;1;False;;1;False;;1;False;;False;True;1;False;;True;3;False;;True;True;0;False;;0;False;;True;4;RenderPipeline=UniversalPipeline;RenderType=Opaque=RenderType;Queue=Geometry=Queue=0;UniversalMaterialType=Lit;True;5;True;12;all;0;False;False;False;False;False;False;False;False;False;False;False;False;True;0;False;;False;False;False;True;False;False;False;False;0;False;;False;False;False;False;False;False;False;False;False;True;1;False;;True;3;False;;False;True;1;LightMode=ShadowCaster;False;False;0;Hidden/InternalErrorShader;0;0;Standard;0;False;0
-Node;AmplifyShaderEditor.TemplateMultiPassMasterNode;359;3722.291,1294.892;Float;False;False;-1;2;UnityEditor.ShaderGraphLitGUI;0;1;New Amplify Shader;94348b07e5e8bab40bd6c8a1e3df54cd;True;DepthOnly;0;3;DepthOnly;0;False;False;False;False;False;False;False;False;False;False;False;False;True;0;False;;False;True;0;False;;False;False;False;False;False;False;False;False;False;True;False;255;False;;255;False;;255;False;;7;False;;1;False;;1;False;;1;False;;7;False;;1;False;;1;False;;1;False;;False;True;1;False;;True;3;False;;True;True;0;False;;0;False;;True;4;RenderPipeline=UniversalPipeline;RenderType=Opaque=RenderType;Queue=Geometry=Queue=0;UniversalMaterialType=Lit;True;5;True;12;all;0;False;False;False;False;False;False;False;False;False;False;False;False;True;0;False;;False;False;False;True;False;False;False;False;0;False;;False;False;False;False;False;False;False;False;False;True;1;False;;False;False;True;1;LightMode=DepthOnly;False;False;0;Hidden/InternalErrorShader;0;0;Standard;0;False;0
-Node;AmplifyShaderEditor.TemplateMultiPassMasterNode;362;3722.291,1294.892;Float;False;False;-1;2;UnityEditor.ShaderGraphLitGUI;0;1;New Amplify Shader;94348b07e5e8bab40bd6c8a1e3df54cd;True;DepthNormals;0;6;DepthNormals;0;False;False;False;False;False;False;False;False;False;False;False;False;True;0;False;;False;True;0;False;;False;False;False;False;False;False;False;False;False;True;False;255;False;;255;False;;255;False;;7;False;;1;False;;1;False;;1;False;;7;False;;1;False;;1;False;;1;False;;False;True;1;False;;True;3;False;;True;True;0;False;;0;False;;True;4;RenderPipeline=UniversalPipeline;RenderType=Opaque=RenderType;Queue=Geometry=Queue=0;UniversalMaterialType=Lit;True;5;True;12;all;0;False;True;1;1;False;;0;False;;0;1;False;;0;False;;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;True;1;False;;True;3;False;;False;True;1;LightMode=DepthNormals;False;False;0;Hidden/InternalErrorShader;0;0;Standard;0;False;0
-WireConnection;318;38;312;0
-WireConnection;327;38;301;0
-WireConnection;328;0;295;0
-WireConnection;332;38;298;0
-WireConnection;329;0;302;0
-WireConnection;329;1;303;0
-WireConnection;329;2;299;0
-WireConnection;329;3;296;0
-WireConnection;324;38;313;0
-WireConnection;323;38;308;0
-WireConnection;319;38;304;0
-WireConnection;316;38;294;0
-WireConnection;320;38;310;0
-WireConnection;317;38;297;0
-WireConnection;315;38;307;0
-WireConnection;322;38;309;0
-WireConnection;330;38;300;0
-WireConnection;331;38;306;0
-WireConnection;321;38;314;0
-WireConnection;354;0;344;0
-WireConnection;343;0;340;0
-WireConnection;353;0;348;0
-WireConnection;353;1;329;0
-WireConnection;351;0;329;0
-WireConnection;351;1;350;0
-WireConnection;349;0;344;0
-WireConnection;350;0;345;0
-WireConnection;350;1;346;0
-WireConnection;347;0;342;0
-WireConnection;347;1;343;0
-WireConnection;346;0;344;0
-WireConnection;344;0;337;0
-WireConnection;344;1;339;0
-WireConnection;344;2;336;0
-WireConnection;344;3;335;0
-WireConnection;335;0;315;0
-WireConnection;335;1;317;0
-WireConnection;335;2;316;0
-WireConnection;335;3;330;0
-WireConnection;340;0;329;0
-WireConnection;339;0;322;0
-WireConnection;339;1;319;0
-WireConnection;339;2;334;0
-WireConnection;339;3;318;0
-WireConnection;341;0;328;0
-WireConnection;341;1;325;0
-WireConnection;341;2;326;0
-WireConnection;355;0;349;0
-WireConnection;337;0;324;0
-WireConnection;337;1;333;0
-WireConnection;337;2;323;0
-WireConnection;337;3;321;0
-WireConnection;336;0;331;0
-WireConnection;336;1;320;0
-WireConnection;336;2;327;0
-WireConnection;336;3;332;0
-WireConnection;334;38;311;0
-WireConnection;333;38;305;0
-WireConnection;348;0;347;0
-WireConnection;280;38;272;0
-WireConnection;284;38;262;0
-WireConnection;259;1;256;0
-WireConnection;279;38;274;0
-WireConnection;276;38;263;0
-WireConnection;283;38;273;0
-WireConnection;342;0;341;0
-WireConnection;342;1;338;0
-WireConnection;299;0;279;0
-WireConnection;299;1;281;0
-WireConnection;299;2;276;0
-WireConnection;299;3;277;0
-WireConnection;278;38;257;0
-WireConnection;282;38;260;0
-WireConnection;295;0;289;0
-WireConnection;295;1;292;0
-WireConnection;302;0;290;0
-WireConnection;302;1;285;0
-WireConnection;302;2;286;0
-WireConnection;302;3;288;0
-WireConnection;303;0;278;0
-WireConnection;303;1;280;0
-WireConnection;303;2;291;0
-WireConnection;303;3;284;0
-WireConnection;296;0;293;0
-WireConnection;296;1;282;0
-WireConnection;296;2;287;0
-WireConnection;296;3;283;0
-WireConnection;287;38;266;0
-WireConnection;291;38;267;0
-WireConnection;277;38;269;0
-WireConnection;293;38;258;0
-WireConnection;288;38;271;0
-WireConnection;290;38;265;0
-WireConnection;289;0;259;0
-WireConnection;289;1;264;0
-WireConnection;292;0;270;0
-WireConnection;286;38;261;0
-WireConnection;285;38;275;0
-WireConnection;281;38;268;0
-WireConnection;357;0;353;0
-WireConnection;357;2;351;0
-WireConnection;357;3;354;0
-WireConnection;357;4;355;0
+Node;AmplifyShaderEditor.TextureCoordinatesNode;255;615.0826,-371.7701;Inherit;False;0;-1;2;3;2;SAMPLER2D;;False;0;FLOAT2;1,4;False;1;FLOAT2;0,0;False;5;FLOAT2;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
+Node;AmplifyShaderEditor.ColorNode;157;-182.3802,1181.25;Float;False;Property;_Color7;Color 7;6;0;Create;True;0;0;0;False;0;False;0.1544118,0.6151115,1,0.178;0.9099331,0.9264706,0.6267301,1;False;0;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
+Node;AmplifyShaderEditor.ColorNode;159;-187.9672,688.0273;Float;False;Property;_Color5;Color 5;4;0;Create;True;0;0;0;False;1;Space(10);False;0.9533468,1,0.1544118,0.553;0.2669382,0.3207545,0.0226949,1;False;0;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
+Node;AmplifyShaderEditor.ColorNode;213;-234.6901,2683.007;Float;False;Property;_Color13;Color 13;12;0;Create;True;0;0;0;False;1;Space(10);False;1,0.5586207,0,0.272;1,0.5586207,0,0.272;False;0;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
+Node;AmplifyShaderEditor.SamplerNode;230;859.2263,-398.1579;Inherit;True;Property;_Gradient;Gradient;33;1;[SingleLineTexture];Create;True;0;0;0;False;1;Header(Gradient);False;-1;0f424a347039ef447a763d3d4b4782b0;0f424a347039ef447a763d3d4b4782b0;True;0;False;white;Auto;False;Object;-1;Auto;Texture2D;8;0;SAMPLER2D;;False;1;FLOAT2;0,0;False;2;FLOAT;0;False;3;FLOAT2;0,0;False;4;FLOAT2;0,0;False;5;FLOAT;1;False;6;FLOAT;0;False;7;SAMPLERSTATE;;False;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
+Node;AmplifyShaderEditor.ColorNode;214;-242.6307,2942.365;Float;False;Property;_Color14;Color 14;13;0;Create;True;0;0;0;False;0;False;0,0.8025862,0.875,0.047;0,0.8025862,0.875,0.047;False;0;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
+Node;AmplifyShaderEditor.ColorNode;152;-194.2135,166.9271;Float;False;Property;_Color3;Color 3;2;0;Create;True;0;0;0;False;0;False;0.2535501,0.1544118,1,0.541;0.2535499,0.1544116,1,1;False;0;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
+Node;AmplifyShaderEditor.ColorNode;158;-183.7895,1424.406;Float;False;Property;_Color8;Color 8;7;0;Create;True;0;0;0;False;0;False;0.4849697,0.5008695,0.5073529,0.078;0.1544116,0.1602432,1,1;False;0;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
+Node;AmplifyShaderEditor.ColorNode;181;-218.8154,2174.284;Float;False;Property;_Color11;Color 11;10;0;Create;True;0;0;0;False;0;False;0.6691177,0.6691177,0.6691177,0.647;1,0.1544117,0.3818459,0.316;False;0;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
+Node;AmplifyShaderEditor.ColorNode;229;874.0561,-170.8387;Float;False;Property;_GradientColor;Gradient Color;35;0;Create;True;0;0;0;False;0;False;0,0,0,0;0,0,0,0;True;0;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
+Node;AmplifyShaderEditor.ColorNode;23;-199.8005,-326.2955;Float;False;Property;_Color1;Color 1;0;0;Create;True;0;0;0;False;1;Header(Albedo (A Gradient));False;1,0.1544118,0.1544118,0.291;1,0.1544116,0.1544116,0;False;0;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
+Node;AmplifyShaderEditor.ColorNode;218;-229.103,3176.23;Float;False;Property;_Color15;Color 15;14;0;Create;True;0;0;0;False;0;False;1,0,0,0.391;1,0,0,0.391;False;0;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
+Node;AmplifyShaderEditor.ColorNode;180;-232.3431,1940.419;Float;False;Property;_Color10;Color 10;9;0;Create;True;0;0;0;False;0;False;0.362069,0.4411765,0,0.759;0.1544117,0.1602433,1,0.341;False;0;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
+Node;AmplifyShaderEditor.FunctionNode;188;91.31517,1685.902;Inherit;True;ColorShartSlot;-1;;720;231fe18505db4a84b9c478d379c9247d;0;5;38;COLOR;0.7843138,0.3137255,0,0;False;3;FLOAT;1;False;9;FLOAT;2;False;7;FLOAT;4;False;8;FLOAT;4;False;1;COLOR;0
+Node;AmplifyShaderEditor.ColorNode;182;-220.2247,2417.44;Float;False;Property;_Color12;Color 12;11;0;Create;True;0;0;0;False;0;False;0.5073529,0.1574544,0,0.128;0.02270761,0.1632712,0.2205881,0.484;False;0;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
+Node;AmplifyShaderEditor.RangedFloatNode;228;845.7399,12.46821;Float;False;Property;_GradientIntensity;Gradient Intensity;34;0;Create;True;0;0;0;False;0;False;0.75;0.75;0;1;0;1;FLOAT;0
+Node;AmplifyShaderEditor.ColorNode;154;-195.6228,411.2479;Float;False;Property;_Color4;Color 4;3;0;Create;True;0;0;0;False;0;False;0.1544118,0.5451319,1,0.253;0.9533468,1,0.1544116,1;False;0;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
+Node;AmplifyShaderEditor.ColorNode;156;-195.9079,947.3851;Float;False;Property;_Color6;Color 6;5;0;Create;True;0;0;0;False;0;False;0.2720588,0.1294625,0,0.097;1,0.4519259,0.152941,1;False;0;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
+Node;AmplifyShaderEditor.ColorNode;217;-264.3738,3419.386;Float;False;Property;_Color16;Color 16;15;0;Create;True;0;0;0;False;0;False;0.4080882,0.75,0.4811866,0.134;0.4080881,0.75,0.4811865,0.134;False;0;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
+Node;AmplifyShaderEditor.ColorNode;183;-224.4024,1681.061;Float;False;Property;_Color9;Color 9;8;0;Create;True;0;0;0;False;1;Space(10);False;0.3164301,0,0.7058823,0.134;0.152941,0.9929401,1,1;False;0;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
+Node;AmplifyShaderEditor.ColorNode;265;928.9007,2379.895;Float;False;Property;_MRE2;MRE 2;17;0;Create;True;0;0;0;False;0;False;0,1,0,0;0,1,0,0;False;0;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
+Node;AmplifyShaderEditor.FunctionNode;185;97.41646,2422.281;Inherit;True;ColorShartSlot;-1;;721;231fe18505db4a84b9c478d379c9247d;0;5;38;COLOR;0.7843138,0.3137255,0,0;False;3;FLOAT;4;False;9;FLOAT;2;False;7;FLOAT;4;False;8;FLOAT;4;False;1;COLOR;0
+Node;AmplifyShaderEditor.FunctionNode;160;119.8096,952.2258;Inherit;True;ColorShartSlot;-1;;722;231fe18505db4a84b9c478d379c9247d;0;5;38;COLOR;0.7843138,0.3137255,0,0;False;3;FLOAT;2;False;9;FLOAT;3;False;7;FLOAT;4;False;8;FLOAT;4;False;1;COLOR;0
+Node;AmplifyShaderEditor.FunctionNode;186;96.90227,2179.125;Inherit;True;ColorShartSlot;-1;;723;231fe18505db4a84b9c478d379c9247d;0;5;38;COLOR;0.7843138,0.3137255,0,0;False;3;FLOAT;3;False;9;FLOAT;2;False;7;FLOAT;4;False;8;FLOAT;4;False;1;COLOR;0
+Node;AmplifyShaderEditor.FunctionNode;223;73.08682,2945.046;Inherit;True;ColorShartSlot;-1;;724;231fe18505db4a84b9c478d379c9247d;0;5;38;COLOR;0.7843138,0.3137255,0,0;False;3;FLOAT;2;False;9;FLOAT;1;False;7;FLOAT;4;False;8;FLOAT;4;False;1;COLOR;0
+Node;AmplifyShaderEditor.SimpleAddOpNode;164;688.9302,993.4156;Inherit;True;4;4;0;COLOR;0,0,0,0;False;1;COLOR;0,0,0,0;False;2;COLOR;0,0,0,0;False;3;COLOR;0,0,0,0;False;1;COLOR;0
+Node;AmplifyShaderEditor.PowerNode;258;2237.497,-354.0456;Inherit;True;True;2;0;COLOR;0,0,0,0;False;1;FLOAT;1;False;1;COLOR;0
+Node;AmplifyShaderEditor.FunctionNode;224;86.61465,3181.071;Inherit;True;ColorShartSlot;-1;;733;231fe18505db4a84b9c478d379c9247d;0;5;38;COLOR;0.7843138,0.3137255,0,0;False;3;FLOAT;3;False;9;FLOAT;1;False;7;FLOAT;4;False;8;FLOAT;4;False;1;COLOR;0
+Node;AmplifyShaderEditor.FunctionNode;161;133.3375,1186.091;Inherit;True;ColorShartSlot;-1;;734;231fe18505db4a84b9c478d379c9247d;0;5;38;COLOR;0.7843138,0.3137255,0,0;False;3;FLOAT;3;False;9;FLOAT;3;False;7;FLOAT;4;False;8;FLOAT;4;False;1;COLOR;0
+Node;AmplifyShaderEditor.FunctionNode;145;115.9171,-321.4549;Inherit;True;ColorShartSlot;-1;;735;231fe18505db4a84b9c478d379c9247d;0;5;38;COLOR;0.7843138,0.3137255,0,0;False;3;FLOAT;1;False;9;FLOAT;4;False;7;FLOAT;4;False;8;FLOAT;4;False;1;COLOR;0
+Node;AmplifyShaderEditor.SimpleAddOpNode;231;1182.122,-372.6908;Inherit;False;2;2;0;COLOR;0,0,0,0;False;1;COLOR;0,0,0,0;False;1;COLOR;0
+Node;AmplifyShaderEditor.FunctionNode;153;122.0185,414.924;Inherit;True;ColorShartSlot;-1;;736;231fe18505db4a84b9c478d379c9247d;0;5;38;COLOR;0.7843138,0.3137255,0,0;False;3;FLOAT;4;False;9;FLOAT;4;False;7;FLOAT;4;False;8;FLOAT;4;False;1;COLOR;0
+Node;AmplifyShaderEditor.FunctionNode;222;87.12894,3424.227;Inherit;True;ColorShartSlot;-1;;737;231fe18505db4a84b9c478d379c9247d;0;5;38;COLOR;0.7843138,0.3137255,0,0;False;3;FLOAT;4;False;9;FLOAT;1;False;7;FLOAT;4;False;8;FLOAT;4;False;1;COLOR;0
+Node;AmplifyShaderEditor.FunctionNode;151;121.5042,171.7677;Inherit;True;ColorShartSlot;-1;;738;231fe18505db4a84b9c478d379c9247d;0;5;38;COLOR;0.7843138,0.3137255,0,0;False;3;FLOAT;3;False;9;FLOAT;4;False;7;FLOAT;4;False;8;FLOAT;4;False;1;COLOR;0
+Node;AmplifyShaderEditor.FunctionNode;149;107.9764,-62.09709;Inherit;True;ColorShartSlot;-1;;739;231fe18505db4a84b9c478d379c9247d;0;5;38;COLOR;0.7843138,0.3137255,0,0;False;3;FLOAT;2;False;9;FLOAT;4;False;7;FLOAT;4;False;8;FLOAT;4;False;1;COLOR;0
+Node;AmplifyShaderEditor.FunctionNode;162;133.8517,1429.247;Inherit;True;ColorShartSlot;-1;;740;231fe18505db4a84b9c478d379c9247d;0;5;38;COLOR;0.7843138,0.3137255,0,0;False;3;FLOAT;4;False;9;FLOAT;3;False;7;FLOAT;4;False;8;FLOAT;4;False;1;COLOR;0
+Node;AmplifyShaderEditor.FunctionNode;163;127.7504,692.868;Inherit;True;ColorShartSlot;-1;;741;231fe18505db4a84b9c478d379c9247d;0;5;38;COLOR;0.7843138,0.3137255,0,0;False;3;FLOAT;1;False;9;FLOAT;3;False;7;FLOAT;4;False;8;FLOAT;4;False;1;COLOR;0
+Node;AmplifyShaderEditor.FunctionNode;216;81.02762,2687.848;Inherit;True;ColorShartSlot;-1;;742;231fe18505db4a84b9c478d379c9247d;0;5;38;COLOR;0.7843138,0.3137255,0,0;False;3;FLOAT;1;False;9;FLOAT;1;False;7;FLOAT;4;False;8;FLOAT;4;False;1;COLOR;0
+Node;AmplifyShaderEditor.ColorNode;287;879.1714,4698.762;Float;False;Property;_MRE12;MRE 12;27;0;Create;True;0;0;0;False;0;False;0,1,0,0;0,1,0,0;False;0;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
+Node;AmplifyShaderEditor.ColorNode;293;888.8267,5554.006;Float;False;Property;_MRE15;MRE 15;30;0;Create;True;0;0;0;False;0;False;0,1,0,0;0,1,0,0;False;0;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
+Node;AmplifyShaderEditor.SimpleAddOpNode;233;1367.421,-383.9108;Inherit;True;2;2;0;COLOR;0,0,0,0;False;1;FLOAT;0;False;1;COLOR;0
+Node;AmplifyShaderEditor.SimpleAddOpNode;225;683.3512,1524.765;Inherit;True;4;4;0;COLOR;0,0,0,0;False;1;COLOR;0,0,0,0;False;2;COLOR;0,0,0,0;False;3;COLOR;0,0,0,0;False;1;COLOR;0
+Node;AmplifyShaderEditor.ColorNode;292;886.7413,5342.351;Float;False;Property;_MRE14;MRE 14;29;0;Create;True;0;0;0;False;0;False;0,1,0,0;0,1,0,0;False;0;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
+Node;AmplifyShaderEditor.FunctionNode;187;83.37437,1945.26;Inherit;True;ColorShartSlot;-1;;743;231fe18505db4a84b9c478d379c9247d;0;5;38;COLOR;0.7843138,0.3137255,0,0;False;3;FLOAT;2;False;9;FLOAT;2;False;7;FLOAT;4;False;8;FLOAT;4;False;1;COLOR;0
+Node;AmplifyShaderEditor.SimpleAddOpNode;184;686.7443,1260.558;Inherit;True;4;4;0;COLOR;0,0,0,0;False;1;COLOR;0,0,0,0;False;2;COLOR;0,0,0,0;False;3;COLOR;0,0,0,0;False;1;COLOR;0
+Node;AmplifyShaderEditor.ColorNode;294;884.4691,5770.134;Float;False;Property;_MRE16;MRE 16;31;0;Create;True;0;0;0;False;0;False;0,1,0,0;0,1,0,0;False;0;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
+Node;AmplifyShaderEditor.ColorNode;288;881.2148,4482.635;Float;False;Property;_MRE11;MRE 11;26;0;Create;True;0;0;0;False;0;False;0,1,0,0;0,1,0,0;False;0;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
+Node;AmplifyShaderEditor.SimpleAddOpNode;146;688.2412,727.387;Inherit;True;4;4;0;COLOR;0,0,0,0;False;1;COLOR;0,0,0,0;False;2;COLOR;0,0,0,0;False;3;COLOR;0,0,0,0;False;1;COLOR;0
+Node;AmplifyShaderEditor.OneMinusNode;232;1156.605,-68.40891;Inherit;False;1;0;FLOAT;0;False;1;FLOAT;0
+Node;AmplifyShaderEditor.ColorNode;262;888.3417,3297.014;Float;False;Property;_MRE6;MRE 6;21;0;Create;True;0;0;0;False;0;False;0,1,0,0;0,1,0,0;False;0;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
+Node;AmplifyShaderEditor.ColorNode;150;-207.7412,-66.93771;Float;False;Property;_Color2;Color 2;1;0;Create;True;0;0;0;False;0;False;1,0.1544118,0.8017241,0.253;1,0.1544116,0.8017241,1;False;0;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
+Node;AmplifyShaderEditor.ColorNode;269;876.3038,4037.208;Float;False;Property;_MRE9;MRE 9;24;0;Create;True;0;0;0;False;1;Space(10);False;0,1,0,0;0,1,0,0;False;0;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
+Node;AmplifyShaderEditor.FunctionNode;298;1185.632,5764.37;Inherit;True;ColorShartSlot;-1;;744;231fe18505db4a84b9c478d379c9247d;0;5;38;COLOR;1,1,1,1;False;3;FLOAT;4;False;9;FLOAT;1;False;7;FLOAT;4;False;8;FLOAT;4;False;1;COLOR;0
+Node;AmplifyShaderEditor.ColorNode;263;924.805,2591.167;Float;False;Property;_MRE3;MRE 3;18;0;Create;True;0;0;0;False;0;False;0,1,0,0;0,1,0,0;False;0;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
+Node;AmplifyShaderEditor.ColorNode;290;881.4436,4270.979;Float;False;Property;_MRE10;MRE 10;25;0;Create;True;0;0;0;False;0;False;0,1,0,0;0,1,0,0;False;0;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
+Node;AmplifyShaderEditor.ColorNode;267;883.4818,3508.669;Float;False;Property;_MRE7;MRE 7;22;0;Create;True;0;0;0;False;0;False;0,1,0,0;0,1,0,0;False;0;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
+Node;AmplifyShaderEditor.ColorNode;270;881.4384,3724.796;Float;False;Property;_MRE8;MRE 8;23;0;Create;True;0;0;0;False;0;False;0,1,0,0;0,1,0,0;False;0;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
+Node;AmplifyShaderEditor.ColorNode;268;920.3644,2166.243;Float;False;Property;_MRE1;MRE 1;16;0;Create;True;0;0;0;False;1;Header(Metallic(R) Rough(G) Emmission(B));False;0,1,0,0;0,1,0,0;False;0;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
+Node;AmplifyShaderEditor.ColorNode;266;927.7203,2799.667;Float;False;Property;_MRE4;MRE 4;19;0;Create;True;0;0;0;False;0;False;0,1,0,0;0,1,0,0;False;0;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
+Node;AmplifyShaderEditor.FunctionNode;295;1178.695,5106.292;Inherit;True;ColorShartSlot;-1;;745;231fe18505db4a84b9c478d379c9247d;0;5;38;COLOR;1,1,1,1;False;3;FLOAT;1;False;9;FLOAT;1;False;7;FLOAT;4;False;8;FLOAT;4;False;1;COLOR;0
+Node;AmplifyShaderEditor.FunctionNode;297;1194.631,5541.872;Inherit;True;ColorShartSlot;-1;;746;231fe18505db4a84b9c478d379c9247d;0;5;38;COLOR;1,1,1,1;False;3;FLOAT;3;False;9;FLOAT;1;False;7;FLOAT;4;False;8;FLOAT;4;False;1;COLOR;0
+Node;AmplifyShaderEditor.FunctionNode;296;1192.958,5326.958;Inherit;True;ColorShartSlot;-1;;747;231fe18505db4a84b9c478d379c9247d;0;5;38;COLOR;1,1,1,1;False;3;FLOAT;2;False;9;FLOAT;1;False;7;FLOAT;4;False;8;FLOAT;4;False;1;COLOR;0
+Node;AmplifyShaderEditor.ColorNode;291;881.6017,5108.58;Float;False;Property;_MRE13;MRE 13;28;0;Create;True;0;0;0;False;1;Space(10);False;0,1,0,0;0,1,0,0;False;0;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
+Node;AmplifyShaderEditor.FunctionNode;276;1182.602,3719.032;Inherit;True;ColorShartSlot;-1;;748;231fe18505db4a84b9c478d379c9247d;0;5;38;COLOR;1,1,1,1;False;3;FLOAT;4;False;9;FLOAT;3;False;7;FLOAT;4;False;8;FLOAT;4;False;1;COLOR;0
+Node;AmplifyShaderEditor.FunctionNode;289;1187.66,4255.586;Inherit;True;ColorShartSlot;-1;;749;231fe18505db4a84b9c478d379c9247d;0;5;38;COLOR;1,1,1,1;False;3;FLOAT;2;False;9;FLOAT;2;False;7;FLOAT;4;False;8;FLOAT;4;False;1;COLOR;0
+Node;AmplifyShaderEditor.FunctionNode;277;1200.345,2802.812;Inherit;True;ColorShartSlot;-1;;750;231fe18505db4a84b9c478d379c9247d;0;5;38;COLOR;1,1,1,1;False;3;FLOAT;4;False;9;FLOAT;4;False;7;FLOAT;4;False;8;FLOAT;4;False;1;COLOR;0
+Node;AmplifyShaderEditor.FunctionNode;278;1189.738,3073.549;Inherit;True;ColorShartSlot;-1;;751;231fe18505db4a84b9c478d379c9247d;0;5;38;COLOR;1,1,1,1;False;3;FLOAT;1;False;9;FLOAT;3;False;7;FLOAT;4;False;8;FLOAT;4;False;1;COLOR;0
+Node;AmplifyShaderEditor.FunctionNode;274;1200.378,2592.315;Inherit;True;ColorShartSlot;-1;;752;231fe18505db4a84b9c478d379c9247d;0;5;38;COLOR;1,1,1,1;False;3;FLOAT;3;False;9;FLOAT;4;False;7;FLOAT;4;False;8;FLOAT;4;False;1;COLOR;0
+Node;AmplifyShaderEditor.FunctionNode;275;1204.517,2165.975;Inherit;True;ColorShartSlot;-1;;753;231fe18505db4a84b9c478d379c9247d;0;5;38;COLOR;1,1,1,1;False;3;FLOAT;1;False;9;FLOAT;4;False;7;FLOAT;4;False;8;FLOAT;4;False;1;COLOR;0
+Node;AmplifyShaderEditor.RangedFloatNode;238;1648.681,-135.2692;Float;False;Property;_GradientScale;Gradient Scale;36;0;Create;True;0;0;0;False;0;False;1;1;0;0;0;1;FLOAT;0
+Node;AmplifyShaderEditor.RangedFloatNode;239;1655.499,-42.52599;Float;False;Property;_GradientOffset;Gradient Offset;37;0;Create;True;0;0;0;False;0;False;0;0;0;0;0;1;FLOAT;0
+Node;AmplifyShaderEditor.FunctionNode;285;1189.334,4470.5;Inherit;True;ColorShartSlot;-1;;754;231fe18505db4a84b9c478d379c9247d;0;5;38;COLOR;1,1,1,1;False;3;FLOAT;3;False;9;FLOAT;2;False;7;FLOAT;4;False;8;FLOAT;4;False;1;COLOR;0
+Node;AmplifyShaderEditor.ClampOpNode;234;1652.17,-392.4709;Inherit;True;3;0;COLOR;0,0,0,0;False;1;COLOR;0,0,0,0;False;2;COLOR;1,1,1,0;False;1;COLOR;0
+Node;AmplifyShaderEditor.SimpleAddOpNode;155;1016.686,1030.498;Inherit;True;4;4;0;COLOR;0,0,0,0;False;1;COLOR;0,0,0,0;False;2;COLOR;0,0,0,0;False;3;COLOR;0,0,0,0;False;1;COLOR;0
+Node;AmplifyShaderEditor.FunctionNode;273;1187.369,3281.62;Inherit;True;ColorShartSlot;-1;;755;231fe18505db4a84b9c478d379c9247d;0;5;38;COLOR;1,1,1,1;False;3;FLOAT;2;False;9;FLOAT;3;False;7;FLOAT;4;False;8;FLOAT;4;False;1;COLOR;0
+Node;AmplifyShaderEditor.FunctionNode;272;1173.398,4034.921;Inherit;True;ColorShartSlot;-1;;756;231fe18505db4a84b9c478d379c9247d;0;5;38;COLOR;1,1,1,1;False;3;FLOAT;1;False;9;FLOAT;2;False;7;FLOAT;4;False;8;FLOAT;4;False;1;COLOR;0
+Node;AmplifyShaderEditor.ColorNode;264;887.6243,3070.586;Float;False;Property;_MRE5;MRE 5;20;0;Create;True;0;0;0;False;1;Space(10);False;0,1,0,0;0,1,0,0;False;0;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
+Node;AmplifyShaderEditor.OneMinusNode;305;2944.843,925.5689;Inherit;True;1;0;FLOAT;0;False;1;FLOAT;0
+Node;AmplifyShaderEditor.FunctionNode;286;1180.335,4692.998;Inherit;True;ColorShartSlot;-1;;757;231fe18505db4a84b9c478d379c9247d;0;5;38;COLOR;1,1,1,1;False;3;FLOAT;4;False;9;FLOAT;2;False;7;FLOAT;4;False;8;FLOAT;4;False;1;COLOR;0
+Node;AmplifyShaderEditor.FunctionNode;279;1189.043,3496.534;Inherit;True;ColorShartSlot;-1;;758;231fe18505db4a84b9c478d379c9247d;0;5;38;COLOR;1,1,1,1;False;3;FLOAT;3;False;9;FLOAT;3;False;7;FLOAT;4;False;8;FLOAT;4;False;1;COLOR;0
+Node;AmplifyShaderEditor.SimpleAddOpNode;299;1571.928,5274.19;Inherit;True;4;4;0;COLOR;0,0,0,0;False;1;COLOR;0,0,0,0;False;2;COLOR;0,0,0,0;False;3;COLOR;0,0,0,0;False;1;COLOR;0
+Node;AmplifyShaderEditor.SimpleAddOpNode;280;1566.631,4202.819;Inherit;True;4;4;0;COLOR;0,0,0,0;False;1;COLOR;0,0,0,0;False;2;COLOR;0,0,0,0;False;3;COLOR;0,0,0,0;False;1;COLOR;0
+Node;AmplifyShaderEditor.SimpleAddOpNode;281;1569.768,2500.448;Inherit;True;4;4;0;COLOR;0,0,0,0;False;1;COLOR;0,0,0,0;False;2;COLOR;0,0,0,0;False;3;COLOR;0,0,0,0;False;1;COLOR;0
+Node;AmplifyShaderEditor.FunctionNode;271;1202.304,2381.9;Inherit;True;ColorShartSlot;-1;;759;231fe18505db4a84b9c478d379c9247d;0;5;38;COLOR;1,1,1,1;False;3;FLOAT;2;False;9;FLOAT;4;False;7;FLOAT;4;False;8;FLOAT;4;False;1;COLOR;0
+Node;AmplifyShaderEditor.SimpleAddOpNode;282;1553.285,3234.033;Inherit;True;4;4;0;COLOR;0,0,0,0;False;1;COLOR;0,0,0,0;False;2;COLOR;0,0,0,0;False;3;COLOR;0,0,0,0;False;1;COLOR;0
+Node;AmplifyShaderEditor.ComponentMaskNode;256;2060.061,-74.53971;Inherit;False;False;False;False;True;1;0;COLOR;0,0,0,0;False;1;FLOAT;0
+Node;AmplifyShaderEditor.ScaleAndOffsetNode;237;1929.951,-353.3528;Inherit;True;3;0;COLOR;0,0,0,0;False;1;FLOAT;1;False;2;FLOAT;0;False;1;COLOR;0
+Node;AmplifyShaderEditor.OneMinusNode;259;2282.192,-66.26985;Inherit;False;1;0;FLOAT;0;False;1;FLOAT;0
+Node;AmplifyShaderEditor.RangedFloatNode;245;1659.99,53.90989;Float;False;Property;_GradientPower;Gradient Power;38;0;Create;True;0;0;0;False;0;False;1;1;0;0;0;1;FLOAT;0
+Node;AmplifyShaderEditor.RangedFloatNode;302;2524.654,1230.847;Inherit;False;Property;_EmissionPower1;Emission Power;32;0;Create;True;0;0;0;False;1;Header(Emmision);False;1;1;0;0;0;1;FLOAT;0
+Node;AmplifyShaderEditor.SimpleAddOpNode;283;1960.203,2821.543;Inherit;True;4;4;0;COLOR;0,0,0,0;False;1;COLOR;0,0,0,0;False;2;COLOR;0,0,0,0;False;3;COLOR;0,0,0,0;False;1;COLOR;0
+Node;AmplifyShaderEditor.SimpleMultiplyOpNode;236;3433.932,229.384;Inherit;True;2;2;0;COLOR;0,0,0,0;False;1;COLOR;0,0,0,0;False;1;COLOR;0
+Node;AmplifyShaderEditor.ComponentMaskNode;284;2918.832,2649.558;Inherit;True;False;False;False;True;1;0;COLOR;0,0,0,0;False;1;FLOAT;0
+Node;AmplifyShaderEditor.SimpleMultiplyOpNode;304;3114.618,1152.562;Inherit;False;2;2;0;COLOR;0,0,0,0;False;1;FLOAT;0;False;1;COLOR;0
+Node;AmplifyShaderEditor.ComponentMaskNode;307;2570.26,731.6305;Inherit;True;True;False;False;False;1;0;COLOR;0,0,0,0;False;1;FLOAT;0
+Node;AmplifyShaderEditor.ComponentMaskNode;306;2576.238,929.5774;Inherit;True;False;True;False;False;1;0;COLOR;0,0,0,0;False;1;FLOAT;0
+Node;AmplifyShaderEditor.ClampOpNode;261;2796.672,-358.3472;Inherit;True;3;0;COLOR;0,0,0,0;False;1;COLOR;0,0,0,0;False;2;COLOR;1,1,1,1;False;1;COLOR;0
+Node;AmplifyShaderEditor.SimpleAddOpNode;260;2530.138,-355.3468;Inherit;True;2;2;0;COLOR;0,0,0,0;False;1;FLOAT;0;False;1;COLOR;0
+Node;AmplifyShaderEditor.ComponentMaskNode;301;2514.004,1365.87;Inherit;True;False;False;True;False;1;0;COLOR;0,0,0,0;False;1;FLOAT;0
+Node;AmplifyShaderEditor.SimpleMultiplyOpNode;303;2828.549,1217.506;Inherit;True;2;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0
+Node;AmplifyShaderEditor.TemplateMultiPassMasterNode;315;4040.206,769.1205;Float;False;False;-1;2;UnityEditor.ShaderGraphLitGUI;0;1;New Amplify Shader;94348b07e5e8bab40bd6c8a1e3df54cd;True;GBuffer;0;7;GBuffer;0;False;False;False;False;False;False;False;False;False;False;False;False;True;0;False;;False;True;0;False;;False;False;False;False;False;False;False;False;False;True;False;255;False;;255;False;;255;False;;7;False;;1;False;;1;False;;1;False;;7;False;;1;False;;1;False;;1;False;;False;True;1;False;;True;3;False;;True;True;0;False;;0;False;;True;4;RenderPipeline=UniversalPipeline;RenderType=Opaque=RenderType;Queue=Geometry=Queue=0;UniversalMaterialType=Lit;True;5;True;12;all;0;False;True;1;1;False;;0;False;;1;1;False;;0;False;;False;False;False;False;False;False;False;False;False;False;False;False;False;False;True;True;True;True;True;0;False;;False;False;False;False;False;False;False;True;False;255;False;;255;False;;255;False;;7;False;;1;False;;1;False;;1;False;;7;False;;1;False;;1;False;;1;False;;False;True;1;False;;True;3;False;;True;True;0;False;;0;False;;True;1;LightMode=UniversalGBuffer;False;False;0;Hidden/InternalErrorShader;0;0;Standard;0;False;0
+Node;AmplifyShaderEditor.TemplateMultiPassMasterNode;317;4040.206,769.1205;Float;False;False;-1;2;UnityEditor.ShaderGraphLitGUI;0;1;New Amplify Shader;94348b07e5e8bab40bd6c8a1e3df54cd;True;ScenePickingPass;0;9;ScenePickingPass;0;False;False;False;False;False;False;False;False;False;False;False;False;True;0;False;;False;True;0;False;;False;False;False;False;False;False;False;False;False;True;False;255;False;;255;False;;255;False;;7;False;;1;False;;1;False;;1;False;;7;False;;1;False;;1;False;;1;False;;False;True;1;False;;True;3;False;;True;True;0;False;;0;False;;True;4;RenderPipeline=UniversalPipeline;RenderType=Opaque=RenderType;Queue=Geometry=Queue=0;UniversalMaterialType=Lit;True;5;True;12;all;0;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;True;1;LightMode=Picking;False;False;0;Hidden/InternalErrorShader;0;0;Standard;0;False;0
+Node;AmplifyShaderEditor.TemplateMultiPassMasterNode;308;4040.206,769.1205;Float;False;False;-1;2;UnityEditor.ShaderGraphLitGUI;0;1;New Amplify Shader;94348b07e5e8bab40bd6c8a1e3df54cd;True;ExtraPrePass;0;0;ExtraPrePass;5;False;False;False;False;False;False;False;False;False;False;False;False;True;0;False;;False;True;0;False;;False;False;False;False;False;False;False;False;False;True;False;255;False;;255;False;;255;False;;7;False;;1;False;;1;False;;1;False;;7;False;;1;False;;1;False;;1;False;;False;True;1;False;;True;3;False;;True;True;0;False;;0;False;;True;4;RenderPipeline=UniversalPipeline;RenderType=Opaque=RenderType;Queue=Geometry=Queue=0;UniversalMaterialType=Lit;True;5;True;12;all;0;False;True;1;1;False;;0;False;;0;1;False;;0;False;;False;False;False;False;False;False;False;False;False;False;False;False;True;0;False;;False;True;True;True;True;True;0;False;;False;False;False;False;False;False;False;True;False;255;False;;255;False;;255;False;;7;False;;1;False;;1;False;;1;False;;7;False;;1;False;;1;False;;1;False;;False;True;1;False;;True;3;False;;True;True;0;False;;0;False;;True;0;False;False;0;Hidden/InternalErrorShader;0;0;Standard;0;False;0
+Node;AmplifyShaderEditor.TemplateMultiPassMasterNode;309;4040.206,769.1205;Float;False;True;-1;2;ASEMaterialInspector;0;12;Malbers/Color4x4v2;94348b07e5e8bab40bd6c8a1e3df54cd;True;Forward;0;1;Forward;19;False;False;False;False;False;False;False;False;False;False;False;False;True;0;False;;False;True;2;False;;False;False;False;False;False;False;False;False;False;True;False;255;False;;255;False;;255;False;;7;False;;1;False;;1;False;;1;False;;7;False;;1;False;;1;False;;1;False;;False;True;1;False;;True;3;False;;True;True;0;False;;0;False;;True;4;RenderPipeline=UniversalPipeline;RenderType=Opaque=RenderType;Queue=Geometry=Queue=0;UniversalMaterialType=Lit;True;5;True;12;all;0;False;True;1;1;False;;0;False;;1;1;False;;0;False;;False;False;False;False;False;False;False;False;False;False;False;False;False;False;True;True;True;True;True;0;False;;False;False;False;False;False;False;False;True;False;255;False;;255;False;;255;False;;7;False;;1;False;;1;False;;1;False;;7;False;;1;False;;1;False;;1;False;;False;True;1;False;;True;3;False;;True;True;0;False;;0;False;;True;1;LightMode=UniversalForward;False;False;0;;0;0;Standard;41;Workflow;1;0;Surface;0;0;  Refraction Model;0;0;  Blend;0;0;Two Sided;0;637780420231502105;Fragment Normal Space,InvertActionOnDeselection;0;0;Forward Only;0;0;Transmission;0;0;  Transmission Shadow;0.5,False,;0;Translucency;0;0;  Translucency Strength;1,False,;0;  Normal Distortion;0.5,False,;0;  Scattering;2,False,;0;  Direct;0.9,False,;0;  Ambient;0.1,False,;0;  Shadow;0.5,False,;0;Cast Shadows;1;0;  Use Shadow Threshold;0;0;Receive Shadows;1;0;GPU Instancing;1;0;LOD CrossFade;1;0;Built-in Fog;1;0;_FinalColorxAlpha;0;0;Meta Pass;1;0;Override Baked GI;0;0;Extra Pre Pass;0;0;DOTS Instancing;0;0;Tessellation;0;0;  Phong;0;0;  Strength;0.5,False,;0;  Type;0;0;  Tess;16,False,;0;  Min;10,False,;0;  Max;25,False,;0;  Edge Length;16,False,;0;  Max Displacement;25,False,;0;Write Depth;0;0;  Early Z;0;0;Vertex Position,InvertActionOnDeselection;1;0;Debug Display;0;0;Clear Coat;0;0;0;10;False;True;True;True;True;True;True;True;True;True;False;;False;0
+Node;AmplifyShaderEditor.TemplateMultiPassMasterNode;310;4040.206,769.1205;Float;False;False;-1;2;UnityEditor.ShaderGraphLitGUI;0;1;New Amplify Shader;94348b07e5e8bab40bd6c8a1e3df54cd;True;ShadowCaster;0;2;ShadowCaster;0;False;False;False;False;False;False;False;False;False;False;False;False;True;0;False;;False;True;0;False;;False;False;False;False;False;False;False;False;False;True;False;255;False;;255;False;;255;False;;7;False;;1;False;;1;False;;1;False;;7;False;;1;False;;1;False;;1;False;;False;True;1;False;;True;3;False;;True;True;0;False;;0;False;;True;4;RenderPipeline=UniversalPipeline;RenderType=Opaque=RenderType;Queue=Geometry=Queue=0;UniversalMaterialType=Lit;True;5;True;12;all;0;False;False;False;False;False;False;False;False;False;False;False;False;True;0;False;;False;False;False;True;False;False;False;False;0;False;;False;False;False;False;False;False;False;False;False;True;1;False;;True;3;False;;False;True;1;LightMode=ShadowCaster;False;False;0;Hidden/InternalErrorShader;0;0;Standard;0;False;0
+Node;AmplifyShaderEditor.TemplateMultiPassMasterNode;311;4040.206,769.1205;Float;False;False;-1;2;UnityEditor.ShaderGraphLitGUI;0;1;New Amplify Shader;94348b07e5e8bab40bd6c8a1e3df54cd;True;DepthOnly;0;3;DepthOnly;0;False;False;False;False;False;False;False;False;False;False;False;False;True;0;False;;False;True;0;False;;False;False;False;False;False;False;False;False;False;True;False;255;False;;255;False;;255;False;;7;False;;1;False;;1;False;;1;False;;7;False;;1;False;;1;False;;1;False;;False;True;1;False;;True;3;False;;True;True;0;False;;0;False;;True;4;RenderPipeline=UniversalPipeline;RenderType=Opaque=RenderType;Queue=Geometry=Queue=0;UniversalMaterialType=Lit;True;5;True;12;all;0;False;False;False;False;False;False;False;False;False;False;False;False;True;0;False;;False;False;False;True;False;False;False;False;0;False;;False;False;False;False;False;False;False;False;False;True;1;False;;False;False;True;1;LightMode=DepthOnly;False;False;0;Hidden/InternalErrorShader;0;0;Standard;0;False;0
+Node;AmplifyShaderEditor.TemplateMultiPassMasterNode;312;4040.206,769.1205;Float;False;False;-1;2;UnityEditor.ShaderGraphLitGUI;0;1;New Amplify Shader;94348b07e5e8bab40bd6c8a1e3df54cd;True;Meta;0;4;Meta;0;False;False;False;False;False;False;False;False;False;False;False;False;True;0;False;;False;True;0;False;;False;False;False;False;False;False;False;False;False;True;False;255;False;;255;False;;255;False;;7;False;;1;False;;1;False;;1;False;;7;False;;1;False;;1;False;;1;False;;False;True;1;False;;True;3;False;;True;True;0;False;;0;False;;True;4;RenderPipeline=UniversalPipeline;RenderType=Opaque=RenderType;Queue=Geometry=Queue=0;UniversalMaterialType=Lit;True;5;True;12;all;0;False;False;False;False;False;False;False;False;False;False;False;False;False;False;True;2;False;;False;False;False;False;False;False;False;False;False;False;False;False;False;False;True;1;LightMode=Meta;False;False;0;Hidden/InternalErrorShader;0;0;Standard;0;False;0
+Node;AmplifyShaderEditor.TemplateMultiPassMasterNode;313;4040.206,769.1205;Float;False;False;-1;2;UnityEditor.ShaderGraphLitGUI;0;1;New Amplify Shader;94348b07e5e8bab40bd6c8a1e3df54cd;True;Universal2D;0;5;Universal2D;0;False;False;False;False;False;False;False;False;False;False;False;False;True;0;False;;False;True;0;False;;False;False;False;False;False;False;False;False;False;True;False;255;False;;255;False;;255;False;;7;False;;1;False;;1;False;;1;False;;7;False;;1;False;;1;False;;1;False;;False;True;1;False;;True;3;False;;True;True;0;False;;0;False;;True;4;RenderPipeline=UniversalPipeline;RenderType=Opaque=RenderType;Queue=Geometry=Queue=0;UniversalMaterialType=Lit;True;5;True;12;all;0;False;True;1;1;False;;0;False;;1;1;False;;0;False;;False;False;False;False;False;False;False;False;False;False;False;False;False;False;True;True;True;True;True;0;False;;False;False;False;False;False;False;False;False;False;True;1;False;;True;3;False;;True;True;0;False;;0;False;;True;1;LightMode=Universal2D;False;False;0;Hidden/InternalErrorShader;0;0;Standard;0;False;0
+Node;AmplifyShaderEditor.TemplateMultiPassMasterNode;314;4040.206,769.1205;Float;False;False;-1;2;UnityEditor.ShaderGraphLitGUI;0;1;New Amplify Shader;94348b07e5e8bab40bd6c8a1e3df54cd;True;DepthNormals;0;6;DepthNormals;0;False;False;False;False;False;False;False;False;False;False;False;False;True;0;False;;False;True;0;False;;False;False;False;False;False;False;False;False;False;True;False;255;False;;255;False;;255;False;;7;False;;1;False;;1;False;;1;False;;7;False;;1;False;;1;False;;1;False;;False;True;1;False;;True;3;False;;True;True;0;False;;0;False;;True;4;RenderPipeline=UniversalPipeline;RenderType=Opaque=RenderType;Queue=Geometry=Queue=0;UniversalMaterialType=Lit;True;5;True;12;all;0;False;True;1;1;False;;0;False;;0;1;False;;0;False;;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;True;1;False;;True;3;False;;False;True;1;LightMode=DepthNormals;False;False;0;Hidden/InternalErrorShader;0;0;Standard;0;False;0
+Node;AmplifyShaderEditor.TemplateMultiPassMasterNode;316;4040.206,769.1205;Float;False;False;-1;2;UnityEditor.ShaderGraphLitGUI;0;1;New Amplify Shader;94348b07e5e8bab40bd6c8a1e3df54cd;True;SceneSelectionPass;0;8;SceneSelectionPass;0;False;False;False;False;False;False;False;False;False;False;False;False;True;0;False;;False;True;0;False;;False;False;False;False;False;False;False;False;False;True;False;255;False;;255;False;;255;False;;7;False;;1;False;;1;False;;1;False;;7;False;;1;False;;1;False;;1;False;;False;True;1;False;;True;3;False;;True;True;0;False;;0;False;;True;4;RenderPipeline=UniversalPipeline;RenderType=Opaque=RenderType;Queue=Geometry=Queue=0;UniversalMaterialType=Lit;True;5;True;12;all;0;False;False;False;False;False;False;False;False;False;False;False;False;False;False;True;2;False;;False;False;False;False;False;False;False;False;False;False;False;False;False;False;True;1;LightMode=SceneSelectionPass;False;False;0;Hidden/InternalErrorShader;0;0;Standard;0;False;0
+WireConnection;230;1;255;0
+WireConnection;188;38;183;0
+WireConnection;185;38;182;0
+WireConnection;160;38;156;0
+WireConnection;186;38;181;0
+WireConnection;223;38;214;0
+WireConnection;164;0;163;0
+WireConnection;164;1;160;0
+WireConnection;164;2;161;0
+WireConnection;164;3;162;0
+WireConnection;258;0;237;0
+WireConnection;258;1;245;0
+WireConnection;224;38;218;0
+WireConnection;161;38;157;0
+WireConnection;145;38;23;0
+WireConnection;231;0;230;0
+WireConnection;231;1;229;0
+WireConnection;153;38;154;0
+WireConnection;222;38;217;0
+WireConnection;151;38;152;0
+WireConnection;149;38;150;0
+WireConnection;162;38;158;0
+WireConnection;163;38;159;0
+WireConnection;216;38;213;0
+WireConnection;233;0;231;0
+WireConnection;233;1;232;0
+WireConnection;225;0;216;0
+WireConnection;225;1;223;0
+WireConnection;225;2;224;0
+WireConnection;225;3;222;0
+WireConnection;187;38;180;0
+WireConnection;184;0;188;0
+WireConnection;184;1;187;0
+WireConnection;184;2;186;0
+WireConnection;184;3;185;0
+WireConnection;146;0;145;0
+WireConnection;146;1;149;0
+WireConnection;146;2;151;0
+WireConnection;146;3;153;0
+WireConnection;232;0;228;0
+WireConnection;298;38;294;0
+WireConnection;295;38;291;0
+WireConnection;297;38;293;0
+WireConnection;296;38;292;0
+WireConnection;276;38;270;0
+WireConnection;289;38;290;0
+WireConnection;277;38;266;0
+WireConnection;278;38;264;0
+WireConnection;274;38;263;0
+WireConnection;275;38;268;0
+WireConnection;285;38;288;0
+WireConnection;234;0;233;0
+WireConnection;155;0;146;0
+WireConnection;155;1;164;0
+WireConnection;155;2;184;0
+WireConnection;155;3;225;0
+WireConnection;273;38;262;0
+WireConnection;272;38;269;0
+WireConnection;305;0;306;0
+WireConnection;286;38;287;0
+WireConnection;279;38;267;0
+WireConnection;299;0;295;0
+WireConnection;299;1;296;0
+WireConnection;299;2;297;0
+WireConnection;299;3;298;0
+WireConnection;280;0;272;0
+WireConnection;280;1;289;0
+WireConnection;280;2;285;0
+WireConnection;280;3;286;0
+WireConnection;281;0;275;0
+WireConnection;281;1;271;0
+WireConnection;281;2;274;0
+WireConnection;281;3;277;0
+WireConnection;271;38;265;0
+WireConnection;282;0;278;0
+WireConnection;282;1;273;0
+WireConnection;282;2;279;0
+WireConnection;282;3;276;0
+WireConnection;256;0;155;0
+WireConnection;237;0;234;0
+WireConnection;237;1;238;0
+WireConnection;237;2;239;0
+WireConnection;259;0;256;0
+WireConnection;283;0;281;0
+WireConnection;283;1;282;0
+WireConnection;283;2;280;0
+WireConnection;283;3;299;0
+WireConnection;236;0;261;0
+WireConnection;236;1;155;0
+WireConnection;284;0;283;0
+WireConnection;304;0;155;0
+WireConnection;304;1;303;0
+WireConnection;307;0;283;0
+WireConnection;306;0;283;0
+WireConnection;261;0;260;0
+WireConnection;260;0;258;0
+WireConnection;260;1;259;0
+WireConnection;301;0;283;0
+WireConnection;303;0;302;0
+WireConnection;303;1;301;0
+WireConnection;309;0;236;0
+WireConnection;309;2;304;0
+WireConnection;309;3;307;0
+WireConnection;309;4;305;0
 ASEEND*/
-//CHKSM=A30B968BED18824F32BC4EF8FD28A24B1E228816
+//CHKSM=89DEAF81543CD2E916C2D1F2B1744C7E09FEA25C

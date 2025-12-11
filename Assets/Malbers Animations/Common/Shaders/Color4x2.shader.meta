@@ -1,9 +1,9 @@
 fileFormatVersion: 2
-guid: 605d1e14bd910db49aa50378eb8e118c
+guid: 0259ce1d75bd5eb4c85e7af1a86296f2
+timeCreated: 1530223876
+licenseType: Store
 ShaderImporter:
-  externalObjects: {}
   defaultTextures: []
-  nonModifiableTextures: []
   userData: 
   assetBundleName: 
   assetBundleVariant: 
@@ -11,6 +11,6 @@ AssetOrigin:
   serializedVersion: 1
   productId: 121424
   packageName: Ravens and Crows
-  packageVersion: 3.8
-  assetPath: Assets/Malbers Animations/Common/Shaders/Mask8Toon.shader
-  uploadId: 585856
+  packageVersion: 
+  assetPath: Assets/Malbers Animations/Common/Shaders/Color4x2.shader
+  uploadId: 0

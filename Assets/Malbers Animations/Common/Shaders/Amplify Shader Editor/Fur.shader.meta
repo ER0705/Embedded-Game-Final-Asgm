@@ -1,7 +1,5 @@
 fileFormatVersion: 2
 guid: a585ea739537dc340acceaa41c77f52c
-labels:
-- AllCreature
 ShaderImporter:
   externalObjects: {}
   defaultTextures: []
@@ -11,8 +9,8 @@ ShaderImporter:
   assetBundleVariant: 
 AssetOrigin:
   serializedVersion: 1
-  productId: 84283
-  packageName: Unka the Dragon
-  packageVersion: 3.9b
-  assetPath: Assets/Malbers Animations/Common/Shaders/Amplify Shader Editor/Fur.shader
-  uploadId: 775859
+  productId: 148877
+  packageName: Animal Controller
+  packageVersion: 1.4.2d
+  assetPath: Assets/Malbers Animations/Common/Shaders/Fur.shader
+  uploadId: 620293

@@ -1,7 +1,5 @@
 fileFormatVersion: 2
 guid: 895fbe0b808f6da458acf12788de0555
-labels:
-- AllCreature
 ShaderImporter:
   externalObjects: {}
   defaultTextures: []
@@ -9,10 +7,3 @@ ShaderImporter:
   userData: 
   assetBundleName: 
   assetBundleVariant: 
-AssetOrigin:
-  serializedVersion: 1
-  productId: 84283
-  packageName: Unka the Dragon
-  packageVersion: 3.9b
-  assetPath: Assets/Malbers Animations/Common/Shaders/Amplify Shader Editor/AnisotropicCircular.shader
-  uploadId: 775859
